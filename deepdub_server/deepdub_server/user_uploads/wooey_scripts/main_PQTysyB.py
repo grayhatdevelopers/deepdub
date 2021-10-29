@@ -23,32 +23,17 @@ parser.add_argument("-tn", "--translation", type=Path,
                     required=True,
                     # default="encoder/saved_models/pretrained.pt",
                     help="Translation file (.srt) to use as reference.")
-parser.add_argument("-dds", "--deepdubstart", type=str, 
-                    default="00:00:00",
-                    help="Starting point from where deepdub should start dubbing."
-                    )
-parser.add_argument("-dde", "--deepdubend", type=str, 
-                    default=None,
-                    help="Ending point from where deepdub should end dubbing."
-                    )
-parser.add_argument("-cml", "--clipminlength", type=str, 
-                    default=1.5,
-                    help="Minimum duration of a clip of dubbed video."
-                    )                    
 
 
 ## Arguments from src/audio/real_time_voice_cloning
-
-vocoder_path = "src/audio/real_time_voice_cloning/"
-
 parser.add_argument("-e", "--enc_model_fpath", type=Path, 
-                    default=vocoder_path+"encoder/saved_models/pretrained.pt",
+                    default="encoder/saved_models/pretrained.pt",
                     help="Path to a saved encoder")
 parser.add_argument("-s", "--syn_model_fpath", type=Path, 
-                    default=vocoder_path+"synthesizer/saved_models/pretrained/pretrained.pt",
+                    default="synthesizer/saved_models/pretrained/pretrained.pt",
                     help="Path to a saved synthesizer")
 parser.add_argument("-v", "--voc_model_fpath", type=Path, 
-                    default=vocoder_path+"vocoder/saved_models/pretrained/pretrained.pt",
+                    default="vocoder/saved_models/pretrained/pretrained.pt",
                     help="Path to a saved vocoder")
 parser.add_argument("--cpu", action="store_true", help=\
     "If True, processing is done on CPU, even when a GPU is available.")
@@ -62,8 +47,6 @@ parser.add_argument("--no_mp3_support", action="store_true", help=\
 
 
 ## Arguments from src/lipsync/wav2lip
-lipsyncer_path = "src/lipsync/wav2lip/"
-
 parser.add_argument('--checkpoint_path', type=str, 
 					help='Name of saved checkpoint to load weights from', required=True)
 
@@ -72,7 +55,7 @@ parser.add_argument('--face', type=str,
 parser.add_argument('--audio', type=str, 
 					help='Filepath of video/audio file to use as raw audio source', required=True)
 parser.add_argument('--outfile', type=str, help='Video path to save result. See default for an e.g.', 
-								default=lipsyncer_path+'results/result_voice.mp4')
+								default='results/result_voice.mp4')
 
 parser.add_argument('--static', type=bool, 
 					help='If True, then use only first video frame for inference', default=False)
@@ -107,9 +90,8 @@ parser.add_argument('--nosmooth', default=False, action='store_true',
 
 def main():
 
-    import src.extract.subtitle_reader as extractor
+    import src.subtitle_reader as extractor
     import src.audio.real_time_voice_cloning.run_cli as vocoder
-    import src.video.wav2lip.run_cli as lip_syncer
 
     args = parser.parse_args()
     # print_args(args, parser)
@@ -132,10 +114,7 @@ def main():
     # (Subtitle_Reader)
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
                                                                         args["translation"], 
-                                                                        args["video"],
-                                                                        args["deepdubstart"],
-                                                                        args["deepdubend"],
-                                                                        args["clipminlength"],
+                                                                        args["video"]
                                                                     )
 
     # 2.

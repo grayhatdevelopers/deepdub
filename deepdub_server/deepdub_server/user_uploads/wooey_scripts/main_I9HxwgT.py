@@ -23,18 +23,6 @@ parser.add_argument("-tn", "--translation", type=Path,
                     required=True,
                     # default="encoder/saved_models/pretrained.pt",
                     help="Translation file (.srt) to use as reference.")
-parser.add_argument("-dds", "--deepdubstart", type=str, 
-                    default="00:00:00",
-                    help="Starting point from where deepdub should start dubbing."
-                    )
-parser.add_argument("-dde", "--deepdubend", type=str, 
-                    default=None,
-                    help="Ending point from where deepdub should end dubbing."
-                    )
-parser.add_argument("-cml", "--clipminlength", type=str, 
-                    default=1.5,
-                    help="Minimum duration of a clip of dubbed video."
-                    )                    
 
 
 ## Arguments from src/audio/real_time_voice_cloning
@@ -107,9 +95,8 @@ parser.add_argument('--nosmooth', default=False, action='store_true',
 
 def main():
 
-    import src.extract.subtitle_reader as extractor
+    import src.subtitle_reader as extractor
     import src.audio.real_time_voice_cloning.run_cli as vocoder
-    import src.video.wav2lip.run_cli as lip_syncer
 
     args = parser.parse_args()
     # print_args(args, parser)
@@ -132,10 +119,7 @@ def main():
     # (Subtitle_Reader)
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
                                                                         args["translation"], 
-                                                                        args["video"],
-                                                                        args["deepdubstart"],
-                                                                        args["deepdubend"],
-                                                                        args["clipminlength"],
+                                                                        args["video"]
                                                                     )
 
     # 2.
