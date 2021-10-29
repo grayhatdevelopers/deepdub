@@ -50,18 +50,39 @@ if __name__ == "__main__":
     # print_args(args, parser)
 
 
+
+
+
+    ## -------------------------------------------
+    ## DeepDub pipeline 0
+    ## Authors:
+    ## 1. AbdurRehman Subhani
+    ## 2. Saad Ahmed Bazaz
+    ## -------------------------------------------
+
+
     # 1.
     # First extract audio and video bytes and store in a folder 
     # called extracted/audio and extracted/video 
     # (Subtitle_Reader)
-    texts, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(args["translation"], args["video"])
+    subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
+                                                                        args["translation"], 
+                                                                        args["video"]
+                                                                    )
 
     # 2.
     # Pass files to speech vocoder 
     # (Real-Time-Voice-Cloning)
+    texts = [s.content for s in subtitles]
     translated_audio_paths = vocoder.run(extracted_audio_paths, texts, args)
 
     # 3.
     # Pass files to Lip Syncer
     # (Wav2Lip)
-    # lip_syncer
+    translated_video_paths = lip_syncer.run(translated_audio_paths, extracted_video_paths, args)
+
+    # 4.
+    # Finally, reintegrate the translated videos back into the original video
+    extractor.reintegrate(args["video"], subtitles, translated_video_paths)
+
+    print ("Thank you for using deepdub.")

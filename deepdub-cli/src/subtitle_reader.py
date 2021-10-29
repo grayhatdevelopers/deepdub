@@ -49,13 +49,39 @@ import moviepy.editor as mp
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 
 def reintegrate (
-    original_video_filename,
+    original_video_path,
     subtitles,
     translated_video_paths
 ):
     print ("[EXTRACTOR] Reintegrating clips into video...")
-    
 
+    subclips = []
+
+    original_video = mp.VideoFileClip(original_video_path)
+
+    start_seconds = float(original_video.start.total_seconds())
+    for s, translated_video_path in zip(subtitles, translated_video_paths):
+
+        end_seconds = float(s.start.total_seconds())
+
+        subclip = original_video.subclip(start_seconds, end_seconds)
+
+        subclips.append(subclip)
+        subclips.append(translated_video_path)
+
+        start_seconds = float(s.end.total_seconds())
+
+    ## Get the remaining part of the video after the last subtitle
+    # subclip = original_video.subclip(start_seconds, original_video.end.total_seconds())
+    # subclips.append(subclip)
+    print ("[EXTRACTOR] Writing final video to disk...")
+
+    final_clip = concatenate_videoclips(subclips)
+    to_return = final_clip.write_videofile("./results/final_result.mp4")
+
+    print ("[EXTRACTOR] Reintegration complete.")
+
+    return to_return
 
 def extract_audio_and_video (
     subs_path, 
@@ -93,7 +119,7 @@ def extract_audio_and_video (
             video_filename = r"{}{}cut_srt.mp4".format(extracted_video_path,str(s.index))
             audio_filename = r"{}{}audio_srt.mp3".format(extracted_audio_path,str(s.index))
 
-            ffmpeg_extract_subclip("C:\squidgames\ep1.mp4", start_seconds, end_seconds, targetname=video_filename)		
+            ffmpeg_extract_subclip(video_path, start_seconds, end_seconds, targetname=video_filename)		
             my_clip = mp.VideoFileClip(video_filename)
             my_clip.audio.write_audiofile(audio_filename)
 
