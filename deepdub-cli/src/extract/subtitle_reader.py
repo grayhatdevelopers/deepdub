@@ -1,5 +1,6 @@
-
+import os
 import srt
+from pathlib import Path
 
 from pytimeparse.timeparse import timeparse
 
@@ -57,7 +58,7 @@ def reintegrate (
 
     subclips = []
 
-    original_video = mp.VideoFileClip(original_video_path)
+    original_video = mp.VideoFileClip(str(original_video_path))
 
     start_seconds = float(original_video.start.total_seconds())
     for s, translated_video_path in zip(subtitles, translated_video_paths):
@@ -67,7 +68,7 @@ def reintegrate (
         subclip = original_video.subclip(start_seconds, end_seconds)
 
         subclips.append(subclip)
-        subclips.append(translated_video_path)
+        subclips.append(mp.VideoFileClip(str(translated_video_path)))
 
         start_seconds = float(s.end.total_seconds())
 
@@ -86,8 +87,8 @@ def reintegrate (
 def extract_audio_and_video (
     subs_path, 
     video_path, 
-    extracted_audio_path="./extracted/audio/",
-    extracted_video_path="./extracted/video/",
+    extracted_audio_path=r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\audio",
+    extracted_video_path=r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\video",
     start_time="00:00:00", 
     end_time=None, 
     minimum_length=1.5
@@ -99,6 +100,8 @@ def extract_audio_and_video (
     texts       = []
     audio_paths = []
     video_paths = []
+
+    original_video = mp.VideoFileClip(str(video_path))
 
     num_generated = 0
 
@@ -113,15 +116,34 @@ def extract_audio_and_video (
 
             print ("")
             print (s.index)
-            print (s.content)
+            print (s.content)	
 
 
-            video_filename = r"{}{}cut_srt.mp4".format(extracted_video_path,str(s.index))
-            audio_filename = r"{}{}audio_srt.mp3".format(extracted_audio_path,str(s.index))
+            #video_filename = os.path.join(extracted_video_path, "{}cut_srt.mp4".format(str(s.index)))
+            #audio_filename = os.path.join(extracted_audio_path, "{}audio_srt.mp3".format(str(s.index)))
 
-            ffmpeg_extract_subclip(video_path, start_seconds, end_seconds, targetname=video_filename)		
-            my_clip = mp.VideoFileClip(video_filename)
-            my_clip.audio.write_audiofile(audio_filename)
+
+            #video_filename = Path(extracted_video_path + "\\{}cut_srt.mp4".format(str(s.index)))
+            #audio_filename = Path(extracted_audio_path + "\\{}audio_srt.mp3".format(str(s.index)))
+
+		
+
+            #video_filename = Path("C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\video\{}cut_srt.mp4".format(str(s.index)))
+            #audio_filename = Path("\\{}audio_srt.mp3".format(str(s.index)))
+
+
+            video_filename = Path(r"{}cut_srt.mp4".format(str(s.index)))
+            audio_filename = Path(r"{}audio_srt.mp3".format(str(s.index)))
+		
+            print ("Video will be loaded from", video_path)
+            print ("Video will be saved at", video_filename)
+
+            #ffmpeg_extract_subclip(str(video_path), start_seconds, end_seconds, targetname=video_filename)	
+
+            extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
+	
+            my_clip = mp.VideoFileClip(str(video_filename))
+            my_clip.audio.write_audiofile(str(audio_filename))
 
             texts.append(s)
             audio_paths.append(audio_filename)
