@@ -3,7 +3,6 @@
 import argparse
 import sys
 
-
 from pathlib import Path
 
 ## Info about this script
@@ -104,10 +103,6 @@ def main():
     import run_cli2 as lip_syncer
 
     args = parser.parse_args()
-    # print_args(args, parser)
-
-
-
 
 
     ## -------------------------------------------
@@ -125,8 +120,8 @@ def main():
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
                                                                         args.translation, 
                                                                         args.video,
-									r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\audio",
-									r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\video",
+                                                                        r"./extracted/audio",
+                                                                        r"./extracted/video",
                                                                         args.deepdubstart,
                                                                         args.deepdubend,
                                                                         args.clipminlength,
@@ -136,7 +131,6 @@ def main():
     # Pass files to speech vocoder 
     # (Real-Time-Voice-Cloning)
     texts = [s.content for s in subtitles]
-    print ("texts to send are", texts)
     translated_audio_paths = vocoder.run(extracted_audio_paths, texts, args, "./translated/audio/")
 
     # 3.
@@ -146,7 +140,7 @@ def main():
 
     # 4.
     # Finally, reintegrate the translated videos back into the original video
-    extractor.reintegrate(args["video"], subtitles, translated_video_paths)
+    extractor.reintegrate(args.video, subtitles, translated_video_paths)
 
     print ("Thank you for using deepdub.")
 

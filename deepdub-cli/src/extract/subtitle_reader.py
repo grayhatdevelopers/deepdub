@@ -60,7 +60,7 @@ def reintegrate (
 
     original_video = mp.VideoFileClip(str(original_video_path))
 
-    start_seconds = float(original_video.start.total_seconds())
+    start_seconds = float(subtitles[0].start.total_seconds()-3) # Start from 3 seconds before the dub
     for s, translated_video_path in zip(subtitles, translated_video_paths):
 
         end_seconds = float(s.start.total_seconds())
@@ -77,7 +77,7 @@ def reintegrate (
     # subclips.append(subclip)
     print ("[EXTRACTOR] Writing final video to disk...")
 
-    final_clip = concatenate_videoclips(subclips)
+    final_clip = mp.concatenate_videoclips(subclips)
     to_return = final_clip.write_videofile("./results/final_result.mp4")
 
     print ("[EXTRACTOR] Reintegration complete.")
@@ -87,8 +87,8 @@ def reintegrate (
 def extract_audio_and_video (
     subs_path, 
     video_path, 
-    extracted_audio_path=r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\audio",
-    extracted_video_path=r"C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\video",
+    extracted_audio_path=r"./extracted/audio",
+    extracted_video_path=r"./extracted/video",
     start_time="00:00:00", 
     end_time=None, 
     minimum_length=1.5
@@ -97,7 +97,7 @@ def extract_audio_and_video (
     print ("[EXTRACTOR] Starting audio and video extraction...")
     subs = list(srt.parse(open(subs_path)))
 
-    texts       = []
+    subtitles   = []
     audio_paths = []
     video_paths = []
 
@@ -145,7 +145,9 @@ def extract_audio_and_video (
             my_clip = mp.VideoFileClip(str(video_filename))
             my_clip.audio.write_audiofile(str(audio_filename))
 
-            texts.append(s)
+
+            print ("[EXTRACTOR] Saving the current extracted subtitle and its audio & video...")
+            subtitles.append(s)
             audio_paths.append(audio_filename)
             video_paths.append(video_filename)
 
@@ -156,5 +158,5 @@ def extract_audio_and_video (
     
     print ("[EXTRACTOR] Extracted {} clips and audios.".format(num_generated))
 
-    return texts, audio_paths, video_paths
+    return subtitles, audio_paths, video_paths
 
