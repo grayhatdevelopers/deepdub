@@ -137,10 +137,13 @@ def load_model(path):
 def run(
 	translated_audio_paths,
 	extracted_video_paths, 
-	args
+	args,
+	translated_video_path="./translated/video/",
 ):
 
-	for translated_audio_path, extracted_video_path in zip(translated_audio_paths, extracted_video_paths):
+	translated_video_paths = []
+
+	for idx, (translated_audio_path, extracted_video_path) in enumerate(zip(translated_audio_paths, extracted_video_paths)):
 
 		translated_audio_path = str(translated_audio_path)
 		extracted_video_path = str(extracted_video_path)
@@ -223,6 +226,9 @@ def run(
 		batch_size = args.wav2lip_batch_size
 		gen = datagen(full_frames.copy(), mel_chunks, args)
 
+
+		output_filepath = translated_video_path + 'result{}.mp4'.format(idx)
+
 		for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 												total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
 			if i == 0:
@@ -230,7 +236,7 @@ def run(
 				print ("Model loaded")
 
 				frame_h, frame_w = full_frames[0].shape[:-1]
-				out = cv2.VideoWriter('temp/result.avi', 
+				out = cv2.VideoWriter(output_filepath, 
 										cv2.VideoWriter_fourcc(*'DIVX'), fps, (frame_w, frame_h))
 
 			img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
@@ -250,5 +256,9 @@ def run(
 
 		out.release()
 
-		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, 'temp/result.avi', args.outfile)
+		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, output_filepath, args.outfile)
 		subprocess.call(command, shell=platform.system() != 'Windows')
+
+		translated_video_paths.append (output_filepath)
+
+	return translated_video_paths

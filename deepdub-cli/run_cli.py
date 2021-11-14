@@ -86,9 +86,13 @@ def run(
     # The synthesizer can handle multiple inputs with batching. Let's create another embedding to 
     # illustrate that
     embeds = [embed, np.zeros(speaker_embedding_size)]
-    texts = ["test 1", "test 2"]
+
+
+    ## oof i missed this. no wonder i wasn't getting results...
+    test_texts = ["test 1", "test 2"]
+
     print("\tTesting the synthesizer... (loading the model will output a lot of text)")
-    mels = synthesizer.synthesize_spectrograms(texts, embeds)
+    mels = synthesizer.synthesize_spectrograms(test_texts, embeds)
     
     # The vocoder synthesizes one waveform at a time, but it's more efficient for long ones. We 
     # can concatenate the mel spectrograms to a single one.
@@ -119,6 +123,8 @@ def run(
     embeds = []
 
     translated_audio_paths = []
+
+    print ("Number of audios to process:", len(audio_paths), "\nNumber of corresponding texts:", len(texts))
 
     for text, audio_path in zip(texts, audio_paths):
         audio_path = str(audio_path)
