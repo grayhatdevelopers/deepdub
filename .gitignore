@@ -7,6 +7,15 @@ __pycache__
 *.pem
 mycert.pem
 
-compiled.en.py
+# Environment folders
+*/deepdub_1
+*/deepdub_env
 
-/results
+
+# Generated files
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.jpg
+*.srt
