@@ -87,8 +87,8 @@ def reintegrate (
 def extract_audio_and_video (
     subs_path, 
     video_path, 
-    extracted_audio_path=r"./extracted/audio",
-    extracted_video_path=r"./extracted/video",
+    extracted_audio_path=r"./extracted/audio/",
+    extracted_video_path=r"./extracted/video/",
     start_time="00:00:00", 
     end_time=None, 
     minimum_length=1.5
@@ -132,8 +132,8 @@ def extract_audio_and_video (
             #audio_filename = Path("\\{}audio_srt.mp3".format(str(s.index)))
 
 
-            video_filename = Path(r"{}cut_srt.mp4".format(str(s.index)))
-            audio_filename = Path(r"{}audio_srt.mp3".format(str(s.index)))
+            video_filename = Path(r"{}{}cut_srt.mp4".format(extracted_video_path, str(s.index)))
+            audio_filename = Path(r"{}{}audio_srt.mp3".format(extracted_audio_path, str(s.index)))
 		
             print ("Video will be loaded from", video_path)
             print ("Video will be saved at", video_filename)

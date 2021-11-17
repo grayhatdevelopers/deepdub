@@ -8,6 +8,9 @@ import torch, face_detection
 from models import Wav2Lip
 import platform
 
+mel_step_size = 16
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print('Using {} for inference.'.format(device))  
 
 def get_smoothened_boxes(boxes, T):
 	for i in range(len(boxes)):
@@ -134,56 +137,16 @@ def load_model(path):
 def run(
 	translated_audio_paths,
 	extracted_video_paths, 
-	args
+	args,
+	translated_video_path="./translated/video/",
 ):
 
-	for translated_audio_path, extracted_video_path in zip(translated_audio_paths, extracted_video_paths):
+	translated_video_paths = []
 
+	for idx, (translated_audio_path, extracted_video_path) in enumerate(zip(translated_audio_paths, extracted_video_paths)):
 
-		# --------------- START MAIN
-		parser = argparse.ArgumentParser(description='Inference code to lip-sync videos in the wild using Wav2Lip models')
-
-		parser.add_argument('--checkpoint_path', type=str, 
-							help='Name of saved checkpoint to load weights from', required=True)
-
-		parser.add_argument('--face', type=str, 
-							help='Filepath of video/image that contains faces to use', required=True)
-		parser.add_argument('--audio', type=str, 
-							help='Filepath of video/audio file to use as raw audio source', required=True)
-		parser.add_argument('--outfile', type=str, help='Video path to save result. See default for an e.g.', 
-										default='results/result_voice.mp4')
-
-		parser.add_argument('--static', type=bool, 
-							help='If True, then use only first video frame for inference', default=False)
-		parser.add_argument('--fps', type=float, help='Can be specified only if input is a static image (default: 25)', 
-							default=25., required=False)
-
-		parser.add_argument('--pads', nargs='+', type=int, default=[0, 10, 0, 0], 
-							help='Padding (top, bottom, left, right). Please adjust to include chin at least')
-
-		parser.add_argument('--face_det_batch_size', type=int, 
-							help='Batch size for face detection', default=16)
-		parser.add_argument('--wav2lip_batch_size', type=int, help='Batch size for Wav2Lip model(s)', default=128)
-
-		parser.add_argument('--resize_factor', default=1, type=int, 
-					help='Reduce the resolution by this factor. Sometimes, best results are obtained at 480p or 720p')
-
-		parser.add_argument('--crop', nargs='+', type=int, default=[0, -1, 0, -1], 
-							help='Crop video to a smaller region (top, bottom, left, right). Applied after resize_factor and rotate arg. ' 
-							'Useful if multiple face present. -1 implies the value will be auto-inferred based on height, width')
-
-		parser.add_argument('--box', nargs='+', type=int, default=[-1, -1, -1, -1], 
-							help='Specify a constant bounding box for the face. Use only as a last resort if the face is not detected.'
-							'Also, might work only if the face is not moving around much. Syntax: (top, bottom, left, right).')
-
-		parser.add_argument('--rotate', default=False, action='store_true',
-							help='Sometimes videos taken from a phone can be flipped 90deg. If true, will flip video right by 90deg.'
-							'Use if you get a flipped result, despite feeding a normal looking video')
-
-		parser.add_argument('--nosmooth', default=False, action='store_true',
-							help='Prevent smoothing face detections over a short temporal window')
-
-		args = parser.parse_args()
+		translated_audio_path = str(translated_audio_path)
+		extracted_video_path = str(extracted_video_path)
 		args.img_size = 96
 
 		if os.path.isfile(extracted_video_path) and extracted_video_path.split('.')[1] in ['jpg', 'png', 'jpeg']:
@@ -263,6 +226,9 @@ def run(
 		batch_size = args.wav2lip_batch_size
 		gen = datagen(full_frames.copy(), mel_chunks, args)
 
+
+		output_filepath = translated_video_path + 'result{}.mp4'.format(idx)
+
 		for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 												total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
 			if i == 0:
@@ -270,7 +236,7 @@ def run(
 				print ("Model loaded")
 
 				frame_h, frame_w = full_frames[0].shape[:-1]
-				out = cv2.VideoWriter('temp/result.avi', 
+				out = cv2.VideoWriter(output_filepath, 
 										cv2.VideoWriter_fourcc(*'DIVX'), fps, (frame_w, frame_h))
 
 			img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
@@ -290,5 +256,11 @@ def run(
 
 		out.release()
 
-		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, 'temp/result.avi', args.outfile)
+		final_output_filepath = translated_video_path + 'final' + 'result{}.mp4'.format(idx)
+
+		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, output_filepath, final_output_filepath)
 		subprocess.call(command, shell=platform.system() != 'Windows')
+
+		translated_video_paths.append (output_filepath)
+
+	return translated_video_paths
