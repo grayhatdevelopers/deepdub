@@ -1,0 +1,1 @@
+Translated audio produced by the vocoder goes here.

@@ -1,0 +1,1 @@
+Translated video subclips produced by the Lipsyncer go here.
