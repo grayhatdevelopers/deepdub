@@ -22,3 +22,13 @@ mycert.pem
 
 # Allow some specific media files e.g. sample files needed for Testing
 !deepdub_cli/samples/*mp3
+
+
+# Models
+*.ckpt
+*.pth
+
+# Models in directory
+*/generation/pretrained_model/*.yaml
+*/generation/pretrained_model/*.ckpt
+*/generation/pretrained_model/
