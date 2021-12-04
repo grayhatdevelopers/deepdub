@@ -120,8 +120,8 @@ def main():
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
                                                                         args.translation, 
                                                                         args.video,
-                                                                        r"./extracted/audio",
-                                                                        r"./extracted/video",
+                                                                        r"./extracted/audio/",
+                                                                        r"./extracted/video/",
                                                                         args.deepdubstart,
                                                                         args.deepdubend,
                                                                         args.clipminlength,

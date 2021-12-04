@@ -17,32 +17,9 @@ from audioread.exceptions import NoBackendError
 def run(
     audio_paths, 
     texts, 
-    translated_audio_path="./translated/audio/",    
-    args=None
+    args,
+    translated_audio_path="./translated/audio/"   
 ):
-    ## Info & args
-    parser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
-    )
-    parser.add_argument("-e", "--enc_model_fpath", type=Path, 
-                        default="encoder/saved_models/pretrained.pt",
-                        help="Path to a saved encoder")
-    parser.add_argument("-s", "--syn_model_fpath", type=Path, 
-                        default="synthesizer/saved_models/pretrained/pretrained.pt",
-                        help="Path to a saved synthesizer")
-    parser.add_argument("-v", "--voc_model_fpath", type=Path, 
-                        default="vocoder/saved_models/pretrained/pretrained.pt",
-                        help="Path to a saved vocoder")
-    parser.add_argument("--cpu", action="store_true", help=\
-        "If True, processing is done on CPU, even when a GPU is available.")
-    parser.add_argument("--no_sound", action="store_true", help=\
-        "If True, audio won't be played.")
-    parser.add_argument("--seed", type=int, default=None, help=\
-        "Optional random number seed value to make toolbox deterministic.")
-    parser.add_argument("--no_mp3_support", action="store_true", help=\
-        "If True, disallows loading mp3 files to prevent audioread errors when ffmpeg is not installed.")
-    args = parser.parse_args()
-    print_args(args, parser)
     if not args.no_sound:
         import sounddevice as sd
 
@@ -59,7 +36,7 @@ def run(
             exit(-1)
         
     print("Running a test of your configuration...\n")
-        
+     
     if torch.cuda.is_available():
         device_id = torch.cuda.current_device()
         gpu_properties = torch.cuda.get_device_properties(device_id)
@@ -109,9 +86,13 @@ def run(
     # The synthesizer can handle multiple inputs with batching. Let's create another embedding to 
     # illustrate that
     embeds = [embed, np.zeros(speaker_embedding_size)]
-    texts = ["test 1", "test 2"]
+
+
+    ## oof i missed this. no wonder i wasn't getting results...
+    test_texts = ["test 1", "test 2"]
+
     print("\tTesting the synthesizer... (loading the model will output a lot of text)")
-    mels = synthesizer.synthesize_spectrograms(texts, embeds)
+    mels = synthesizer.synthesize_spectrograms(test_texts, embeds)
     
     # The vocoder synthesizes one waveform at a time, but it's more efficient for long ones. We 
     # can concatenate the mel spectrograms to a single one.
@@ -143,11 +124,14 @@ def run(
 
     translated_audio_paths = []
 
-    for audio_path in audio_paths:
+    print ("Number of audios to process:", len(audio_paths), "\nNumber of corresponding texts:", len(texts))
+
+    for text, audio_path in zip(texts, audio_paths):
+        audio_path = str(audio_path)
         # Get the reference audio filepath
         message = "Reference voice: enter an audio filepath of a voice to be cloned (mp3, " \
                     "wav, m4a, flac, ...):\n"
-        in_fpath = audio_path
+        in_fpath = Path(audio_path.replace("\"", "").replace("\'", ""))
 
         if in_fpath.suffix.lower() == ".mp3" and args.no_mp3_support:
             print("Can't Use mp3 files please try again:")
@@ -175,7 +159,7 @@ def run(
 
         # If you know what the attention layer alignments are, you can retrieve them here by
         # passing return_alignments=True
-        specs = synthesizer.synthesize_spectrograms(texts, embeds)
+        specs = synthesizer.synthesize_spectrograms([text], [embed])
         spec = specs[0]
         print("Created the mel spectrogram")
         
