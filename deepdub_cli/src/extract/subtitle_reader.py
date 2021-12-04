@@ -60,7 +60,7 @@ def reintegrate (
 
     original_video = mp.VideoFileClip(str(original_video_path))
 
-    start_seconds = float(subtitles[0].start.total_seconds()-3) # Start from 3 seconds before the dub
+    start_seconds = float(subtitles[0].start.total_seconds()) # Start from 1 second before the dub
     for s, translated_video_path in zip(subtitles, translated_video_paths):
 
         end_seconds = float(s.start.total_seconds())
