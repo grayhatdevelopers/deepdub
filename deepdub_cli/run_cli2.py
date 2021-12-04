@@ -258,6 +258,7 @@ def run(
 
 		final_output_filepath = translated_video_path + 'final_' + 'result{}.mp4'.format(idx)
 
+
 		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, output_filepath, final_output_filepath)
 		subprocess.call(command, shell=platform.system() != 'Windows')
 
