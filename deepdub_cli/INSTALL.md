@@ -31,15 +31,24 @@ sudo apt-get install python3 python-dev python3-dev
 sudo apt-get install libportaudio2
 ```
 
+You can install all such dependencies (which we know of) using the following command, assuming you're in the **deepdub_cli** folder:
+```
+bash install_dependencies.sh
+```
+
 ## Step 3: Installing Pytorch for Real-Time-Voice-Cloning
 Install Pytorch by looking up the proper syntax [here](https://pytorch.org/get-started/locally/)
 
 Just some examples:
 - pip:
-```pip3 install torch torchvision torchaudio```
+```
+pip3 install torch torchvision torchaudio
+```
 
 - conda:
-```conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch```
+```
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+```
 
 ## Step 4: Models
 Download the pretrained models for each module.
@@ -59,13 +68,15 @@ W2L:  https://github.com/Rudrabha/Wav2Lip
 By now you probably got that this current pipeline is simply putting two modules together into one serial flow. So each module has its own installation procedure and magically (a.k.a. luckily) their installations do not conflict with each other. So we've made one requirements.txt file which contains the requirements of both these modules, called ```requirements_deepdub-cli_37.txt```. 
 
 You can install the requirements from this file using:
-```pip install -r requirements_deepdub-cli_37.txt```
+```
+pip install -r requirements_deepdub-cli_37.txt
+```
 
 
 ## Step 6: Done! Now let's run it...
 Here's a sample run of the deepdub CLI.
 ```
-python main2.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e encoder/saved_models/pretrained.pt -s synthesizer/saved_models/pretrained/pretrained.pt -v vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
+python main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e encoder/saved_models/pretrained.pt -s synthesizer/saved_models/pretrained/pretrained.pt -v vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
 ```
 
 As you can see, that's a lot to absorb. Luckily you don't have to give all the options, just some are enough. You can run the following command for more help.
