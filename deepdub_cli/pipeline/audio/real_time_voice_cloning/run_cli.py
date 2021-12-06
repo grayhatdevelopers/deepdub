@@ -61,9 +61,7 @@ def run(
         print("Using CPU for inference.\n")
     
     ## Remind the user to download pretrained models if needed
-    check_model_paths(encoder_path=args.enc_model_fpath,
-                      synthesizer_path=args.syn_model_fpath,
-                      vocoder_path=args.voc_model_fpath)
+
     
     ## Load the models one by one.
     print("Preparing the encoder, the synthesizer and the vocoder...")
