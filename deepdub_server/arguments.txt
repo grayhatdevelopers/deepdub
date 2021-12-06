@@ -1,0 +1,16 @@
+Enc Model Fpath: /home/saad/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt
+Syn Model Fpath: /home/saad/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt
+Voc Model Fpath: /home/saad/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt
+
+Checkpoint Path: /home/saad/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth
+
+Video: /home/saad/Projects/FYP/squidgames/ep1.mp4
+Translation: /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt
+
+Deepdubstart: 00:14:00
+Deepdubend: 00:14:23
+
+Extracted Path: /home/saad/Projects/deepdub/deepdub_cli/extracted
+Translated Path: /home/saad/Projects/deepdub/deepdub_cli/translated
+Results Path: /home/saad/Projects/deepdub/deepdub_cli/results
+Samples Path: /home/saad/Projects/deepdub/deepdub_cli/samples
