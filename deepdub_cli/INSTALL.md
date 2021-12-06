@@ -79,6 +79,11 @@ Here's a sample run of the deepdub CLI.
 python main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e encoder/saved_models/pretrained.pt -s synthesizer/saved_models/pretrained/pretrained.pt -v vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
 ```
 
+Here's the TESTED, WORKING version:
+```
+python main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
+```
+
 As you can see, that's a lot to absorb. Luckily you don't have to give all the options, just some are enough. You can run the following command for more help.
 ```python main2.py --help```
 

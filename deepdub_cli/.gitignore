@@ -22,3 +22,6 @@ vocoder/saved_models/*
 *.pth
 *.pt
 
+*.egg-info
+
+/build
