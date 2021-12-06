@@ -41,6 +41,25 @@ parser.add_argument("-cml", "--clipminlength", type=float,
                     )                    
 
 
+parser.add_argument("-ep", "--extracted_path", type=str, 
+                    default="./extracted",
+                    help="Directory in which temporary extracted files are saved."
+)
+parser.add_argument("-tp", "--translated_path", type=str, 
+                    default="./translated",
+                    help="Directory in which temporary translated files are saved."
+)
+parser.add_argument("-rp", "--results_path", type=str, 
+                    default="./results",
+                    help="Directory in which result files are saved."
+)
+parser.add_argument("-sp", "--samples_path", type=str, 
+                    default="./samples",
+                    help="Directory in which sample mp3 files exist."
+)
+
+
+
 ## Arguments from pipeline/audio/real_time_voice_cloning
 
 parser.add_argument("-e", "--enc_model_fpath", type=Path, 
@@ -132,8 +151,8 @@ def main():
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
                                                                         args.translation, 
                                                                         args.video,
-                                                                        r"./extracted/audio/",
-                                                                        r"./extracted/video/",
+                                                                        args.extracted_path + "/audio/",
+                                                                                                                 args.extracted_path + "/video/",
                                                                         args.deepdubstart,
                                                                         args.deepdubend,
                                                                         args.clipminlength,
@@ -143,7 +162,7 @@ def main():
     # Pass files to speech vocoder 
     # (Real-Time-Voice-Cloning)
     texts = [s.content for s in subtitles]
-    translated_audio_paths = vocoder.run(extracted_audio_paths, texts, args, "./translated/audio/")
+    translated_audio_paths = vocoder.run(extracted_audio_paths, texts, args, args.translated_path + "/audio/")
 
     # 3.
     # Pass files to Lip Syncer
