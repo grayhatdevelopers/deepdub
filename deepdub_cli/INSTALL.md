@@ -72,19 +72,27 @@ You can install the requirements from this file using:
 pip install -r requirements_deepdub-cli_37.txt
 ```
 
+You can also use the following command: (assuming you're in the **deepdub_cli** folder)
+```
+pip install .
+```
+
+This will allow you to directly invoke deepdub anywhere!
+e.g.
+```
+deepdub --help
+```
 
 ## Step 6: Done! Now let's run it...
-Here's a sample run of the deepdub CLI.
+Here's a sample run of the deepdub CLI (assuming you're in the **deepdub_cli** folder):
 ```
-python main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e encoder/saved_models/pretrained.pt -s synthesizer/saved_models/pretrained/pretrained.pt -v vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
-```
-
-Here's the TESTED, WORKING version:
-```
-python main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path /home/saad/Projects/deepdub/deepdub-cli/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
+python deepdub/main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -tn /home/saad/Projects/FYP/squidgames/subtitles/ep1.srt -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1
 ```
 
 As you can see, that's a lot to absorb. Luckily you don't have to give all the options, just some are enough. You can run the following command for more help.
-```python main2.py --help```
+```
+python deepdub/main.py --help
+```
+
 
 

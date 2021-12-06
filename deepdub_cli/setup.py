@@ -1,8 +1,9 @@
 from distutils.command.sdist import sdist as sdist_orig
 from distutils.errors import DistutilsExecError
 
-from setuptools import setup  
+from setuptools import setup, find_packages
 
+files = ["*"]
 
 class linux_deps(sdist_orig):
 
@@ -15,9 +16,19 @@ class linux_deps(sdist_orig):
 
 
 setup(name='deepdub',
-    version='1.1.0',
-    packages=[],
+    version='1.1.1',
+
+    packages=find_packages(),
+    package_data = {'deepdub' : files },
+
+    entry_points={
+        'console_scripts': [
+            'deepdub=deepdub.main:main',
+        ]
+    },
+
     cmdclass={
         'linux_deps': linux_deps
     }
+    
 )
