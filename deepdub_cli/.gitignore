@@ -1,3 +1,4 @@
+# Generated temp files
 *.pyc
 *.aux
 *.log
@@ -14,14 +15,19 @@
 *.bcf
 *.toc
 *.wav
-*.sh
+
+# Possible model directories
 encoder/saved_models/*
 synthesizer/saved_models/*
 vocoder/saved_models/*
 
+# Models
 *.pth
 *.pt
 
+# Generated after pip install .
 *.egg-info
-
 /build
+
+# I don't know where this folder came from
+/src
