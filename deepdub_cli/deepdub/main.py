@@ -126,10 +126,6 @@ parser.add_argument('--nosmooth', default=False, action='store_true',
 args = parser.parse_args()
 
 def main():
-
-    import pipeline.extract.transcription.generation.run_cli as transcription_generator
-    import pipeline.extract.transcription.alignment.run_cli as transcription_aligner
-
     import pipeline.extract.subtitles.subtitle_reader as extractor
     import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
@@ -143,6 +139,40 @@ def main():
     ## 2. Saad Ahmed Bazaz
     ## -------------------------------------------
 
+
+    # 0.
+    # Preprocess the video. Here, if a translation file is not provided, we try to make it ourselves.
+    if args.translation is None:
+        import pipeline.extract.transcription.generation.run_cli as transcription_generator
+        import pipeline.extract.transcription.alignment.run_cli as transcription_aligner
+        import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
+
+        import pipeline.extract.translation.run_cli as translator
+
+        # Extract the audio from the original video (we will use it for all transcription tasks)
+        import moviepy.editor as mp
+        original_video = mp.VideoFileClip(str(args.video))
+        original_video.audio.write_audiofile("original_audio.wav")
+
+        # 0.1.
+        # Generate the transcription
+        raw_transcription, newline_transcription = transcription_generator.run("original_audio.wav", args)
+
+        # 0.2.
+        # Align the words in the transcription to the original audio
+        alignment_path = transcription_aligner.run("original_audio.wav", newline_transcription, args)
+
+
+        # 0.3. 
+        # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
+        
+        #transcription_srt = transcription_clusterer.run(args)
+
+        # 0.4.
+        # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
+        # target language
+        
+        #translator.run(args)
 
     # 1.
     # First extract audio and video bytes and store in a folder 
