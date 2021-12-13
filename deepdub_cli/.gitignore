@@ -31,3 +31,6 @@ vocoder/saved_models/*
 
 # I don't know where this folder came from
 /src
+
+
+*/modelcache

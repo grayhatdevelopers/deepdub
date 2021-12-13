@@ -1,0 +1,25 @@
+PROTO_LANGDIR/
+data/
+ext/standard_kaldi
+ext/mkgraph
+ext/*-test
+ext/*.o
+ext/.depend.mk
+*.pyc
+*.swp
+*~
+webdata/
+gentle.egg-info/
+exp/
+ext/k3
+ext/m3
+
+ext/kaldi/tools/openfst*
+ext/kaldi/tools/cub*
+ext/kaldi/tools/sctk*
+ext/kaldi/tools/OpenBLAS*
+
+# Allow some specific installation files
+!ext/kaldi/tools/*.sh
+!ext/kaldi/tools/INSTALL
+!ext/kaldi/tools/Makefile
