@@ -23,3 +23,5 @@ ext/kaldi/tools/OpenBLAS*
 !ext/kaldi/tools/*.sh
 !ext/kaldi/tools/INSTALL
 !ext/kaldi/tools/Makefile
+
+ext/kaldi/src/*/*.a
