@@ -32,3 +32,11 @@ mycert.pem
 */generation/pretrained_model/*.yaml
 */generation/pretrained_model/*.ckpt
 */generation/pretrained_model/
+
+/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi/tools/cub*
+/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi/tools/OpenBLAS*
+/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi/tools/openfst*
+
+*.a
+k3
+m3
