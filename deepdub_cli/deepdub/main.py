@@ -143,8 +143,8 @@ def main():
     # 0.
     # Preprocess the video. Here, if a translation file is not provided, we try to make it ourselves.
     if args.translation is None:
-        import pipeline.extract.transcription.generation.run_cli as transcription_generator
-        import pipeline.extract.transcription.alignment.run_cli as transcription_aligner
+        import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
+        import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
 
         import pipeline.extract.translation.run_cli as translator
@@ -165,8 +165,7 @@ def main():
 
         # 0.3. 
         # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
-        
-        #transcription_srt = transcription_clusterer.run(args)
+        transcription_srt = transcription_clusterer.run(args)
 
         # 0.4.
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
