@@ -16,4 +16,4 @@ def run (
 	return transcription, newline_transcription
 
 
-print (run ("./test.wav", None)[1])
+# print (run ("./test.wav", None)[1])

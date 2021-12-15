@@ -40,6 +40,13 @@ parser.add_argument("-cml", "--clipminlength", type=float,
                     help="Minimum duration of a clip of dubbed video."
                     )                    
 
+parser.add_argument("-tls", "--translation_language_source", type=Path, 
+                    required=False,
+                    help="Language in which the original video is in.")
+parser.add_argument("-tlt", "--translation_language_target", type=Path, 
+                    required=False,
+                    help="Language in which to output the video.")
+
 
 parser.add_argument("-ep", "--extracted_path", type=str, 
                     default="./extracted",
@@ -52,6 +59,10 @@ parser.add_argument("-tp", "--translated_path", type=str,
 parser.add_argument("-rp", "--results_path", type=str, 
                     default="./results",
                     help="Directory in which result files are saved."
+)
+parser.add_argument("-mp", "--metadata_path", type=str, 
+                    default="./metadata",
+                    help="Directory in which preprocessing metadata is saved."
 )
 parser.add_argument("-sp", "--samples_path", type=str, 
                     default="./samples",
@@ -146,39 +157,41 @@ def main():
         import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
         import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
-
         import pipeline.extract.translation.run_cli as translator
 
         # Extract the audio from the original video (we will use it for all transcription tasks)
         import moviepy.editor as mp
         original_video = mp.VideoFileClip(str(args.video))
-        original_video.audio.write_audiofile("original_audio.wav")
+        original_audio_path = args.metadata_path + "/original_audio.wav"
+        original_video.audio.write_audiofile(original_audio_path)
 
         # 0.1.
         # Generate the transcription
-        raw_transcription, newline_transcription = transcription_generator.run("original_audio.wav", args)
+        raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
 
         # 0.2.
         # Align the words in the transcription to the original audio
-        alignment_path = transcription_aligner.run("original_audio.wav", newline_transcription, args)
+        alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
 
 
         # 0.3. 
         # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
-        transcription_srt = transcription_clusterer.run(args)
+        transcription_srt_filepath = transcription_clusterer.run(alignment_path, args)
 
         # 0.4.
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
-        # target language
-        
-        #translator.run(args)
+        # target language        
+        translation_filepath = translator.run(transcription_srt_filepath, args)
+
+    else:
+        translation_filepath = args.translation
 
     # 1.
     # First extract audio and video bytes and store in a folder 
     # called extracted/audio and extracted/video 
     # (Subtitle_Reader)
     subtitles, extracted_audio_paths, extracted_video_paths = extractor.extract_audio_and_video(
-                                                                        args.translation, 
+                                                                        translation_filepath, 
                                                                         args.video,
                                                                         args.extracted_path + "/audio/",
                                                                                                                  args.extracted_path + "/video/",

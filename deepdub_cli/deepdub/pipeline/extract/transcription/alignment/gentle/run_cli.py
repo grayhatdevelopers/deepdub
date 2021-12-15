@@ -63,10 +63,10 @@ def run (
 	    aligner = gentle.ForcedAligner(resources, transcript, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies)
 	    result = aligner.transcribe(wavfile, progress_cb=on_progress, logging=logging)
 
-	word_level_alignment_filepath = "./output.json"
+	word_level_alignment_filepath = args.metadata_path + "/aligned_transcription.json"
 
 	fh = open(word_level_alignment_filepath, 'w', encoding="utf-8")	
 	fh.write(result.to_json(indent=2))
-	logging.info("output written to %s" % (args.output))
+	logging.info("output written to %s" % (word_level_alignment_filepath))
 
 	return word_level_alignment_filepath

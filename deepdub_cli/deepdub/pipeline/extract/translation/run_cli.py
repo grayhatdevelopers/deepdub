@@ -3,33 +3,16 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("t5-large")
 model = T5ForConditionalGeneration.from_pretrained("t5-large")
 
-<<<<<<< HEAD
-=======
 import srt
 
->>>>>>> 3ae5e23ddbb17c3508382e14874471bbf26700c1
 def run (
-    input_string,
+    subs_path,
     args,
 ):
 
-<<<<<<< HEAD
-    _prefix = "translate {} to {}: ".format("English", "German")
-
-    input_ids = tokenizer(_prefix + input_string, return_tensors='pt').input_ids
-    outputs = model.generate(input_ids)
-
-    output_string = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    print(output_string)
-    # Das Haus ist wunderbar.
-    
-    return output_string
-=======
-    subs_path = "./transcription_sentences.srt"
-
     subs = list(srt.parse(open(subs_path)))
 
-    _prefix = "translate {} to {}: ".format("English", "German")
+    _prefix = "translate {} to {}: ".format(args.translation_language_source, args.translation_language_target)
 
     for s in subs:    
         input_string = s.content
@@ -46,7 +29,7 @@ def run (
 	    
     final_srt = srt.compose(list(subs))
     
-    translation_srt_filepath = "translation_sentences.srt" 
+    translation_srt_filepath = args.metadata_path + "/translation_sentences.srt" 
     
     text_file = open(translation_srt_filepath, "w")
     n = text_file.write(final_srt)
@@ -56,4 +39,3 @@ def run (
 
 
 run("", None)
->>>>>>> 3ae5e23ddbb17c3508382e14874471bbf26700c1
