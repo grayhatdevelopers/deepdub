@@ -25,7 +25,7 @@ parser.add_argument("-vd", "--video", type=Path,
                     help="Input video to process.")
 
 parser.add_argument("-tn", "--translation", type=Path, 
-                    required=True,
+                    required=False,
                     help="Translation file (.srt) to use as reference.")
 parser.add_argument("-dds", "--deepdubstart", type=str, 
                     default="00:00:00",
@@ -60,15 +60,14 @@ parser.add_argument("-rp", "--results_path", type=str,
                     default="./results",
                     help="Directory in which result files are saved."
 )
-parser.add_argument("-mp", "--metadata_path", type=str, 
-                    default="./metadata",
-                    help="Directory in which preprocessing metadata is saved."
-)
 parser.add_argument("-sp", "--samples_path", type=str, 
                     default="./samples",
                     help="Directory in which sample mp3 files exist."
 )
-
+parser.add_argument("-mp", "--metadata_path", type=str, 
+                    default="./metadata",
+                    help="Directory in which preprocessing metadata is saved."
+)
 
 
 ## Arguments from pipeline/audio/real_time_voice_cloning
@@ -134,6 +133,25 @@ parser.add_argument('--nosmooth', default=False, action='store_true',
 
 
 
+## Arguments from Gentle
+import multiprocessing
+parser.add_argument(
+        '--nthreads', default=multiprocessing.cpu_count(), type=int,
+        help='number of alignment threads')
+parser.add_argument(
+        '-o', '--output', metavar='output', type=str, 
+        help='output filename')
+parser.add_argument(
+        '--conservative', dest='conservative', action='store_true',
+        help='conservative alignment')
+parser.set_defaults(conservative=False)
+parser.add_argument(
+        '--disfluency', dest='disfluency', action='store_true',
+        help='include disfluencies (uh, um) in alignment')
+parser.set_defaults(disfluency=False)
+
+
+
 args = parser.parse_args()
 
 def main():
@@ -153,7 +171,9 @@ def main():
 
     # 0.
     # Preprocess the video. Here, if a translation file is not provided, we try to make it ourselves.
-    if args.translation is None:
+    if args.translation:
+        translation_filepath = args.translation
+    else:
         import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
         import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
@@ -182,9 +202,6 @@ def main():
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
         # target language        
         translation_filepath = translator.run(transcription_srt_filepath, args)
-
-    else:
-        translation_filepath = args.translation
 
     # 1.
     # First extract audio and video bytes and store in a folder 

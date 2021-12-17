@@ -33,7 +33,6 @@ def run (alignments_path, args):
             print ("Fragment is ", fragment)
 
             if fragment['start'] - line_end_sec > 0.5:
-
                 line_index += 1
                 line_start = datetime.timedelta(0, line_start_sec, 0)
                 line_end = datetime.timedelta(0, line_end_sec, 0)

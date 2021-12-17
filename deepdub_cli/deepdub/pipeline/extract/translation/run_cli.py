@@ -35,7 +35,7 @@ def run (
     n = text_file.write(final_srt)
     text_file.close()  
     
-    return output_string
+    return translation_srt_filepath
 
 
-run("", None)
+#run("", None)

@@ -14,3 +14,7 @@ Extracted Path: /home/saad/Projects/deepdub/deepdub_cli/extracted
 Translated Path: /home/saad/Projects/deepdub/deepdub_cli/translated
 Results Path: /home/saad/Projects/deepdub/deepdub_cli/results
 Samples Path: /home/saad/Projects/deepdub/deepdub_cli/samples
+
+
+
+-ep /home/saad/Projects/deepdub/deepdub_cli/extracted -tp /home/saad/Projects/deepdub/deepdub_cli/translated -rp /home/saad/Projects/deepdub/deepdub_cli/results -sp /home/saad/Projects/deepdub/deepdub_cli/samples -mp /home/saad/Projects/deepdub/deepdub_cli/samples

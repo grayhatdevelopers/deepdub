@@ -17,6 +17,8 @@ import re
 from datetime import timedelta
 
 
+import time
+
 regex = re.compile(r'((?P<hours>\d+?)hr)?((?P<minutes>\d+?)m)?((?P<seconds>\d+?)s)?')
 
 
@@ -79,7 +81,11 @@ def reintegrate (
     print ("[EXTRACTOR] Writing final video to disk...")
 
     final_clip = mp.concatenate_videoclips(subclips)
-    to_return = final_clip.write_videofile("./results/final_result.mp4")
+
+    timestr = time.strftime("%Y%m%d-%H%M%S")
+    head, tail = os.path.split(original_video_path)
+
+    to_return = final_clip.write_videofile("./results/"+"final_result_"+tail+"_"+timestr+".mp4")
 
     print ("[EXTRACTOR] Reintegration complete.")
 
