@@ -89,6 +89,18 @@ Here's a sample run of the deepdub CLI (assuming you're in the **deepdub_cli** f
 python deepdub/main.py -vd /home/saad/Projects/FYP/squidgames/ep1.mp4 -ep /home/saad/Projects/deepdub/deepdub_cli/extracted -tp /home/saad/Projects/deepdub/deepdub_cli/translated -rp /home/saad/Projects/deepdub/deepdub_cli/results -sp /home/saad/Projects/deepdub/deepdub_cli/samples -mp /home/saad/Projects/deepdub/deepdub_cli/metadata -dds 00:14:00 -dde 00:14:23 -cml 1.5 -e deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1 -tls "English" -tlt "German"
 ```
 
+Example for German video to English:
+```
+python deepdub/main.py -vd /home/saad/Projects/FYP/test/2/german_speech.mp4 -ep /home/saad/Projects/deepdub/deepdub_cli/extracted -tp /home/saad/Projects/deepdub/deepdub_cli/translated -rp /home/saad/Projects/deepdub/deepdub_cli/results -sp /home/saad/Projects/deepdub/deepdub_cli/samples -mp /home/saad/Projects/deepdub/deepdub_cli/metadata -dds 00:00:00 -cml 1.5 -e deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1 -tls "German" -tlt "English"
+```
+
+ANOTHER ONE:
+```
+python deepdub/main.py -vd /home/saad/Projects/FYP/test/3/german_new_year_speech_30s.mp4 -ep /home/saad/Projects/deepdub/deepdub_cli/extracted -tp /home/saad/Projects/deepdub/deepdub_cli/translated -rp /home/saad/Projects/deepdub/deepdub_cli/results -sp /home/saad/Projects/deepdub/deepdub_cli/samples -mp /home/saad/Projects/deepdub/deepdub_cli/metadata -dds 00:00:00 -cml 0.2 -e deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt -s deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt -v deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt --checkpoint_path deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth --outfile results/result_voice.mp4 --fps 25.0 --pads 0 10 0 0 --face_det_batch_size 16 --wav2lip_batch_size 128 --resize_factor 1 --crop 0 -1 0 -1 --box -1 -1 -1 -1 -tls German -tlt English
+```
+
+
+
 As you can see, that's a lot to absorb. Luckily you don't have to give all the options, just some are enough. You can run the following command for more help.
 ```
 python deepdub/main.py --help

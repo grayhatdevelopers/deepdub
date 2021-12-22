@@ -40,10 +40,10 @@ parser.add_argument("-cml", "--clipminlength", type=float,
                     help="Minimum duration of a clip of dubbed video."
                     )                    
 
-parser.add_argument("-tls", "--translation_language_source", type=Path, 
+parser.add_argument("-tls", "--translation_language_source", type=str, 
                     required=False,
                     help="Language in which the original video is in.")
-parser.add_argument("-tlt", "--translation_language_target", type=Path, 
+parser.add_argument("-tlt", "--translation_language_target", type=str, 
                     required=False,
                     help="Language in which to output the video.")
 
@@ -174,10 +174,12 @@ def main():
     if args.translation:
         translation_filepath = args.translation
     else:
-        import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
-        import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
+        # import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
+        import pipeline.extract.transcription.generation.wav2vec2.run_cli as transcription_generator
+        # import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
+        import pipeline.extract.transcription.alignment.aeneas__pydub.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
-        import pipeline.extract.translation.run_cli as translator
+        import pipeline.extract.translation.opus_pt.run_cli as translator
 
         # Extract the audio from the original video (we will use it for all transcription tasks)
         import moviepy.editor as mp
@@ -196,7 +198,7 @@ def main():
 
         # 0.3. 
         # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
-        transcription_srt_filepath = transcription_clusterer.run(alignment_path, args)
+        transcription_srt_filepath = transcription_clusterer.run(alignment_path, original_audio_path, args)
 
         # 0.4.
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 

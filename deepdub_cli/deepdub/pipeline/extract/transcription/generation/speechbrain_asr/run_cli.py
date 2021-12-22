@@ -1,6 +1,8 @@
 from speechbrain.pretrained import EncoderDecoderASR
 
-asr_model = EncoderDecoderASR.from_hparams(source="speechbrain/asr-crdnn-rnnlm-librispeech", savedir="pretrained_model")
+# asr_model = EncoderDecoderASR.from_hparams(source="speechbrain/asr-crdnn-rnnlm-librispeech", savedir="pretrained_model")
+
+asr_model = EncoderDecoderASR.from_hparams(source="speechbrain/asr-crdnn-commonvoice-de", savedir="pretrained_model/asr-crdnn-commonvoice-de")
 
 def run (
 	input_audio_file, 
