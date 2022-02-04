@@ -1,0 +1,178 @@
+* {
+	font-family: "Red Hat Display", Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* font-family:  */
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* colored deepdub header */
+
+.header {
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  font-size: 6rem;
+  font-weight: 800;
+  font-smooth: auto;
+  letter-spacing: 2px;
+  
+  text-align: center;
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg, #f33426, #feab3a);
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: hue 10s infinite linear;
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
+
+
+/* record button */
+#c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -45px;
+}
+
+#o {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -67px;
+  margin-top: -22px;
+  z-index: 0;
+}
+
+.o2 {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+  float: left;
+  border: 2px solid #ebebeb;
+}
+
+.s {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  float: left;
+}
+
+.s:nth-child(1) {
+  background: #33bbff;
+  -webkit-animation: r0 1.2s 0s ease-out infinite;
+  -moz-animation: r0 1.2s 0s ease-out infinite;
+  animation: r0 1.2s 0s ease-out infinite;
+}
+.s:nth-child(1):hover {
+  background: #ff3333;
+  border-radius: 10%;
+  -webkit-animation: r20 0.5s 0.4s ease-out infinite;
+  -moz-animation: r20 0.5s 0.4s ease-out infinite;
+  animation: r20 0.5s 0.4s ease-out infinite;
+}
+
+@-webkit-keyframes r0 {
+  0% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(26, 179, 255, 0);
+  }
+  10% {
+    box-shadow: 0 0 0px 5px #1ab3ff, 0 0 12px 10px transparent, 0 0 12px 14px #1ab3ff;
+  }
+  100% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(26, 179, 255, 0);
+  }
+}
+@-moz-keyframes r0 {
+  0% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(26, 179, 255, 0);
+  }
+  10% {
+    box-shadow: 0 0 0px 5px #1ab3ff, 0 0 12px 10px transparent, 0 0 12px 14px #1ab3ff;
+  }
+  100% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(26, 179, 255, 0);
+  }
+}
+@keyframes r0 {
+  0% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(26, 179, 255, 0);
+  }
+  10% {
+    box-shadow: 0 0 0px 5px #1ab3ff, 0 0 12px 10px transparent, 0 0 12px 14px #1ab3ff;
+  }
+  100% {
+    box-shadow: 0 0 0px 5px rgba(26, 179, 255, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(26, 179, 255, 0);
+  }
+}
+@-webkit-keyframes r20 {
+  from {
+    box-shadow: 0 0 0px 5px #ff1a1a, 0 0 12px 10px transparent, 0 0 12px 14px #ff1a1a;
+  }
+  to {
+    box-shadow: 0 0 0px 5px rgba(255, 26, 26, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(255, 26, 26, 0);
+  }
+}
+@-moz-keyframes r20 {
+  from {
+    box-shadow: 0 0 0px 5px #ff1a1a, 0 0 12px 10px transparent, 0 0 12px 14px #ff1a1a;
+  }
+  to {
+    box-shadow: 0 0 0px 5px rgba(255, 26, 26, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(255, 26, 26, 0);
+  }
+}
+@keyframes r20 {
+  from {
+    box-shadow: 0 0 0px 5px #ff1a1a, 0 0 12px 10px transparent, 0 0 12px 14px #ff1a1a;
+  }
+  to {
+    box-shadow: 0 0 0px 5px rgba(255, 26, 26, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(255, 26, 26, 0);
+  }
+}

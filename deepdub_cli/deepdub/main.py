@@ -11,6 +11,7 @@ import argparse
 import sys
 
 from pathlib import Path
+import os
 
 ## Info about this script
 parser = argparse.ArgumentParser(
@@ -151,10 +152,25 @@ parser.add_argument(
 parser.set_defaults(disfluency=False)
 
 
+import os
 
-args = parser.parse_args()
+# All arguments
+deepdub_no_args = os.environ.get('DEEPDUB_NO_ARGS')
+if deepdub_no_args == None or deepdub_no_args == False:
+	args = parser.parse_args()
 
-def main():
+# Only arguments which have a default
+# all_defaults = {}
+# for key in vars(args):
+#	all_defaults[key] = parser.get_default(key)
+
+# print("Default arguments", all_defaults)
+
+def main(func_args=None):
+
+    if func_args != None:
+    	args = func_args
+
     import pipeline.extract.subtitles.subtitle_reader as extractor
     import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
@@ -168,6 +184,7 @@ def main():
     ## 2. Saad Ahmed Bazaz
     ## -------------------------------------------
 
+    print("Args are = ", args)
 
     # 0.
     # Preprocess the video. Here, if a translation file is not provided, we try to make it ourselves.
@@ -183,7 +200,32 @@ def main():
 
         # Extract the audio from the original video (we will use it for all transcription tasks)
         import moviepy.editor as mp
-        original_video = mp.VideoFileClip(str(args.video))
+
+
+        filename, file_extension = os.path.splitext(args.video)
+
+        filename = Path(args.video).stem
+
+        print ("Filename is", filename)
+
+
+        converted_video = os.path.join(args.metadata_path, filename+".mp4")
+
+        call = "ffmpeg -i {} {}".format(args.video, str(converted_video))        
+
+        print ("System call is", call)
+        os.system(call)
+
+        args.video = converted_video
+
+        try:
+            original_video = mp.VideoFileClip(str(args.video))
+        except:
+            print("Video path is ", args.video)
+            original_video = mp.VideoFileClip(args.video.path)
+
+    #    original_video = mp.VideoFileClip(str(args.video))
+     
         original_audio_path = args.metadata_path + "/original_audio.wav"
         original_video.audio.write_audiofile(original_audio_path)
 
@@ -232,9 +274,12 @@ def main():
 
     # 4.
     # Finally, reintegrate the translated videos back into the original video
-    extractor.reintegrate(args.video, subtitles, translated_video_paths)
+    final_file = extractor.reintegrate(args.video, subtitles, translated_video_paths, args)
 
     print ("Thank you for using deepdub.")
+
+    if func_args != None:
+    	return final_file
 
     return 0
 

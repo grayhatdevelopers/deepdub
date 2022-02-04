@@ -54,7 +54,8 @@ from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 def reintegrate (
     original_video_path,
     subtitles,
-    translated_video_paths
+    translated_video_paths,
+    args
 ):
     print ("[EXTRACTOR] Reintegrating clips into video...")
 
@@ -85,11 +86,24 @@ def reintegrate (
     timestr = time.strftime("%Y%m%d-%H%M%S")
     head, tail = os.path.split(original_video_path)
 
-    to_return = final_clip.write_videofile("./results/"+"final_result_"+tail+"_"+timestr+".mp4")
+    final_video_path = os.path.join(args.results_path, "final_result_"+tail+"_"+timestr+".mp4")
+
+
+    try:
+        final_clip.write_videofile(final_video_path,  threads=6, logger=None)
+        print("Saved .mp4 without Exception at {}".format(final_video_path))
+    except IndexError:
+        # Short by one frame, so get rid on the last frame:
+        final_clip = final_clip.subclip(t_end=(final_clip.duration - 1.0/final_clip.fps))
+        final_clip.write_videofile(final_video_path, threads=6, logger=None)
+        print("Saved .mp4 after Exception at {}".format(final_video_path))
+    except Exception as e:
+        print("Exception {} was raised!!".format(e))  
+        
 
     print ("[EXTRACTOR] Reintegration complete.")
 
-    return to_return
+    return final_video_path
 
 def extract_audio_and_video (
     subs_path, 
@@ -108,8 +122,12 @@ def extract_audio_and_video (
     audio_paths = []
     video_paths = []
 
-    original_video = mp.VideoFileClip(str(video_path))
+    try:
+	    original_video = mp.VideoFileClip(str(video_path))
+    except:
+	    original_video = mp.VideoFileClip(video_path.path)
 
+	        
     num_generated = 0
 
     for s in subs:
