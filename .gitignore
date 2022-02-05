@@ -19,6 +19,7 @@ mycert.pem
 *.avi
 *.jpg
 *.srt
+*.webm
 
 # Allow some specific media files e.g. sample files needed for Testing
 !deepdub_cli/samples/*mp3
