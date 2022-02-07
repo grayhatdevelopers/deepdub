@@ -113,6 +113,12 @@ def run (alignments_path, input_audio_path, args):
                 word["added"] = True
                 break
 
+            # Bug: First word is discarded when there is just one sentence
+            elif word["begin"] <= bucket["begin"] and len(final_bucket) == 1:
+            	bucket["sentence"].insert(0, word)
+            	word["added"] = True
+            	break
+
             # Treating words which appeared in silent parts
             elif idx + 1 != len(final_bucket):
                 if word["begin"] >= final_bucket[idx]["end"] and word["begin"] <= final_bucket[idx+1]["begin"]:

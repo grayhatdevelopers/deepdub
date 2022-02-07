@@ -17,7 +17,18 @@ import {
         InputLabel,
         Select,
         MenuItem, 
+        CircularProgress,
+        Button
     } from '@mui/material';
+
+import Check from '@mui/icons-material/Check';
+
+import {
+	Replay,
+	Download,
+	} from '@mui/icons-material';
+
+
 
     import { borders } from '@mui/system';
 
@@ -28,8 +39,16 @@ import {
 
 import { makeStyles } from '@mui/styles';
 
-
+const buttonIconStyles = { 
+    width: "120px", 
+    height: "120px" 
+}
 const useStyles = makeStyles({
+    button: {
+        //margin: "20px",
+        width: "150px",
+        height: "150px",
+    },
     root: {
       //width: 200,
       color: "white",
@@ -93,7 +112,7 @@ const useStyles = makeStyles({
       "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
         borderColor: "white"
       }
-    }
+    },
   });
 
 
@@ -191,6 +210,9 @@ const audio = new Audio("/record.mp3")
         recordWebcam.start(e)
   }
 
+
+  const [isProcessing, setProcessing] = useState(false)
+
   const saveFile = async () => {
     const blob = await recordWebcam.getRecording();
     // ...
@@ -200,6 +222,8 @@ const audio = new Audio("/record.mp3")
     data.append('to_language', to);
     data.append('file', blob, blob.name);
 
+    setProcessing(true)
+
     return request.post(`/uploadfile/`, data, {
       headers: {
         'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
@@ -208,6 +232,7 @@ const audio = new Audio("/record.mp3")
     }).then( (res) => {
         console.log("response is:", res)
         console.log("filename is:", res.data.filename)
+	setProcessing(false)
         setResponseFile(baseUrl + res.data.filename)
     });
     
@@ -399,16 +424,27 @@ useEffect( () => {
     :
 
     recordWebcam.status == "PREVIEW" ?
+
+	<div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
 <div style={{
-        marginBottom: "50px"
+        marginTop: "50px"
     }}>
-      <button onClick={retakeVideo}>Retake recording</button>
-      <button onClick={recordWebcam.download}>Download recording</button>
-      <button onClick={saveFile}>Save file to server</button>
-      {response_file ? <a href={response_file} target="_blank">Open server-processed file</a> : <></>}
+      <Button size="large" className={classes.button} onClick={retakeVideo}>
+        <Replay style={buttonIconStyles}/>
+      </Button>
+      <Button size="large" className={classes.button} onClick={recordWebcam.download}>
+        <Download style={buttonIconStyles}/>
+      </Button>      
     </div>     
+    <div>
+      <Button size="large" variant={response_file ? "outlined" : "contained"} className={classes.button} color="primary" onClick={saveFile} disabled={isProcessing}>
+        { isProcessing ? <CircularProgress style={buttonIconStyles}/> : <Check style={buttonIconStyles}/> }
+      </Button>
+    </div>
+
+      {response_file ? <Button size="large" variant="contained" href={response_file} target="_blank" style={{marginTop:"20px"}} >SEE YOUR RESULTS</Button> : <></>}
     
-    
+    </div>
     
     :
         <div className="container" 
