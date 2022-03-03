@@ -54,7 +54,8 @@ async def create_upload_file(
     print("From language:", from_language)
     print("To language:", to_language)
 
-    filename = str(datetime.now()).replace(" ", "_").replace(":", "_").replace(".", "_") + "__" + file.filename + ".webm"
+    runname = str(datetime.now()).replace(" ", "_").replace(":", "_").replace(".", "_") + "__" + file.filename
+    filename = runname + ".webm"
 
     async with aiofiles.open("uploads/"+filename, 'wb') as out_file:
         content = await file.read()  # async read
@@ -63,6 +64,8 @@ async def create_upload_file(
 
     uploads_folder_path = os.path.join(os.path.abspath(os.getcwd()), "uploads")
     results_folder_path = os.path.join(os.path.abspath(os.getcwd()), "results")    
+
+    run_folder_path = os.path.join(results_folder_path, runname)
 
     deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
 
@@ -74,11 +77,11 @@ async def create_upload_file(
     "clipminlength": 0.1,
     "translation_language_source": from_language,
     "translation_language_target": to_language,
-    "extracted_path": str(os.path.join(deepdub_path, "extracted")),
-    "translated_path": str(os.path.join(deepdub_path, "translated")),
-    "results_path": str(results_folder_path),
+    "extracted_path": str(os.path.join(run_folder_path, "extracted")),
+    "translated_path": str(os.path.join(run_folder_path, "translated")),
+    "results_path": str(run_folder_path),
     "samples_path": str(os.path.join(deepdub_path, "samples")),
-    "metadata_path": str(os.path.join(deepdub_path, "metadata")),
+    "metadata_path": str(os.path.join(run_folder_path, "metadata")),
     "enc_model_fpath": Path(deepdub_path + "/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt"),
     "syn_model_fpath": Path(deepdub_path + "/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt"),
     "voc_model_fpath": Path(deepdub_path + "/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt"),
@@ -87,7 +90,7 @@ async def create_upload_file(
     "seed": None,
     "no_mp3_support": False,
     "checkpoint_path": Path(deepdub_path, "deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth"),
-    "outfile": "/home/saad/Projects/deepdub/deepdub_cli/results/result_voice.mp4",
+    "outfile": str(os.path.join(run_folder_path, "metadata"),
     "static": False,
     "fps": 25.0,
     "pads": [0, 10, 0, 0],
@@ -111,7 +114,10 @@ async def create_upload_file(
     print("Return file is:", return_file)
 
     relative_return_file = os.path.relpath(return_file, os.getcwd())
+    relative_return_folder = os.path.relpath(run_folder_path, os.getcwd())
+
 
     print("Relative Return file is:", relative_return_file)
+    print("Relative Return folder is:", relative_return_folder)
 
-    return {"filename": str(relative_return_file)}
+    return {"filename": str(relative_return_file), "foldername": str(relative_return_folder)}
