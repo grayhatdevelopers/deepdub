@@ -64,7 +64,7 @@ async def create_upload_file(
     uploads_folder_path = os.path.join(os.path.abspath(os.getcwd()), "uploads")
     results_folder_path = os.path.join(os.path.abspath(os.getcwd()), "results")    
 
-    deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
+    deepdub_path = "/home/saadbazaz/Projects/deepdub/deepdub_cli"
 
     deepdub_args = {
     "video": str(os.path.join(uploads_folder_path, filename)),
@@ -87,7 +87,7 @@ async def create_upload_file(
     "seed": None,
     "no_mp3_support": False,
     "checkpoint_path": Path(deepdub_path, "deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth"),
-    "outfile": "/home/saad/Projects/deepdub/deepdub_cli/results/result_voice.mp4",
+    "outfile": "/home/saadbazaz/Projects/deepdub/deepdub_cli/results/result_voice.mp4",
     "static": False,
     "fps": 25.0,
     "pads": [0, 10, 0, 0],

@@ -37,7 +37,7 @@ def run (
 	
 	transcription_path = args.metadata_path + "/transcription.txt" 
     
-	text_file = open(transcription_path, "w")
+	text_file = open(transcription_path, "w", encoding='utf-8')
 	n = text_file.write(transcription)
 	text_file.close()   
 	

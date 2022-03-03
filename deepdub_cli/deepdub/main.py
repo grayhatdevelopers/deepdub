@@ -156,6 +156,8 @@ import os
 
 # All arguments
 deepdub_no_args = os.environ.get('DEEPDUB_NO_ARGS')
+print ("deepdub_no_args =", deepdub_no_args)
+args = None
 if deepdub_no_args == None or deepdub_no_args == False:
 	args = parser.parse_args()
 
@@ -168,9 +170,11 @@ if deepdub_no_args == None or deepdub_no_args == False:
 
 def main(func_args=None):
 
+    global args
+
     if func_args != None:
     	args = func_args
-
+    
     import pipeline.extract.subtitles.subtitle_reader as extractor
     import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
