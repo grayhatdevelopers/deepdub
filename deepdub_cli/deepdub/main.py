@@ -294,7 +294,15 @@ def main(func_args=None):
 	
             extracted_video_paths[idx] = video_filename
 
+    final_srt = srt.compose(list(subtitles))
+    
+    translation_srt_filepath = args.metadata_path + "/new_translation_sentences.srt" 
+    
+    text_file = open(translation_srt_filepath, "w")
+    n = text_file.write(final_srt)
+    text_file.close()  
 
+    #3b. Now you can pass the files 
     translated_video_paths = lip_syncer.run(translated_audio_paths, extracted_video_paths, args)
 
     # 4.
