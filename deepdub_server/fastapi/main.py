@@ -90,7 +90,7 @@ async def create_upload_file(
     "seed": None,
     "no_mp3_support": False,
     "checkpoint_path": Path(deepdub_path, "deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth"),
-    "outfile": str(os.path.join(run_folder_path, "metadata"),
+    "outfile": str(os.path.join(run_folder_path, "metadata")),
     "static": False,
     "fps": 25.0,
     "pads": [0, 10, 0, 0],
