@@ -280,23 +280,43 @@ def main(func_args=None):
     # extract a longer video from the original video! 
 
     # First update the subtitles
-    import librosa
+    from pydub import AudioSegment
+
+    # Timedelta function demonstration 
+    from datetime import timedelta
+
+    import srt
+
     for idx, (s, translated_audio_path, extracted_video_path) in enumerate(zip(subtitles, translated_audio_paths, extracted_video_paths)):
+
+        # Load files
+        audio_segment = AudioSegment.from_file(translated_audio_path)
+
+        audio_duration = len(audio_segment) / 10000
         
-        audio_duration = librosa.get_duration(filename=translated_audio_path)
-        new_end = s.start + audio_duration 
+        print ("Audio Duration is: ", audio_duration)
+        print ("S.start is: ", s.start)
+        
+        new_end = s.start.total_seconds() + audio_duration 
+        new_end = timedelta(0, new_end, 0)
+
+        print ("New end is: ", new_end)
+        print ("s.end is: ", s.end)  
 
         if new_end > s.end:
             s.end = new_end
 
             start_seconds = float(s.start.total_seconds())
             end_seconds = float(s.end.total_seconds())
+            try:
+                video_filename = Path(r"{}{}new_cut_srt.mp4".format(args.extracted_path + "/video/", str(s.index)))
 
-            video_filename = Path(r"{}{}new_cut_srt.mp4".format(args.extracted_path + "/video/", str(s.index)))
-
-            extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
+                extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
 	
-            extracted_video_paths[idx] = video_filename
+                extracted_video_paths[idx] = video_filename
+            except Exception as e:
+                print ("Could not create the following subtitle:", s)
+                print ("Reason:", str(e))
 
     final_srt = srt.compose(list(subtitles))
     

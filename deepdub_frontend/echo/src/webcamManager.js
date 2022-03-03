@@ -6,9 +6,13 @@ import { useRecordWebcam } from 'react-record-webcam'
 import request from './utils/request';
 import {baseUrl} from './utils/request';
 
+import EchoTitle from './echoTitle';
+
+
 import { axios, CancelToken } from "axios"
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 
 
 // Material UI for React
@@ -291,12 +295,13 @@ useEffect( () => {
     { (recordWebcam.status == "RECORDING" || recordWebcam.status == "PREVIEW") ? <></> :
 
     <>
-    <h1 style={{
+    {/* <h1 style={{
         fontSize: "140px",
         fontWeight: "bold",
         margin: "0px",
         marginTop: "-50px",
-    }}>Echo</h1>
+    }}>Echo</h1> */}
+    <EchoTitle style={{marginTop: "-50px"}}/>
     <h3 style={{
         // fontSize: "140px",
         // fontWeight: "bold",
