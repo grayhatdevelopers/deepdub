@@ -156,7 +156,6 @@ def extract_audio_and_video (
             #video_filename = Path("C:\deepdub\deepdub_server\deepdub_server\user_uploads\wooey_scripts\extracted\video\{}cut_srt.mp4".format(str(s.index)))
             #audio_filename = Path("\\{}audio_srt.mp3".format(str(s.index)))
 
-
             video_filename = Path(r"{}{}cut_srt.mp4".format(extracted_video_path, str(s.index)))
             audio_filename = Path(r"{}{}audio_srt.mp3".format(extracted_audio_path, str(s.index)))
 		

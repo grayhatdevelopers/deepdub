@@ -44,3 +44,6 @@ mycert.pem
 *.a
 k3
 m3
+
+# Ignore node modules from Node
+node_modules

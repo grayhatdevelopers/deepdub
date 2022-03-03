@@ -182,7 +182,7 @@ def main(func_args=None):
 
 
     ## -------------------------------------------
-    ## DeepDub pipeline 0
+    ## DeepDub pipeline 2
     ## Authors:
     ## 1. AbdurRehman Subhani
     ## 2. Saad Ahmed Bazaz
@@ -259,7 +259,7 @@ def main(func_args=None):
                                                                         translation_filepath, 
                                                                         args.video,
                                                                         args.extracted_path + "/audio/",
-                                                                                                                 args.extracted_path + "/video/",
+                                                                        args.extracted_path + "/video/",
                                                                         args.deepdubstart,
                                                                         args.deepdubend,
                                                                         args.clipminlength,
@@ -274,6 +274,39 @@ def main(func_args=None):
     # 3.
     # Pass files to Lip Syncer
     # (Wav2Lip)
+
+    # 3a. check each translated audio file length, 
+    # if it is more than the corresponding extracted video file, then 
+    # extract a longer video from the original video! 
+
+    # First update the subtitles
+    import librosa
+    for idx, (s, translated_audio_path, extracted_video_path) in enumerate(zip(subtitles, translated_audio_paths, extracted_video_paths)):
+        
+        audio_duration = librosa.get_duration(filename=translated_audio_path)
+        new_end = s.start + audio_duration 
+
+        if new_end > s.end:
+            s.end = new_end
+
+            start_seconds = float(s.start.total_seconds())
+            end_seconds = float(s.end.total_seconds())
+
+            video_filename = Path(r"{}{}new_cut_srt.mp4".format(args.extracted_path + "/video/", str(s.index)))
+
+            extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
+	
+            extracted_video_paths[idx] = video_filename
+
+    final_srt = srt.compose(list(subtitles))
+    
+    translation_srt_filepath = args.metadata_path + "/new_translation_sentences.srt" 
+    
+    text_file = open(translation_srt_filepath, "w")
+    n = text_file.write(final_srt)
+    text_file.close()  
+
+    #3b. Now you can pass the files 
     translated_video_paths = lip_syncer.run(translated_audio_paths, extracted_video_paths, args)
 
     # 4.
