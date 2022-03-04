@@ -3,1161 +3,851 @@
   {
    "begin": "0.000",
    "children": [],
-   "end": "0.520",
+   "end": "0.360",
    "id": "f000001",
    "language": "de",
    "lines": [
-    "abend"
+    "sehr"
    ]
   },
   {
-   "begin": "0.520",
+   "begin": "0.360",
    "children": [],
-   "end": "0.720",
+   "end": "0.920",
    "id": "f000002",
    "language": "de",
    "lines": [
-    "stehen"
+    "geehrter"
    ]
   },
   {
-   "begin": "0.720",
+   "begin": "0.920",
    "children": [],
-   "end": "0.880",
+   "end": "1.040",
    "id": "f000003",
    "language": "de",
    "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "0.880",
-   "children": [],
-   "end": "1.040",
-   "id": "f000004",
-   "language": "de",
-   "lines": [
-    "nicht"
+    "herr"
    ]
   },
   {
    "begin": "1.040",
    "children": [],
-   "end": "1.120",
+   "end": "1.880",
+   "id": "f000004",
+   "language": "de",
+   "lines": [
+    "generaldirektor"
+   ]
+  },
+  {
+   "begin": "1.880",
+   "children": [],
+   "end": "2.680",
    "id": "f000005",
    "language": "de",
    "lines": [
-    "nur"
+    "tedros"
    ]
   },
   {
-   "begin": "1.120",
+   "begin": "2.680",
    "children": [],
-   "end": "1.400",
+   "end": "3.640",
    "id": "f000006",
    "language": "de",
    "lines": [
-    "am"
-   ]
-  },
-  {
-   "begin": "1.400",
-   "children": [],
-   "end": "1.680",
-   "id": "f000007",
-   "language": "de",
-   "lines": [
-    "beginn"
-   ]
-  },
-  {
-   "begin": "1.680",
-   "children": [],
-   "end": "1.960",
-   "id": "f000008",
-   "language": "de",
-   "lines": [
-    "eines"
-   ]
-  },
-  {
-   "begin": "1.960",
-   "children": [],
-   "end": "2.240",
-   "id": "f000009",
-   "language": "de",
-   "lines": [
-    "neuen"
-   ]
-  },
-  {
-   "begin": "2.240",
-   "children": [],
-   "end": "3.280",
-   "id": "f000010",
-   "language": "de",
-   "lines": [
-    "jahres"
-   ]
-  },
-  {
-   "begin": "3.280",
-   "children": [],
-   "end": "3.640",
-   "id": "f000011",
-   "language": "de",
-   "lines": [
-    "sondern"
+    "exzellenzen"
    ]
   },
   {
    "begin": "3.640",
    "children": [],
-   "end": "3.800",
-   "id": "f000012",
+   "end": "3.880",
+   "id": "f000007",
    "language": "de",
    "lines": [
-    "auch"
+    "sehr"
    ]
   },
   {
-   "begin": "3.800",
+   "begin": "3.880",
    "children": [],
    "end": "4.160",
-   "id": "f000013",
+   "id": "f000008",
    "language": "de",
    "lines": [
-    "eines"
+    "geehrte"
    ]
   },
   {
    "begin": "4.160",
    "children": [],
    "end": "4.520",
-   "id": "f000014",
+   "id": "f000009",
    "language": "de",
    "lines": [
-    "neuen"
+    "damen"
    ]
   },
   {
    "begin": "4.520",
    "children": [],
-   "end": "6.080",
-   "id": "f000015",
-   "language": "de",
-   "lines": [
-    "jahrzehnts"
-   ]
-  },
-  {
-   "begin": "6.080",
-   "children": [],
-   "end": "6.240",
-   "id": "f000016",
-   "language": "de",
-   "lines": [
-    "ich"
-   ]
-  },
-  {
-   "begin": "6.240",
-   "children": [],
-   "end": "6.480",
-   "id": "f000017",
-   "language": "de",
-   "lines": [
-    "bin"
-   ]
-  },
-  {
-   "begin": "6.480",
-   "children": [],
-   "end": "7.080",
-   "id": "f000018",
-   "language": "de",
-   "lines": [
-    "\u00fcberzeugt"
-   ]
-  },
-  {
-   "begin": "7.080",
-   "children": [],
-   "end": "7.720",
-   "id": "f000019",
-   "language": "de",
-   "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "7.720",
-   "children": [],
-   "end": "8.160",
-   "id": "f000020",
-   "language": "de",
-   "lines": [
-    "haben"
-   ]
-  },
-  {
-   "begin": "8.160",
-   "children": [],
-   "end": "8.560",
-   "id": "f000021",
-   "language": "de",
-   "lines": [
-    "gute"
-   ]
-  },
-  {
-   "begin": "8.560",
-   "children": [],
-   "end": "8.880",
-   "id": "f000022",
-   "language": "de",
-   "lines": [
-    "gr\u00fcnde"
-   ]
-  },
-  {
-   "begin": "8.880",
-   "children": [],
-   "end": "9.600",
-   "id": "f000023",
-   "language": "de",
-   "lines": [
-    "zuversichtlich"
-   ]
-  },
-  {
-   "begin": "9.600",
-   "children": [],
-   "end": "9.760",
-   "id": "f000024",
-   "language": "de",
-   "lines": [
-    "zu"
-   ]
-  },
-  {
-   "begin": "9.760",
-   "children": [],
-   "end": "10.720",
-   "id": "f000025",
-   "language": "de",
-   "lines": [
-    "sein"
-   ]
-  },
-  {
-   "begin": "10.720",
-   "children": [],
-   "end": "10.920",
-   "id": "f000026",
-   "language": "de",
-   "lines": [
-    "dass"
-   ]
-  },
-  {
-   "begin": "10.920",
-   "children": [],
-   "end": "11.160",
-   "id": "f000027",
-   "language": "de",
-   "lines": [
-    "die"
-   ]
-  },
-  {
-   "begin": "11.160",
-   "children": [],
-   "end": "11.160",
-   "id": "f000028",
-   "language": "de",
-   "lines": [
-    "in"
-   ]
-  },
-  {
-   "begin": "11.160",
-   "children": [],
-   "end": "11.600",
-   "id": "f000029",
-   "language": "de",
-   "lines": [
-    "wenigen"
-   ]
-  },
-  {
-   "begin": "11.600",
-   "children": [],
-   "end": "12.080",
-   "id": "f000030",
-   "language": "de",
-   "lines": [
-    "stunden"
-   ]
-  },
-  {
-   "begin": "12.080",
-   "children": [],
-   "end": "12.640",
-   "id": "f000031",
-   "language": "de",
-   "lines": [
-    "beginnenden"
-   ]
-  },
-  {
-   "begin": "12.640",
-   "children": [],
-   "end": "13.240",
-   "id": "f000032",
-   "language": "de",
-   "lines": [
-    "zwanziger"
-   ]
-  },
-  {
-   "begin": "13.240",
-   "children": [],
-   "end": "13.640",
-   "id": "f000033",
-   "language": "de",
-   "lines": [
-    "jahre"
-   ]
-  },
-  {
-   "begin": "13.640",
-   "children": [],
-   "end": "13.720",
-   "id": "f000034",
-   "language": "de",
-   "lines": [
-    "des"
-   ]
-  },
-  {
-   "begin": "13.720",
-   "children": [],
-   "end": "14.560",
-   "id": "f000035",
-   "language": "de",
-   "lines": [
-    "einundzwanzigsten"
-   ]
-  },
-  {
-   "begin": "14.560",
-   "children": [],
-   "end": "15.280",
-   "id": "f000036",
-   "language": "de",
-   "lines": [
-    "jahrhunderts"
-   ]
-  },
-  {
-   "begin": "15.280",
-   "children": [],
-   "end": "15.560",
-   "id": "f000037",
-   "language": "de",
-   "lines": [
-    "gute"
-   ]
-  },
-  {
-   "begin": "15.560",
-   "children": [],
-   "end": "16.000",
-   "id": "f000038",
-   "language": "de",
-   "lines": [
-    "jahre"
-   ]
-  },
-  {
-   "begin": "16.000",
-   "children": [],
-   "end": "16.200",
-   "id": "f000039",
-   "language": "de",
-   "lines": [
-    "werden"
-   ]
-  },
-  {
-   "begin": "16.200",
-   "children": [],
-   "end": "16.280",
-   "id": "f000040",
-   "language": "de",
-   "lines": [
-    "k\u00f6nnen"
-   ]
-  },
-  {
-   "begin": "16.280",
-   "children": [],
-   "end": "16.520",
-   "id": "f000041",
-   "language": "de",
-   "lines": [
-    "wenn"
-   ]
-  },
-  {
-   "begin": "16.520",
-   "children": [],
-   "end": "17.480",
-   "id": "f000042",
-   "language": "de",
-   "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "17.480",
-   "children": [],
-   "end": "18.080",
-   "id": "f000043",
-   "language": "de",
-   "lines": [
-    "unsere"
-   ]
-  },
-  {
-   "begin": "18.080",
-   "children": [],
-   "end": "18.560",
-   "id": "f000044",
-   "language": "de",
-   "lines": [
-    "st\u00e4rken"
-   ]
-  },
-  {
-   "begin": "18.560",
-   "children": [],
-   "end": "19.080",
-   "id": "f000045",
-   "language": "de",
-   "lines": [
-    "nutzen"
-   ]
-  },
-  {
-   "begin": "19.080",
-   "children": [],
-   "end": "19.480",
-   "id": "f000046",
-   "language": "de",
-   "lines": [
-    "wenn"
-   ]
-  },
-  {
-   "begin": "19.480",
-   "children": [],
-   "end": "19.840",
-   "id": "f000047",
-   "language": "de",
-   "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "19.840",
-   "children": [],
-   "end": "20.360",
-   "id": "f000048",
-   "language": "de",
-   "lines": [
-    "oft"
-   ]
-  },
-  {
-   "begin": "20.360",
-   "children": [],
-   "end": "20.600",
-   "id": "f000049",
-   "language": "de",
-   "lines": [
-    "das"
-   ]
-  },
-  {
-   "begin": "20.600",
-   "children": [],
-   "end": "20.960",
-   "id": "f000050",
-   "language": "de",
-   "lines": [
-    "setzen"
-   ]
-  },
-  {
-   "begin": "20.960",
-   "children": [],
-   "end": "21.280",
-   "id": "f000051",
-   "language": "de",
-   "lines": [
-    "was"
-   ]
-  },
-  {
-   "begin": "21.280",
-   "children": [],
-   "end": "21.360",
-   "id": "f000052",
-   "language": "de",
-   "lines": [
-    "uns"
-   ]
-  },
-  {
-   "begin": "21.360",
-   "children": [],
-   "end": "21.560",
-   "id": "f000053",
-   "language": "de",
-   "lines": [
-    "verbindet"
-   ]
-  },
-  {
-   "begin": "21.560",
-   "children": [],
-   "end": "22.720",
-   "id": "f000054",
-   "language": "de",
-   "lines": [
-    "wenn"
-   ]
-  },
-  {
-   "begin": "22.720",
-   "children": [],
-   "end": "22.920",
-   "id": "f000055",
-   "language": "de",
-   "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "22.920",
-   "children": [],
-   "end": "23.240",
-   "id": "f000056",
-   "language": "de",
-   "lines": [
-    "uns"
-   ]
-  },
-  {
-   "begin": "23.240",
-   "children": [],
-   "end": "23.760",
-   "id": "f000057",
-   "language": "de",
-   "lines": [
-    "daran"
-   ]
-  },
-  {
-   "begin": "23.760",
-   "children": [],
-   "end": "24.080",
-   "id": "f000058",
-   "language": "de",
-   "lines": [
-    "erinnern"
-   ]
-  },
-  {
-   "begin": "24.080",
-   "children": [],
-   "end": "24.280",
-   "id": "f000059",
-   "language": "de",
-   "lines": [
-    "was"
-   ]
-  },
-  {
-   "begin": "24.280",
-   "children": [],
-   "end": "24.280",
-   "id": "f000060",
-   "language": "de",
-   "lines": [
-    "wir"
-   ]
-  },
-  {
-   "begin": "24.280",
-   "children": [],
-   "end": "24.280",
-   "id": "f000061",
-   "language": "de",
-   "lines": [
-    "in"
-   ]
-  },
-  {
-   "begin": "24.280",
-   "children": [],
-   "end": "24.680",
-   "id": "f000062",
-   "language": "de",
-   "lines": [
-    "den"
-   ]
-  },
-  {
-   "begin": "24.680",
-   "children": [],
-   "end": "25.080",
-   "id": "f000063",
-   "language": "de",
-   "lines": [
-    "letzten"
-   ]
-  },
-  {
-   "begin": "25.080",
-   "children": [],
-   "end": "25.800",
-   "id": "f000064",
-   "language": "de",
-   "lines": [
-    "jahrzehnten"
-   ]
-  },
-  {
-   "begin": "25.800",
-   "children": [],
-   "end": "26.480",
-   "id": "f000065",
-   "language": "de",
-   "lines": [
-    "gemeinsam"
-   ]
-  },
-  {
-   "begin": "26.480",
-   "children": [],
-   "end": "26.880",
-   "id": "f000066",
-   "language": "de",
-   "lines": [
-    "erreicht"
-   ]
-  },
-  {
-   "begin": "26.880",
-   "children": [],
-   "end": "28.560",
-   "id": "f000067",
-   "language": "de",
-   "lines": [
-    "habenim"
-   ]
-  },
-  {
-   "begin": "28.560",
-   "children": [],
-   "end": "29.000",
-   "id": "f000068",
-   "language": "de",
-   "lines": [
-    "n\u00e4chsten"
-   ]
-  },
-  {
-   "begin": "29.000",
-   "children": [],
-   "end": "29.440",
-   "id": "f000069",
-   "language": "de",
-   "lines": [
-    "jahr"
-   ]
-  },
-  {
-   "begin": "29.440",
-   "children": [],
-   "end": "29.440",
-   "id": "f000070",
-   "language": "de",
-   "lines": [
-    "wird"
-   ]
-  },
-  {
-   "begin": "29.440",
-   "children": [],
-   "end": "29.960",
-   "id": "f000071",
-   "language": "de",
-   "lines": [
-    "deutschland"
-   ]
-  },
-  {
-   "begin": "29.960",
-   "children": [],
-   "end": "30.160",
-   "id": "f000072",
-   "language": "de",
-   "lines": [
-    "seit"
-   ]
-  },
-  {
-   "begin": "30.160",
-   "children": [],
-   "end": "30.640",
-   "id": "f000073",
-   "language": "de",
-   "lines": [
-    "dreissig"
-   ]
-  },
-  {
-   "begin": "30.640",
-   "children": [],
-   "end": "31.120",
-   "id": "f000074",
-   "language": "de",
-   "lines": [
-    "jahren"
-   ]
-  },
-  {
-   "begin": "31.120",
-   "children": [],
-   "end": "31.280",
-   "id": "f000075",
-   "language": "de",
-   "lines": [
-    "in"
-   ]
-  },
-  {
-   "begin": "31.280",
-   "children": [],
-   "end": "31.600",
-   "id": "f000076",
-   "language": "de",
-   "lines": [
-    "frieden"
-   ]
-  },
-  {
-   "begin": "31.600",
-   "children": [],
-   "end": "31.960",
-   "id": "f000077",
+   "end": "4.600",
+   "id": "f000010",
    "language": "de",
    "lines": [
     "und"
    ]
   },
   {
-   "begin": "31.960",
+   "begin": "4.600",
    "children": [],
-   "end": "32.560",
-   "id": "f000078",
+   "end": "5.320",
+   "id": "f000011",
    "language": "de",
    "lines": [
-    "freiheit"
+    "herren"
    ]
   },
   {
-   "begin": "32.560",
+   "begin": "5.320",
    "children": [],
-   "end": "33.120",
-   "id": "f000079",
-   "language": "de",
-   "lines": [
-    "wiedervereint"
-   ]
-  },
-  {
-   "begin": "33.120",
-   "children": [],
-   "end": "34.400",
-   "id": "f000080",
-   "language": "de",
-   "lines": [
-    "sein"
-   ]
-  },
-  {
-   "begin": "34.400",
-   "children": [],
-   "end": "34.480",
-   "id": "f000081",
-   "language": "de",
-   "lines": [
-    "in"
-   ]
-  },
-  {
-   "begin": "34.480",
-   "children": [],
-   "end": "34.720",
-   "id": "f000082",
-   "language": "de",
-   "lines": [
-    "diesen"
-   ]
-  },
-  {
-   "begin": "34.720",
-   "children": [],
-   "end": "35.120",
-   "id": "f000083",
-   "language": "de",
-   "lines": [
-    "dreissig"
-   ]
-  },
-  {
-   "begin": "35.120",
-   "children": [],
-   "end": "35.440",
-   "id": "f000084",
-   "language": "de",
-   "lines": [
-    "jahren"
-   ]
-  },
-  {
-   "begin": "35.440",
-   "children": [],
-   "end": "35.800",
-   "id": "f000085",
-   "language": "de",
-   "lines": [
-    "haben"
-   ]
-  },
-  {
-   "begin": "35.800",
-   "children": [],
-   "end": "35.920",
-   "id": "f000086",
+   "end": "5.680",
+   "id": "f000012",
    "language": "de",
    "lines": [
     "wir"
    ]
   },
   {
-   "begin": "35.920",
+   "begin": "5.680",
    "children": [],
-   "end": "36.640",
-   "id": "f000087",
+   "end": "6.120",
+   "id": "f000013",
    "language": "de",
    "lines": [
-    "grossartiges"
+    "erleben"
    ]
   },
   {
-   "begin": "36.640",
+   "begin": "6.120",
    "children": [],
-   "end": "37.960",
-   "id": "f000088",
+   "end": "6.440",
+   "id": "f000014",
    "language": "de",
    "lines": [
-    "geschafft"
+    "eine"
    ]
   },
   {
-   "begin": "37.960",
+   "begin": "6.440",
    "children": [],
-   "end": "38.240",
-   "id": "f000089",
+   "end": "6.920",
+   "id": "f000015",
    "language": "de",
    "lines": [
-    "so"
+    "globale"
    ]
   },
   {
-   "begin": "38.240",
+   "begin": "6.920",
    "children": [],
-   "end": "38.360",
-   "id": "f000090",
+   "end": "7.800",
+   "id": "f000016",
    "language": "de",
    "lines": [
-    "hatten"
+    "krise"
    ]
   },
   {
-   "begin": "38.360",
+   "begin": "7.800",
    "children": [],
-   "end": "38.520",
-   "id": "f000091",
+   "end": "8.040",
+   "id": "f000017",
    "language": "de",
    "lines": [
-    "zum"
+    "fast"
    ]
   },
   {
-   "begin": "38.520",
+   "begin": "8.040",
    "children": [],
-   "end": "38.840",
-   "id": "f000092",
+   "end": "8.320",
+   "id": "f000018",
    "language": "de",
    "lines": [
-    "beispiel"
+    "f\u00fcnf"
    ]
   },
   {
-   "begin": "38.840",
+   "begin": "8.320",
    "children": [],
-   "end": "39.120",
-   "id": "f000093",
+   "end": "8.680",
+   "id": "f000019",
    "language": "de",
    "lines": [
-    "noch"
+    "millionen"
    ]
   },
   {
-   "begin": "39.120",
+   "begin": "8.680",
    "children": [],
-   "end": "39.320",
-   "id": "f000094",
+   "end": "9.080",
+   "id": "f000020",
    "language": "de",
    "lines": [
-    "nie"
+    "menschen"
    ]
   },
   {
-   "begin": "39.320",
+   "begin": "9.080",
    "children": [],
-   "end": "39.560",
-   "id": "f000095",
+   "end": "10.240",
+   "id": "f000021",
    "language": "de",
    "lines": [
-    "so"
+    "weltweit"
    ]
   },
   {
-   "begin": "39.560",
+   "begin": "10.240",
    "children": [],
-   "end": "39.840",
-   "id": "f000096",
+   "end": "10.400",
+   "id": "f000022",
    "language": "de",
    "lines": [
-    "viele"
+    "die"
    ]
   },
   {
-   "begin": "39.840",
+   "begin": "10.400",
    "children": [],
-   "end": "40.600",
-   "id": "f000097",
+   "end": "10.760",
+   "id": "f000023",
    "language": "de",
    "lines": [
-    "menschenarbeit"
+    "sich"
    ]
   },
   {
-   "begin": "40.600",
+   "begin": "10.760",
    "children": [],
-   "end": "40.800",
-   "id": "f000098",
+   "end": "11.080",
+   "id": "f000024",
    "language": "de",
    "lines": [
-    "wie"
+    "stand"
    ]
   },
   {
-   "begin": "40.800",
+   "begin": "11.080",
    "children": [],
-   "end": "41.240",
-   "id": "f000099",
+   "end": "11.720",
+   "id": "f000025",
    "language": "de",
    "lines": [
     "heute"
    ]
   },
   {
-   "begin": "41.240",
+   "begin": "11.720",
    "children": [],
-   "end": "42.680",
-   "id": "f000100",
+   "end": "11.880",
+   "id": "f000026",
    "language": "de",
    "lines": [
-    "dennoch"
+    "mit"
    ]
   },
   {
-   "begin": "42.680",
+   "begin": "11.880",
    "children": [],
-   "end": "43.000",
-   "id": "f000101",
+   "end": "12.040",
+   "id": "f000027",
    "language": "de",
    "lines": [
-    "bleibt"
+    "dem"
    ]
   },
   {
-   "begin": "43.000",
+   "begin": "12.040",
    "children": [],
-   "end": "43.560",
-   "id": "f000102",
+   "end": "12.960",
+   "id": "f000028",
    "language": "de",
    "lines": [
-    "auch"
+    "kronavirus"
    ]
   },
   {
-   "begin": "43.560",
+   "begin": "12.960",
    "children": [],
-   "end": "43.560",
-   "id": "f000103",
+   "end": "13.360",
+   "id": "f000029",
+   "language": "de",
+   "lines": [
+    "infiziert"
+   ]
+  },
+  {
+   "begin": "13.360",
+   "children": [],
+   "end": "13.680",
+   "id": "f000030",
+   "language": "de",
+   "lines": [
+    "haben"
+   ]
+  },
+  {
+   "begin": "13.680",
+   "children": [],
+   "end": "14.320",
+   "id": "f000031",
+   "language": "de",
+   "lines": [
+    "und"
+   ]
+  },
+  {
+   "begin": "14.320",
+   "children": [],
+   "end": "15.000",
+   "id": "f000032",
+   "language": "de",
+   "lines": [
+    "ebenfalls"
+   ]
+  },
+  {
+   "begin": "15.000",
+   "children": [],
+   "end": "15.920",
+   "id": "f000033",
+   "language": "de",
+   "lines": [
+    "standheute"
+   ]
+  },
+  {
+   "begin": "15.920",
+   "children": [],
+   "end": "16.160",
+   "id": "f000034",
+   "language": "de",
+   "lines": [
+    "rund"
+   ]
+  },
+  {
+   "begin": "16.160",
+   "children": [],
+   "end": "17.760",
+   "id": "f000035",
+   "language": "de",
+   "lines": [
+    "dreihunderttausend-todesf\u00e4lle"
+   ]
+  },
+  {
+   "begin": "17.760",
+   "children": [],
+   "end": "18.920",
+   "id": "f000036",
+   "language": "de",
+   "lines": [
+    "weltweit"
+   ]
+  },
+  {
+   "begin": "18.920",
+   "children": [],
+   "end": "19.360",
+   "id": "f000037",
+   "language": "de",
+   "lines": [
+    "ausserdem"
+   ]
+  },
+  {
+   "begin": "19.360",
+   "children": [],
+   "end": "19.880",
+   "id": "f000038",
+   "language": "de",
+   "lines": [
+    "geschlossene"
+   ]
+  },
+  {
+   "begin": "19.880",
+   "children": [],
+   "end": "20.440",
+   "id": "f000039",
+   "language": "de",
+   "lines": [
+    "grenzen"
+   ]
+  },
+  {
+   "begin": "20.440",
+   "children": [],
+   "end": "20.600",
+   "id": "f000040",
+   "language": "de",
+   "lines": [
+    "und"
+   ]
+  },
+  {
+   "begin": "20.600",
+   "children": [],
+   "end": "21.240",
+   "id": "f000041",
+   "language": "de",
+   "lines": [
+    "herbe-einschnitte"
+   ]
+  },
+  {
+   "begin": "21.240",
+   "children": [],
+   "end": "21.400",
+   "id": "f000042",
    "language": "de",
    "lines": [
     "im"
    ]
   },
   {
-   "begin": "43.560",
+   "begin": "21.400",
    "children": [],
-   "end": "43.560",
-   "id": "f000104",
+   "end": "22.000",
+   "id": "f000043",
    "language": "de",
    "lines": [
-    "n\u00e4chsten"
+    "wirtschafts-"
    ]
   },
   {
-   "begin": "43.560",
+   "begin": "22.000",
    "children": [],
-   "end": "44.200",
-   "id": "f000105",
+   "end": "22.280",
+   "id": "f000044",
    "language": "de",
    "lines": [
-    "jahrzehnten"
+    "und"
    ]
   },
   {
-   "begin": "44.200",
+   "begin": "22.280",
    "children": [],
-   "end": "44.440",
-   "id": "f000106",
+   "end": "23.040",
+   "id": "f000045",
    "language": "de",
    "lines": [
-    "noch"
+    "alltagsleben"
    ]
   },
   {
-   "begin": "44.440",
+   "begin": "23.040",
    "children": [],
-   "end": "44.800",
-   "id": "f000107",
+   "end": "24.080",
+   "id": "f000046",
    "language": "de",
    "lines": [
-    "mehr"
+    "zeigen"
    ]
   },
   {
-   "begin": "44.800",
+   "begin": "24.080",
    "children": [],
-   "end": "45.000",
-   "id": "f000108",
+   "end": "24.280",
+   "id": "f000047",
    "language": "de",
    "lines": [
-    "zu"
+    "dass"
    ]
   },
   {
-   "begin": "45.000",
+   "begin": "24.280",
    "children": [],
-   "end": "45.880",
-   "id": "f000109",
+   "end": "24.600",
+   "id": "f000048",
    "language": "de",
    "lines": [
-    "tun"
+    "kaum"
    ]
   },
   {
-   "begin": "45.880",
+   "begin": "24.600",
    "children": [],
-   "end": "46.200",
-   "id": "f000110",
+   "end": "24.800",
+   "id": "f000049",
    "language": "de",
    "lines": [
-    "als"
+    "ein"
    ]
   },
   {
-   "begin": "46.200",
+   "begin": "24.800",
    "children": [],
-   "end": "46.200",
-   "id": "f000111",
+   "end": "25.080",
+   "id": "f000050",
+   "language": "de",
+   "lines": [
+    "land"
+   ]
+  },
+  {
+   "begin": "25.080",
+   "children": [],
+   "end": "25.280",
+   "id": "f000051",
+   "language": "de",
+   "lines": [
+    "von"
+   ]
+  },
+  {
+   "begin": "25.280",
+   "children": [],
+   "end": "25.440",
+   "id": "f000052",
+   "language": "de",
+   "lines": [
+    "der"
+   ]
+  },
+  {
+   "begin": "25.440",
+   "children": [],
+   "end": "26.040",
+   "id": "f000053",
+   "language": "de",
+   "lines": [
+    "pandemie"
+   ]
+  },
+  {
+   "begin": "26.040",
+   "children": [],
+   "end": "26.200",
+   "id": "f000054",
+   "language": "de",
+   "lines": [
+    "und"
+   ]
+  },
+  {
+   "begin": "26.200",
+   "children": [],
+   "end": "26.480",
+   "id": "f000055",
+   "language": "de",
+   "lines": [
+    "ihren"
+   ]
+  },
+  {
+   "begin": "26.480",
+   "children": [],
+   "end": "26.880",
+   "id": "f000056",
+   "language": "de",
+   "lines": [
+    "folgen"
+   ]
+  },
+  {
+   "begin": "26.880",
+   "children": [],
+   "end": "27.360",
+   "id": "f000057",
+   "language": "de",
+   "lines": [
+    "verschont"
+   ]
+  },
+  {
+   "begin": "27.360",
+   "children": [],
+   "end": "27.720",
+   "id": "f000058",
+   "language": "de",
+   "lines": [
+    "bleibtdiese"
+   ]
+  },
+  {
+   "begin": "27.720",
+   "children": [],
+   "end": "29.440",
+   "id": "f000059",
+   "language": "de",
+   "lines": [
+    "krise"
+   ]
+  },
+  {
+   "begin": "29.440",
+   "children": [],
+   "end": "29.680",
+   "id": "f000060",
+   "language": "de",
+   "lines": [
+    "kann"
+   ]
+  },
+  {
+   "begin": "29.680",
+   "children": [],
+   "end": "29.960",
+   "id": "f000061",
+   "language": "de",
+   "lines": [
+    "kein"
+   ]
+  },
+  {
+   "begin": "29.960",
+   "children": [],
+   "end": "30.200",
+   "id": "f000062",
+   "language": "de",
+   "lines": [
+    "land"
+   ]
+  },
+  {
+   "begin": "30.200",
+   "children": [],
+   "end": "30.960",
+   "id": "f000063",
+   "language": "de",
+   "lines": [
+    "alleinl\u00f6sen"
+   ]
+  },
+  {
+   "begin": "30.960",
+   "children": [],
+   "end": "31.360",
+   "id": "f000064",
    "language": "de",
    "lines": [
     "wir"
    ]
   },
   {
-   "begin": "46.200",
+   "begin": "31.360",
    "children": [],
-   "end": "46.360",
-   "id": "f000112",
+   "end": "31.680",
+   "id": "f000065",
    "language": "de",
    "lines": [
-    "vor"
+    "m\u00fcssen"
    ]
   },
   {
-   "begin": "46.360",
+   "begin": "31.680",
    "children": [],
-   "end": "46.840",
-   "id": "f000113",
+   "end": "32.200",
+   "id": "f000066",
    "language": "de",
    "lines": [
-    "dreissig"
+    "gemeinsam"
    ]
   },
   {
-   "begin": "46.840",
+   "begin": "32.200",
    "children": [],
-   "end": "47.280",
-   "id": "f000114",
+   "end": "33.200",
+   "id": "f000067",
    "language": "de",
    "lines": [
-    "jahren"
+    "handeln"
    ]
   },
   {
-   "begin": "47.280",
+   "begin": "33.200",
    "children": [],
-   "end": "47.560",
-   "id": "f000115",
+   "end": "33.520",
+   "id": "f000068",
    "language": "de",
    "lines": [
-    "gedacht"
+    "daher"
    ]
   },
   {
-   "begin": "47.560",
+   "begin": "33.520",
    "children": [],
-   "end": "48.720",
-   "id": "f000116",
+   "end": "33.920",
+   "id": "f000069",
    "language": "de",
    "lines": [
-    "aben"
+    "danke"
+   ]
+  },
+  {
+   "begin": "33.920",
+   "children": [],
+   "end": "34.080",
+   "id": "f000070",
+   "language": "de",
+   "lines": [
+    "ich"
+   ]
+  },
+  {
+   "begin": "34.080",
+   "children": [],
+   "end": "34.280",
+   "id": "f000071",
+   "language": "de",
+   "lines": [
+    "ihnen"
+   ]
+  },
+  {
+   "begin": "34.280",
+   "children": [],
+   "end": "34.840",
+   "id": "f000072",
+   "language": "de",
+   "lines": [
+    "allen"
+   ]
+  },
+  {
+   "begin": "34.840",
+   "children": [],
+   "end": "34.960",
+   "id": "f000073",
+   "language": "de",
+   "lines": [
+    "die"
+   ]
+  },
+  {
+   "begin": "34.960",
+   "children": [],
+   "end": "35.240",
+   "id": "f000074",
+   "language": "de",
+   "lines": [
+    "sie"
+   ]
+  },
+  {
+   "begin": "35.240",
+   "children": [],
+   "end": "35.320",
+   "id": "f000075",
+   "language": "de",
+   "lines": [
+    "an"
+   ]
+  },
+  {
+   "begin": "35.320",
+   "children": [],
+   "end": "35.600",
+   "id": "f000076",
+   "language": "de",
+   "lines": [
+    "der"
+   ]
+  },
+  {
+   "begin": "35.600",
+   "children": [],
+   "end": "35.920",
+   "id": "f000077",
+   "language": "de",
+   "lines": [
+    "welt"
+   ]
+  },
+  {
+   "begin": "35.920",
+   "children": [],
+   "end": "36.680",
+   "id": "f000078",
+   "language": "de",
+   "lines": [
+    "gesundheitsversammlung"
+   ]
+  },
+  {
+   "begin": "36.680",
+   "children": [],
+   "end": "37.840",
+   "id": "f000079",
+   "language": "de",
+   "lines": [
+    "teilnehmen"
+   ]
+  },
+  {
+   "begin": "37.840",
+   "children": [],
+   "end": "37.960",
+   "id": "f000080",
+   "language": "de",
+   "lines": [
+    "um"
+   ]
+  },
+  {
+   "begin": "37.960",
+   "children": [],
+   "end": "38.640",
+   "id": "f000081",
+   "language": "de",
+   "lines": [
+    "gemeinsam"
+   ]
+  },
+  {
+   "begin": "38.640",
+   "children": [],
+   "end": "38.840",
+   "id": "f000082",
+   "language": "de",
+   "lines": [
+    "nach"
+   ]
+  },
+  {
+   "begin": "38.840",
+   "children": [],
+   "end": "39.320",
+   "id": "f000083",
+   "language": "de",
+   "lines": [
+    "l\u00f6sungen"
+   ]
+  },
+  {
+   "begin": "39.320",
+   "children": [],
+   "end": "39.680",
+   "id": "f000084",
+   "language": "de",
+   "lines": [
+    "zu"
+   ]
+  },
+  {
+   "begin": "39.680",
+   "children": [],
+   "end": "40.040",
+   "id": "f000085",
+   "language": "de",
+   "lines": [
+    "suchen"
    ]
   }
  ]

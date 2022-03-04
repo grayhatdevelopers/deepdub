@@ -53,6 +53,7 @@ async def create_upload_file(
     print("To language:", to_language)
 
     runname = str(datetime.now()).replace(" ", "_").replace(":", "_").replace(".", "_") + "__" + file.filename
+    
     filename = runname + ".webm"
 
     async with aiofiles.open("uploads/"+filename, 'wb') as out_file:
@@ -64,8 +65,23 @@ async def create_upload_file(
     results_folder_path = os.path.join(os.path.abspath(os.getcwd()), "results")    
 
     run_folder_path = os.path.join(results_folder_path, runname)
+    os.mkdir(run_folder_path)
 
-    deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
+    extracted_folder_path = os.path.join(run_folder_path, "extracted")
+    os.mkdir(extracted_folder_path)
+    os.mkdir(os.path.join(extracted_folder_path, "audio"))
+    os.mkdir(os.path.join(extracted_folder_path, "video"))
+    
+    translated_folder_path = os.path.join(run_folder_path, "translated")
+    os.mkdir(translated_folder_path)
+    os.mkdir(os.path.join(translated_folder_path, "audio"))
+    os.mkdir(os.path.join(translated_folder_path, "video"))
+    
+    os.mkdir(os.path.join(run_folder_path, "samples"))
+    os.mkdir(os.path.join(run_folder_path, "metadata"))
+
+    # deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
+    deepdub_path = "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli"
 
     deepdub_args = {
     "video": str(os.path.join(uploads_folder_path, filename)),
