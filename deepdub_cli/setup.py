@@ -16,7 +16,7 @@ class linux_deps(sdist_orig):
 
 
 setup(name='deepdub',
-    version='1.1.1',
+    version='2.0.2',
 
     packages=find_packages(),
     package_data = {'deepdub' : files },

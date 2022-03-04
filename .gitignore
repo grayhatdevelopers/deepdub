@@ -19,6 +19,7 @@ mycert.pem
 *.avi
 *.jpg
 *.srt
+*.webm
 
 # Allow some specific media files e.g. sample files needed for Testing
 !deepdub_cli/samples/*mp3
@@ -32,8 +33,9 @@ mycert.pem
 */generation/pretrained_model/*.yaml
 */generation/pretrained_model/*.ckpt
 */generation/pretrained_model/
-<<<<<<< HEAD
-=======
+
+*/pretrained_model
+/pretrained_model
 
 /deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi/tools/cub*
 /deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi/tools/OpenBLAS*
@@ -42,4 +44,6 @@ mycert.pem
 *.a
 k3
 m3
->>>>>>> 3ae5e23ddbb17c3508382e14874471bbf26700c1
+
+# Ignore node modules from Node
+node_modules

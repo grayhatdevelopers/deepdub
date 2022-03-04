@@ -11,6 +11,7 @@ import argparse
 import sys
 
 from pathlib import Path
+import os
 
 ## Info about this script
 parser = argparse.ArgumentParser(
@@ -40,10 +41,10 @@ parser.add_argument("-cml", "--clipminlength", type=float,
                     help="Minimum duration of a clip of dubbed video."
                     )                    
 
-parser.add_argument("-tls", "--translation_language_source", type=Path, 
+parser.add_argument("-tls", "--translation_language_source", type=str, 
                     required=False,
                     help="Language in which the original video is in.")
-parser.add_argument("-tlt", "--translation_language_target", type=Path, 
+parser.add_argument("-tlt", "--translation_language_target", type=str, 
                     required=False,
                     help="Language in which to output the video.")
 
@@ -151,10 +152,29 @@ parser.add_argument(
 parser.set_defaults(disfluency=False)
 
 
+import os
 
-args = parser.parse_args()
+# All arguments
+deepdub_no_args = os.environ.get('DEEPDUB_NO_ARGS')
+print ("deepdub_no_args =", deepdub_no_args)
+args = None
+if deepdub_no_args == None or deepdub_no_args == False:
+	args = parser.parse_args()
 
-def main():
+# Only arguments which have a default
+# all_defaults = {}
+# for key in vars(args):
+#	all_defaults[key] = parser.get_default(key)
+
+# print("Default arguments", all_defaults)
+
+def main(func_args=None):
+
+    global args
+
+    if func_args != None:
+    	args = func_args
+    
     import pipeline.extract.subtitles.subtitle_reader as extractor
     import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
@@ -162,26 +182,54 @@ def main():
 
 
     ## -------------------------------------------
-    ## DeepDub pipeline 0
+    ## DeepDub pipeline 2
     ## Authors:
     ## 1. AbdurRehman Subhani
     ## 2. Saad Ahmed Bazaz
     ## -------------------------------------------
 
+    print("Args are = ", args)
 
     # 0.
     # Preprocess the video. Here, if a translation file is not provided, we try to make it ourselves.
     if args.translation:
         translation_filepath = args.translation
     else:
-        import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
-        import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
+        # import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
+        import pipeline.extract.transcription.generation.wav2vec2.run_cli as transcription_generator
+        # import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
+        import pipeline.extract.transcription.alignment.aeneas__pydub.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
-        import pipeline.extract.translation.run_cli as translator
+        import pipeline.extract.translation.opus_pt.run_cli as translator
 
         # Extract the audio from the original video (we will use it for all transcription tasks)
         import moviepy.editor as mp
-        original_video = mp.VideoFileClip(str(args.video))
+
+
+        filename, file_extension = os.path.splitext(args.video)
+
+        filename = Path(args.video).stem
+
+        print ("Filename is", filename)
+
+
+        converted_video = os.path.join(args.metadata_path, filename+".mp4")
+
+        call = "ffmpeg -i {} {}".format(args.video, str(converted_video))        
+
+        print ("System call is", call)
+        os.system(call)
+
+        args.video = converted_video
+
+        try:
+            original_video = mp.VideoFileClip(str(args.video))
+        except:
+            print("Video path is ", args.video)
+            original_video = mp.VideoFileClip(args.video.path)
+
+    #    original_video = mp.VideoFileClip(str(args.video))
+     
         original_audio_path = args.metadata_path + "/original_audio.wav"
         original_video.audio.write_audiofile(original_audio_path)
 
@@ -196,7 +244,7 @@ def main():
 
         # 0.3. 
         # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
-        transcription_srt_filepath = transcription_clusterer.run(alignment_path, args)
+        transcription_srt_filepath = transcription_clusterer.run(alignment_path, original_audio_path, args)
 
         # 0.4.
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
@@ -211,7 +259,7 @@ def main():
                                                                         translation_filepath, 
                                                                         args.video,
                                                                         args.extracted_path + "/audio/",
-                                                                                                                 args.extracted_path + "/video/",
+                                                                        args.extracted_path + "/video/",
                                                                         args.deepdubstart,
                                                                         args.deepdubend,
                                                                         args.clipminlength,
@@ -226,13 +274,69 @@ def main():
     # 3.
     # Pass files to Lip Syncer
     # (Wav2Lip)
+
+    # 3a. check each translated audio file length, 
+    # if it is more than the corresponding extracted video file, then 
+    # extract a longer video from the original video! 
+
+    # First update the subtitles
+    from pydub import AudioSegment
+
+    # Timedelta function demonstration 
+    from datetime import timedelta
+
+    import srt
+
+    for idx, (s, translated_audio_path, extracted_video_path) in enumerate(zip(subtitles, translated_audio_paths, extracted_video_paths)):
+
+        # Load files
+        audio_segment = AudioSegment.from_file(translated_audio_path)
+
+        audio_duration = len(audio_segment) / 10000
+        
+        print ("Audio Duration is: ", audio_duration)
+        print ("S.start is: ", s.start)
+        
+        new_end = s.start.total_seconds() + audio_duration 
+        new_end = timedelta(0, new_end, 0)
+
+        print ("New end is: ", new_end)
+        print ("s.end is: ", s.end)  
+
+        if new_end > s.end:
+            s.end = new_end
+
+            start_seconds = float(s.start.total_seconds())
+            end_seconds = float(s.end.total_seconds())
+            try:
+                video_filename = Path(r"{}{}new_cut_srt.mp4".format(args.extracted_path + "/video/", str(s.index)))
+
+                extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
+	
+                extracted_video_paths[idx] = video_filename
+            except Exception as e:
+                print ("Could not create the following subtitle:", s)
+                print ("Reason:", str(e))
+
+    final_srt = srt.compose(list(subtitles))
+    
+    translation_srt_filepath = args.metadata_path + "/new_translation_sentences.srt" 
+    
+    text_file = open(translation_srt_filepath, "w")
+    n = text_file.write(final_srt)
+    text_file.close()  
+
+    #3b. Now you can pass the files 
     translated_video_paths = lip_syncer.run(translated_audio_paths, extracted_video_paths, args)
 
     # 4.
     # Finally, reintegrate the translated videos back into the original video
-    extractor.reintegrate(args.video, subtitles, translated_video_paths)
+    final_file = extractor.reintegrate(args.video, subtitles, translated_video_paths, args)
 
     print ("Thank you for using deepdub.")
+
+    if func_args != None:
+    	return final_file
 
     return 0
 

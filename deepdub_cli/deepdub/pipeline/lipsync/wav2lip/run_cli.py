@@ -147,8 +147,10 @@ def run(
 	translated_audio_paths,
 	extracted_video_paths, 
 	args,
-	translated_video_path="./translated/video/",
+	# translated_video_path="./translated/video/",
 ):
+
+	translated_video_path=os.path.join(args.translated_path, "video")
 
 	translated_video_paths = []
 

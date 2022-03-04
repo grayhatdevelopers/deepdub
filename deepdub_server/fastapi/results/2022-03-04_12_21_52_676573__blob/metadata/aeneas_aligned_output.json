@@ -1,0 +1,34 @@
+{
+ "fragments": [
+  {
+   "begin": "0.000",
+   "children": [],
+   "end": "1.280",
+   "id": "f000001",
+   "language": "de",
+   "lines": [
+    "wie"
+   ]
+  },
+  {
+   "begin": "1.280",
+   "children": [],
+   "end": "2.320",
+   "id": "f000002",
+   "language": "de",
+   "lines": [
+    "hezzensingager"
+   ]
+  },
+  {
+   "begin": "2.320",
+   "children": [],
+   "end": "3.920",
+   "id": "f000003",
+   "language": "de",
+   "lines": [
+    "matinaien"
+   ]
+  }
+ ]
+}
