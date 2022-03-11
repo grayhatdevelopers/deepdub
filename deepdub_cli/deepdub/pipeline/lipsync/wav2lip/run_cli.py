@@ -238,7 +238,7 @@ def run(
 		gen = datagen(full_frames.copy(), mel_chunks, args)
 
 
-		output_filepath = translated_video_path + 'result{}.mp4'.format(idx)
+		output_filepath = str(os.path.join(translated_video_path, 'result{}.mp4'.format(idx)))
 
 		for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 												total=int(np.ceil(float(len(mel_chunks))/batch_size)))):

@@ -47,3 +47,6 @@ m3
 
 # Ignore node modules from Node
 node_modules
+
+# Ignore Kaldi files
+/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi

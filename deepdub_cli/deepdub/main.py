@@ -15,7 +15,7 @@ import os
 
 ## Info about this script
 parser = argparse.ArgumentParser(
-    description="Deepdub dubs videos to a language of your choosing (according to a file you provide, of course).",
+    description="Deepdub dubs videos to a language of your choosing (out of the ones we support, of course).",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
 
@@ -197,6 +197,7 @@ def main(func_args=None):
     else:
         # import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
         import pipeline.extract.transcription.generation.wav2vec2.run_cli as transcription_generator
+        import pipeline.extract.transcription.pronunciation_correction.paddlespeech.text.run_cli as pronunciation_correction
         # import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.alignment.aeneas__pydub.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
@@ -236,6 +237,7 @@ def main(func_args=None):
         # 0.1.
         # Generate the transcription
         raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
+        punctuated = pronunciation_correction.run(raw_transcription, args)
 
         # 0.2.
         # Align the words in the transcription to the original audio
@@ -300,6 +302,13 @@ def main(func_args=None):
         new_end = s.start.total_seconds() + audio_duration 
         new_end = timedelta(0, new_end, 0)
 
+        try:
+            if idx+1 != len(subtitles) and new_end > subtitles[idx+1].start:
+                # TODO: This is where some frames might have to be generated, because now it needs data which cannot be provided.
+                new_end = subtitles[idx+1].start
+        except Exception as e:
+            print ("Couldn't check for overlaps. Reason: ", str(e))
+
         print ("New end is: ", new_end)
         print ("s.end is: ", s.end)  
 
@@ -317,6 +326,38 @@ def main(func_args=None):
             except Exception as e:
                 print ("Could not create the following subtitle:", s)
                 print ("Reason:", str(e))
+        elif new_end < s.end:
+            # TODO: Check what happens when Wav2Lip receives a smaller video!
+            # If it uses the length of video which is equal to length of audio, and discards the rest, then we have a
+            # problem. We might have to generate frames to fill in the gap.
+            # Or, we can try to ensure that all generated audio is at LEAST greater than the original video.
+            # (in pre-hindsight, it should always try to be equal to the video, but mishaps happen :D )
+            print ("Generated audio is smaller than originally extracted video.")
+            print ("Adding a silent part to compensate.")
+
+            from pydub import AudioSegment
+            from pydub.playback import play
+
+
+            new_end_seconds = float(new_end.total_seconds())
+            original_end_seconds = float(s.end.total_seconds())
+            
+            awkward_duration = (original_end_seconds - new_end_seconds) * 1000
+            audio_in_file = translated_audio_path
+            audio_out_file = Path(r"{}{}new_cut_srt.wav".format(args.extracted_path + "/audio/", str(s.index)))
+
+            # create silence audio segment of remaining time
+            silent_segment = AudioSegment.silent(duration=awkward_duration)  #duration in milliseconds
+
+            #read mp3 file to an audio segment
+            speech = AudioSegment.from_wav(audio_in_file)
+
+            #Add above two audio segments    
+            final_translated_speech = speech + silent_segment
+ 
+            #Either save modified audio
+            final_translated_speech.export(audio_out_file, format="wav")
+            translated_audio_paths[idx] = audio_out_file
 
     final_srt = srt.compose(list(subtitles))
     

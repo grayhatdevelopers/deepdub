@@ -64,6 +64,8 @@ async def create_upload_file(
     uploads_folder_path = os.path.join(os.path.abspath(os.getcwd()), "uploads")
     results_folder_path = os.path.join(os.path.abspath(os.getcwd()), "results")    
 
+
+    # Build the structure of results folder
     run_folder_path = os.path.join(results_folder_path, runname)
     os.mkdir(run_folder_path)
 
@@ -76,12 +78,11 @@ async def create_upload_file(
     os.mkdir(translated_folder_path)
     os.mkdir(os.path.join(translated_folder_path, "audio"))
     os.mkdir(os.path.join(translated_folder_path, "video"))
-    
-    os.mkdir(os.path.join(run_folder_path, "samples"))
+
     os.mkdir(os.path.join(run_folder_path, "metadata"))
 
-    # deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
-    deepdub_path = "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli"
+    deepdub_path = "/home/saadbazaz/Projects/deepdub/deepdub_cli"
+    #deepdub_path = "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli"
 
     deepdub_args = {
     "video": str(os.path.join(uploads_folder_path, filename)),
