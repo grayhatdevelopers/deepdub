@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 
+from fastapi.responses import JSONResponse
+
+
 import aiofiles
 import asyncio
 
@@ -34,6 +37,11 @@ class dotdict(dict):
     __delattr__ = dict.__delitem__
 
 
+import sys
+stdout_backup = sys.stdout
+
+import traceback
+
 @app.post("/files/")
 async def create_file(file: bytes = File(..., description="A file read as bytes")):
     return {"file_size": len(file)}
@@ -46,6 +54,8 @@ async def create_upload_file(
     to_language: str = Form (...), 
     file: UploadFile = File(..., description="A file read as UploadFile"),
 ):
+    sys.stdout = stdout_backup 
+    
     print("Received a file...", file.filename)
     print("File extension:", file.content_type)
 
@@ -124,8 +134,28 @@ async def create_upload_file(
 
     mydict = dotdict(deepdub_args)
 
-    return_file = main.main(mydict)
+    log_file_path = os.path.join(run_folder_path, 'Deepdub_run_Log.txt')
+    relative_return_log_file = os.path.relpath(log_file_path, os.getcwd())
 
+    try:
+        with open(log_file_path, 'a') as f:
+            sys.stdout = f
+            return_file = main.main(mydict)
+        sys.stdout = stdout_backup
+    except Exception as e:
+        sys.stdout = stdout_backup
+        error_message = traceback.format_exc()
+        print (error_message)
+        with open(log_file_path, 'a') as f:
+            f.write("---------------------------------------------ERROR---------------------------------------------\n")
+            f.write(error_message)
+        return JSONResponse(
+        status_code=500,
+        content={
+        	"message": f"Deepdub crashed while trying to process the video.",
+        	"logs": str(relative_return_log_file),
+        	},
+    )
     print("Return file is:", return_file)
 
     relative_return_file = os.path.relpath(return_file, os.getcwd())
@@ -135,4 +165,4 @@ async def create_upload_file(
     print("Relative Return file is:", relative_return_file)
     print("Relative Return folder is:", relative_return_folder)
 
-    return {"filename": str(relative_return_file), "foldername": str(relative_return_folder)}
+    return {"filename": str(relative_return_file), "foldername": str(relative_return_folder), "logs": str(relative_return_log_file)}
