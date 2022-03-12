@@ -173,13 +173,11 @@ def main(func_args=None):
     global args
 
     if func_args != None:
-    	args = func_args
+        args = func_args
     
     import pipeline.extract.subtitles.subtitle_reader as extractor
     import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
-
-
 
     ## -------------------------------------------
     ## DeepDub pipeline 2
@@ -200,7 +198,9 @@ def main(func_args=None):
         # import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.alignment.aeneas__pydub.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
+        import pipeline.extract.transcription.pronounciation_correction.PaddleSpeech.paddlespeech.text.run_cli as pronounciation_correction
         import pipeline.extract.translation.opus_pt.run_cli as translator
+        
 
         # Extract the audio from the original video (we will use it for all transcription tasks)
         import moviepy.editor as mp
@@ -235,16 +235,44 @@ def main(func_args=None):
 
         # 0.1.
         # Generate the transcription
+        print("************************ Generating Transcriptions ************************")
         raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
+
+        # 0.1.2.
+        # Add pronounciation correction here
+        print("************************ Pronounciation Correction ************************")
+
+        punctuated = pronounciation_correction.run(raw_transcription,args)
+
+  
+        # 0.1.3.
+        # Tranlsate 0.1.2.
+
+        alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
+
+        # 0.1.4.
+        # Align Raw transcription here
+
+        transcription_srt_filepath = transcription_clusterer.run(alignment_path, original_audio_path, args)
+
+        # 0.1.5.
+        # Cluster Raw transcription here
+
+        # 0.1.6.
+        # Extract percentage of words spoken in 0.1.5
+
+        # 0.1.7.
+        # Use 0.1.6. to extract percentage of words from translation
+
 
         # 0.2.
         # Align the words in the transcription to the original audio
-        alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
+        # alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
 
 
         # 0.3. 
         # Cluster the words according to their timestamps, form sentences and create a .SRT file out of that
-        transcription_srt_filepath = transcription_clusterer.run(alignment_path, original_audio_path, args)
+        # transcription_srt_filepath = transcription_clusterer.run(alignment_path, original_audio_path, args)
 
         # 0.4.
         # Pass the .SRT file of the transcription to the Translator, so it can be translated (line by line) to a 
@@ -336,7 +364,7 @@ def main(func_args=None):
     print ("Thank you for using deepdub.")
 
     if func_args != None:
-    	return final_file
+        return final_file
 
     return 0
 

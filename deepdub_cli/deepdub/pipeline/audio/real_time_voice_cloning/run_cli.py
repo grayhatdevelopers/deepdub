@@ -7,8 +7,8 @@ sys.path.append(parent_dir_name + "/real_time_voice_cloning")
 # ------ RELATIVE-FIX END
 
 from encoder.params_model import model_embedding_size as speaker_embedding_size
-from utils.argutils import print_args
-from utils.modelutils import check_model_paths
+from .utils.argutils import print_args
+from .utils.modelutils import check_model_paths
 from synthesizer.inference import Synthesizer
 from encoder import inference as encoder
 from vocoder import inference as vocoder
