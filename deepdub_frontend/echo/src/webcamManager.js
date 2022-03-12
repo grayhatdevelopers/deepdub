@@ -25,6 +25,10 @@ import {
         Button
     } from '@mui/material';
 
+// for notifications
+import { SnackbarProvider, useSnackbar } from 'notistack';
+
+
 import Check from '@mui/icons-material/Check';
 
 import {
@@ -175,6 +179,10 @@ const theme = createTheme({
 
 const RecordVideo = (props) => {
 
+
+	// for notifications
+	  const { enqueueSnackbar } = useSnackbar();
+
 const audio = new Audio("/record.mp3")
 
   const classes = useStyles()
@@ -182,6 +190,8 @@ const audio = new Audio("/record.mp3")
   const recordWebcam = useRecordWebcam();
 
   const [response_file, setResponseFile] = useState(null);
+  const [log_file, setLogFile] = useState(null);
+  
   const [from, setFrom] = useState("German");
   const [to, setTo] = useState("English");
 
@@ -233,14 +243,20 @@ const audio = new Audio("/record.mp3")
         'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
       },
 //      timeout: 30000,
-    }).then( (res) => {
+    })
+    .then( (res) => {
         console.log("response is:", res)
         console.log("filename is:", res.data.filename)
 	setProcessing(false)
         setResponseFile(baseUrl + res.data.filename)
+        enqueueSnackbar('Your video was processed successfully!', "success");
+        setLogFile(baseUrl + res.data.logs)
+    })
+    .catch( (err) => {
+    	setProcessing(false)
+        enqueueSnackbar('['+ err.response.status +']'+' Failed to process your video. Reason: ' + err.response.data.message, "error");
+        setLogFile(baseUrl + err.response.data.logs)
     });
-    
-    
 };
 
 
@@ -343,6 +359,7 @@ useEffect( () => {
             <MenuItem value={"German"}>🇩🇪 German</MenuItem>
             <MenuItem value={"Urdu"}>🇵🇰 Urdu</MenuItem>
             <MenuItem value={"Hindi"}>🇮🇳 Hindi</MenuItem>
+            <MenuItem value={"Chinese"}>🇨🇳 Chinese</MenuItem>            
         </Select>
     </FormControl>
 
@@ -448,6 +465,7 @@ useEffect( () => {
     </div>
 
       {response_file ? <Button size="large" variant="contained" href={response_file} target="_blank" style={{marginTop:"20px"}} >SEE YOUR RESULTS</Button> : <></>}
+      {log_file ? <Button size="large" variant="outlined" href={log_file} target="_blank" style={{marginTop:"20px"}} >SEE LOG FILE</Button> : <></>}
     
     </div>
     

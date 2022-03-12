@@ -1,3 +1,11 @@
+# How to run the application
+The camera and mic need HTTPS in order to work, so run with HTTPS enabled:
+```
+HTTPS=true npm start
+```
+
+You can specify the backend in ```src/utils/request.js```. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

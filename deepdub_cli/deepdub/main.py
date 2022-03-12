@@ -15,7 +15,7 @@ import os
 
 ## Info about this script
 parser = argparse.ArgumentParser(
-    description="Deepdub dubs videos to a language of your choosing (according to a file you provide, of course).",
+    description="Deepdub dubs videos to a language of your choosing (out of the ones we support, of course).",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
 
@@ -195,6 +195,7 @@ def main(func_args=None):
     else:
         # import pipeline.extract.transcription.generation.speechbrain_asr.run_cli as transcription_generator
         import pipeline.extract.transcription.generation.wav2vec2.run_cli as transcription_generator
+        import pipeline.extract.transcription.pronunciation_correction.paddlespeech.text.run_cli as pronunciation_correction
         # import pipeline.extract.transcription.alignment.gentle.run_cli as transcription_aligner
         import pipeline.extract.transcription.alignment.aeneas__pydub.run_cli as transcription_aligner
         import pipeline.extract.transcription.clustering.run_cli as transcription_clusterer
@@ -237,6 +238,7 @@ def main(func_args=None):
         # Generate the transcription
         print("************************ Generating Transcriptions ************************")
         raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
+        punctuated = pronunciation_correction.run(raw_transcription, args)
 
         # 0.1.2.
         # Add pronounciation correction here
@@ -315,9 +317,9 @@ def main(func_args=None):
 
     import srt
 
-    for idx, (s, translated_audio_path, extracted_video_path) in enumerate(zip(subtitles, translated_audio_paths, extracted_video_paths)):
+    for idx, (s, translated_audio_path, extracted_video_path, extracted_audio_path) in enumerate(zip(subtitles, translated_audio_paths, extracted_video_paths, extracted_audio_paths)):
 
-        # Load files
+        # Load file
         audio_segment = AudioSegment.from_file(translated_audio_path)
 
         audio_duration = len(audio_segment) / 10000
@@ -327,6 +329,15 @@ def main(func_args=None):
         
         new_end = s.start.total_seconds() + audio_duration 
         new_end = timedelta(0, new_end, 0)
+
+        try:
+            if idx+1 != len(subtitles) and new_end > subtitles[idx+1].start:
+                # TODO: This is where some frames might have to be generated, because now it needs data which cannot be provided.
+                print ("The new end time overlaps with the start time of the next clip.")
+                print ("Setting the new end time as the start time of the next clip (to prevent overlaps).")
+                new_end = subtitles[idx+1].start
+        except Exception as e:
+            print ("Couldn't check for overlaps. Reason: ", str(e))
 
         print ("New end is: ", new_end)
         print ("s.end is: ", s.end)  
@@ -345,6 +356,43 @@ def main(func_args=None):
             except Exception as e:
                 print ("Could not create the following subtitle:", s)
                 print ("Reason:", str(e))
+        elif new_end < s.end:
+            # TODO: Check what happens when Wav2Lip receives a smaller video!
+            # If it uses the length of video which is equal to length of audio, and discards the rest, then we have a
+            # problem. We might have to generate frames to fill in the gap.
+            # Or, we can try to ensure that all generated audio is at LEAST greater than the original video.
+            # (in pre-hindsight, it should always try to be equal to the video, but mishaps happen :D )
+
+            # Current fix: Fill in remaining duration with silence.
+            # Reference: 
+            # - https://github.com/Rudrabha/Wav2Lip/issues/274
+            # - https://stackoverflow.com/questions/46757852/adding-silent-frame-to-wav-file-using-python
+            print ("Generated audio is smaller than originally extracted video.")
+            print ("Adding a silent part to compensate.")
+
+            new_end_seconds = float(new_end.total_seconds())
+            original_end_seconds = float(s.end.total_seconds())
+            
+            awkward_duration = (original_end_seconds - new_end_seconds) * 1000
+            audio_in_file = translated_audio_path
+            audio_out_file = Path(r"{}{}new_cut_srt.wav".format(args.translated_path + "/audio/", str(s.index)))
+
+            # create silence audio segment of remaining time
+            silent_segment = AudioSegment.silent(duration=awkward_duration)  #duration in milliseconds
+
+            #read wav file to an audio segment
+            speech = AudioSegment.from_wav(audio_in_file)
+
+            #Add above two audio segments    
+            final_translated_speech = speech + silent_segment
+
+            #Sanity check: trim to match the original extracted audio
+            original_audio_segment = AudioSegment.from_file(extracted_audio_path)
+            final_translated_speech = final_translated_speech[0:len(original_audio_segment)-1]
+
+            #Either save modified audio
+            final_translated_speech.export(audio_out_file, format="wav")
+            translated_audio_paths[idx] = audio_out_file
 
     final_srt = srt.compose(list(subtitles))
     
