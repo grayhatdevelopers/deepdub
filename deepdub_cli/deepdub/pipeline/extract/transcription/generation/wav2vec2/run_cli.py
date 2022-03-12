@@ -8,8 +8,9 @@ from transformers.models import wav2vec2
 
 wav2vec2_supported_languages = {
 	"English": 'jonatasgrosman/wav2vec2-large-xlsr-53-english',
-	"Hindi": 'theainerd/Wav2Vec2-large-xlsr-hindi',
+	"Chinese" : "jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn",
 	"German": 'jonatasgrosman/wav2vec2-large-xlsr-53-german',
+	"Hindi": 'theainerd/Wav2Vec2-large-xlsr-hindi',
 	"Urdu": 'addy88/wav2vec2-urdu-stt',
 }
 
