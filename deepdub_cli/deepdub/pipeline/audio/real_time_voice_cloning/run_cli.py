@@ -3,7 +3,10 @@
 import os
 import sys
 parent_dir_name = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-sys.path.append(parent_dir_name + "/real_time_voice_cloning")
+print ("Current parent dir name is:", parent_dir_name)
+current_dir_name = sys.path.append(os.path.join(parent_dir_name, "real_time_voice_cloning"))
+print ("Current dir name is:", current_dir_name)
+
 # ------ RELATIVE-FIX END
 
 from encoder.params_model import model_embedding_size as speaker_embedding_size

@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 
+from fastapi.responses import JSONResponse
+
+
 import aiofiles
 import asyncio
 
@@ -34,6 +37,11 @@ class dotdict(dict):
     __delattr__ = dict.__delitem__
 
 
+import sys
+stdout_backup = sys.stdout
+
+import traceback
+
 @app.post("/files/")
 async def create_file(file: bytes = File(..., description="A file read as bytes")):
     return {"file_size": len(file)}
@@ -46,6 +54,8 @@ async def create_upload_file(
     to_language: str = Form (...), 
     file: UploadFile = File(..., description="A file read as UploadFile"),
 ):
+    sys.stdout = stdout_backup 
+    
     print("Received a file...", file.filename)
     print("File extension:", file.content_type)
 
@@ -64,6 +74,8 @@ async def create_upload_file(
     uploads_folder_path = os.path.join(os.path.abspath(os.getcwd()), "uploads")
     results_folder_path = os.path.join(os.path.abspath(os.getcwd()), "results")    
 
+
+    # Build the structure of results folder
     run_folder_path = os.path.join(results_folder_path, runname)
     os.mkdir(run_folder_path)
 
@@ -76,12 +88,11 @@ async def create_upload_file(
     os.mkdir(translated_folder_path)
     os.mkdir(os.path.join(translated_folder_path, "audio"))
     os.mkdir(os.path.join(translated_folder_path, "video"))
-    
-    os.mkdir(os.path.join(run_folder_path, "samples"))
+
     os.mkdir(os.path.join(run_folder_path, "metadata"))
 
-    # deepdub_path = "/home/saad/Projects/deepdub/deepdub_cli"
-    deepdub_path = "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli"
+    deepdub_path = "/home/saadbazaz/Projects/deepdub/deepdub_cli"
+    #deepdub_path = "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli"
 
     deepdub_args = {
     "video": str(os.path.join(uploads_folder_path, filename)),
@@ -123,8 +134,28 @@ async def create_upload_file(
 
     mydict = dotdict(deepdub_args)
 
-    return_file = main.main(mydict)
+    log_file_path = os.path.join(run_folder_path, 'Deepdub_run_Log.txt')
+    relative_return_log_file = os.path.relpath(log_file_path, os.getcwd())
 
+    try:
+        with open(log_file_path, 'a') as f:
+            sys.stdout = f
+            return_file = main.main(mydict)
+        sys.stdout = stdout_backup
+    except Exception as e:
+        sys.stdout = stdout_backup
+        error_message = traceback.format_exc()
+        print (error_message)
+        with open(log_file_path, 'a') as f:
+            f.write("---------------------------------------------ERROR---------------------------------------------\n")
+            f.write(error_message)
+        return JSONResponse(
+        status_code=500,
+        content={
+        	"message": f"Deepdub crashed while trying to process the video.",
+        	"logs": str(relative_return_log_file),
+        	},
+    )
     print("Return file is:", return_file)
 
     relative_return_file = os.path.relpath(return_file, os.getcwd())
@@ -134,4 +165,4 @@ async def create_upload_file(
     print("Relative Return file is:", relative_return_file)
     print("Relative Return folder is:", relative_return_folder)
 
-    return {"filename": str(relative_return_file), "foldername": str(relative_return_folder)}
+    return {"filename": str(relative_return_file), "foldername": str(relative_return_folder), "logs": str(relative_return_log_file)}

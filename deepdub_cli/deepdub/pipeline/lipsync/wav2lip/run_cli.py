@@ -207,10 +207,10 @@ def run(
 
 		if not translated_audio_path.endswith('.wav'):
 			print('Extracting raw audio...')
-			command = 'ffmpeg -y -i {} -strict -2 {}'.format(translated_audio_path, 'temp/temp.wav')
+			command = 'ffmpeg -y -i {} -strict -2 {}'.format(translated_audio_path, 'temp.wav')
 
 			subprocess.call(command, shell=True)
-			translated_audio_path = 'temp/temp.wav'
+			translated_audio_path = 'temp.wav'
 
 		wav = audio.load_wav(translated_audio_path, 16000)
 		mel = audio.melspectrogram(wav)
@@ -238,7 +238,7 @@ def run(
 		gen = datagen(full_frames.copy(), mel_chunks, args)
 
 
-		output_filepath = translated_video_path + 'result{}.mp4'.format(idx)
+		output_filepath = str(os.path.join(translated_video_path, 'result{}.mp4'.format(idx)))
 
 		for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 												total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
@@ -267,7 +267,7 @@ def run(
 
 		out.release()
 
-		final_output_filepath = translated_video_path + 'final_' + 'result{}.mp4'.format(idx)
+		final_output_filepath = str(os.path.join(translated_video_path, 'final_' + 'result{}.mp4'.format(idx)))
 
 
 		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, output_filepath, final_output_filepath)

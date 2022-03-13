@@ -4,9 +4,12 @@ import './recordButton.scss';
 
 import RecordVideo from './webcamManager';
 
+// for notifications
+import { SnackbarProvider, } from 'notistack';
 
 function App() {
   return (
+<SnackbarProvider maxSnack={3}>
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -27,6 +30,7 @@ function App() {
 
       </header>
     </div>
+</SnackbarProvider>
   );
 }
 
