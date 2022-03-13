@@ -414,7 +414,7 @@ def main(func_args=None):
 
     print("\n*************** Encoding video to mp4 ***************")
 
-    os.system("""ffmpeg -i {final_file} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart output_test_iphone.mp4""")
+    os.system("ffmpeg -i {} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart {}".format(final_file, final_file.split(".")[0] + "_iphonefixed.mp4"))
 
     print("\n*************** Encoding complete ***************")
 

@@ -1,0 +1,714 @@
+{
+ "fragments": [
+  {
+   "begin": "0.000",
+   "children": [],
+   "end": "0.000",
+   "id": "f000001",
+   "language": "zh",
+   "lines": [
+    "\u4e8c"
+   ]
+  },
+  {
+   "begin": "0.000",
+   "children": [],
+   "end": "0.920",
+   "id": "f000002",
+   "language": "zh",
+   "lines": [
+    "\u96f6"
+   ]
+  },
+  {
+   "begin": "0.920",
+   "children": [],
+   "end": "1.720",
+   "id": "f000003",
+   "language": "zh",
+   "lines": [
+    "\u4e8c"
+   ]
+  },
+  {
+   "begin": "1.720",
+   "children": [],
+   "end": "2.160",
+   "id": "f000004",
+   "language": "zh",
+   "lines": [
+    "\u4e8c"
+   ]
+  },
+  {
+   "begin": "2.160",
+   "children": [],
+   "end": "2.960",
+   "id": "f000005",
+   "language": "zh",
+   "lines": [
+    "\u5e74"
+   ]
+  },
+  {
+   "begin": "2.960",
+   "children": [],
+   "end": "3.120",
+   "id": "f000006",
+   "language": "zh",
+   "lines": [
+    "\u9645"
+   ]
+  },
+  {
+   "begin": "3.120",
+   "children": [],
+   "end": "3.440",
+   "id": "f000007",
+   "language": "zh",
+   "lines": [
+    "\u5c06"
+   ]
+  },
+  {
+   "begin": "3.440",
+   "children": [],
+   "end": "3.680",
+   "id": "f000008",
+   "language": "zh",
+   "lines": [
+    "\u5230"
+   ]
+  },
+  {
+   "begin": "3.680",
+   "children": [],
+   "end": "3.920",
+   "id": "f000009",
+   "language": "zh",
+   "lines": [
+    "\u6765"
+   ]
+  },
+  {
+   "begin": "3.920",
+   "children": [],
+   "end": "5.800",
+   "id": "f000010",
+   "language": "zh",
+   "lines": [
+    "\uff0c"
+   ]
+  },
+  {
+   "begin": "5.800",
+   "children": [],
+   "end": "5.840",
+   "id": "f000011",
+   "language": "zh",
+   "lines": [
+    "\u6211"
+   ]
+  },
+  {
+   "begin": "5.840",
+   "children": [],
+   "end": "6.120",
+   "id": "f000012",
+   "language": "zh",
+   "lines": [
+    "\u5728"
+   ]
+  },
+  {
+   "begin": "6.120",
+   "children": [],
+   "end": "6.400",
+   "id": "f000013",
+   "language": "zh",
+   "lines": [
+    "\u5317"
+   ]
+  },
+  {
+   "begin": "6.400",
+   "children": [],
+   "end": "6.600",
+   "id": "f000014",
+   "language": "zh",
+   "lines": [
+    "\u4eac"
+   ]
+  },
+  {
+   "begin": "6.600",
+   "children": [],
+   "end": "6.800",
+   "id": "f000015",
+   "language": "zh",
+   "lines": [
+    "\u5411"
+   ]
+  },
+  {
+   "begin": "6.800",
+   "children": [],
+   "end": "7.000",
+   "id": "f000016",
+   "language": "zh",
+   "lines": [
+    "\u5927"
+   ]
+  },
+  {
+   "begin": "7.000",
+   "children": [],
+   "end": "7.280",
+   "id": "f000017",
+   "language": "zh",
+   "lines": [
+    "\u5bb6"
+   ]
+  },
+  {
+   "begin": "7.280",
+   "children": [],
+   "end": "7.640",
+   "id": "f000018",
+   "language": "zh",
+   "lines": [
+    "\u81f3"
+   ]
+  },
+  {
+   "begin": "7.640",
+   "children": [],
+   "end": "7.800",
+   "id": "f000019",
+   "language": "zh",
+   "lines": [
+    "\u4e00"
+   ]
+  },
+  {
+   "begin": "7.800",
+   "children": [],
+   "end": "8.120",
+   "id": "f000020",
+   "language": "zh",
+   "lines": [
+    "\u65b0"
+   ]
+  },
+  {
+   "begin": "8.120",
+   "children": [],
+   "end": "8.360",
+   "id": "f000021",
+   "language": "zh",
+   "lines": [
+    "\u5e74"
+   ]
+  },
+  {
+   "begin": "8.360",
+   "children": [],
+   "end": "8.360",
+   "id": "f000022",
+   "language": "zh",
+   "lines": [
+    "\uff0c"
+   ]
+  },
+  {
+   "begin": "8.360",
+   "children": [],
+   "end": "8.720",
+   "id": "f000023",
+   "language": "zh",
+   "lines": [
+    "\u795d"
+   ]
+  },
+  {
+   "begin": "8.720",
+   "children": [],
+   "end": "8.880",
+   "id": "f000024",
+   "language": "zh",
+   "lines": [
+    "\u5e9c"
+   ]
+  },
+  {
+   "begin": "8.880",
+   "children": [],
+   "end": "8.880",
+   "id": "f000025",
+   "language": "zh",
+   "lines": [
+    "\uff0c"
+   ]
+  },
+  {
+   "begin": "8.880",
+   "children": [],
+   "end": "8.920",
+   "id": "f000026",
+   "language": "zh",
+   "lines": [
+    "\u56de"
+   ]
+  },
+  {
+   "begin": "8.920",
+   "children": [],
+   "end": "8.920",
+   "id": "f000027",
+   "language": "zh",
+   "lines": [
+    "\u624b"
+   ]
+  },
+  {
+   "begin": "8.920",
+   "children": [],
+   "end": "8.920",
+   "id": "f000028",
+   "language": "zh",
+   "lines": [
+    "\uff0c"
+   ]
+  },
+  {
+   "begin": "8.920",
+   "children": [],
+   "end": "11.960",
+   "id": "f000029",
+   "language": "zh",
+   "lines": [
+    "\u7740"
+   ]
+  },
+  {
+   "begin": "11.960",
+   "children": [],
+   "end": "12.000",
+   "id": "f000030",
+   "language": "zh",
+   "lines": [
+    "\u3002"
+   ]
+  },
+  {
+   "begin": "12.000",
+   "children": [],
+   "end": "12.320",
+   "id": "f000031",
+   "language": "zh",
+   "lines": [
+    "\u4e00"
+   ]
+  },
+  {
+   "begin": "12.320",
+   "children": [],
+   "end": "12.680",
+   "id": "f000032",
+   "language": "zh",
+   "lines": [
+    "\u5e74"
+   ]
+  },
+  {
+   "begin": "12.680",
+   "children": [],
+   "end": "12.680",
+   "id": "f000033",
+   "language": "zh",
+   "lines": [
+    "\u610f"
+   ]
+  },
+  {
+   "begin": "12.680",
+   "children": [],
+   "end": "12.680",
+   "id": "f000034",
+   "language": "zh",
+   "lines": [
+    "\u4e49"
+   ]
+  },
+  {
+   "begin": "12.680",
+   "children": [],
+   "end": "13.000",
+   "id": "f000035",
+   "language": "zh",
+   "lines": [
+    "\u3002"
+   ]
+  },
+  {
+   "begin": "13.000",
+   "children": [],
+   "end": "13.360",
+   "id": "f000036",
+   "language": "zh",
+   "lines": [
+    "u"
+   ]
+  },
+  {
+   "begin": "13.360",
+   "children": [],
+   "end": "13.480",
+   "id": "f000037",
+   "language": "zh",
+   "lines": [
+    "n"
+   ]
+  },
+  {
+   "begin": "13.480",
+   "children": [],
+   "end": "13.760",
+   "id": "f000038",
+   "language": "zh",
+   "lines": [
+    "k"
+   ]
+  },
+  {
+   "begin": "13.760",
+   "children": [],
+   "end": "13.760",
+   "id": "f000039",
+   "language": "zh",
+   "lines": [
+    "\uff1a"
+   ]
+  },
+  {
+   "begin": "13.760",
+   "children": [],
+   "end": "14.000",
+   "id": "f000040",
+   "language": "zh",
+   "lines": [
+    "\u53cd"
+   ]
+  },
+  {
+   "begin": "14.000",
+   "children": [],
+   "end": "16.240",
+   "id": "f000041",
+   "language": "zh",
+   "lines": [
+    "\uff0c"
+   ]
+  },
+  {
+   "begin": "16.240",
+   "children": [],
+   "end": "16.400",
+   "id": "f000042",
+   "language": "zh",
+   "lines": [
+    "\u6211"
+   ]
+  },
+  {
+   "begin": "16.400",
+   "children": [],
+   "end": "16.600",
+   "id": "f000043",
+   "language": "zh",
+   "lines": [
+    "\u4eec"
+   ]
+  },
+  {
+   "begin": "16.600",
+   "children": [],
+   "end": "17.400",
+   "id": "f000044",
+   "language": "zh",
+   "lines": [
+    "\u4eb2"
+   ]
+  },
+  {
+   "begin": "17.400",
+   "children": [],
+   "end": "17.400",
+   "id": "f000045",
+   "language": "zh",
+   "lines": [
+    "\u5386"
+   ]
+  },
+  {
+   "begin": "17.400",
+   "children": [],
+   "end": "17.400",
+   "id": "f000046",
+   "language": "zh",
+   "lines": [
+    "\u4e86"
+   ]
+  },
+  {
+   "begin": "17.400",
+   "children": [],
+   "end": "17.680",
+   "id": "f000047",
+   "language": "zh",
+   "lines": [
+    "\u515a"
+   ]
+  },
+  {
+   "begin": "17.680",
+   "children": [],
+   "end": "17.880",
+   "id": "f000048",
+   "language": "zh",
+   "lines": [
+    "\u5934"
+   ]
+  },
+  {
+   "begin": "17.880",
+   "children": [],
+   "end": "17.880",
+   "id": "f000049",
+   "language": "zh",
+   "lines": [
+    "\u3001"
+   ]
+  },
+  {
+   "begin": "17.880",
+   "children": [],
+   "end": "18.080",
+   "id": "f000050",
+   "language": "zh",
+   "lines": [
+    "\u56fd"
+   ]
+  },
+  {
+   "begin": "18.080",
+   "children": [],
+   "end": "18.440",
+   "id": "f000051",
+   "language": "zh",
+   "lines": [
+    "\u5bb6"
+   ]
+  },
+  {
+   "begin": "18.440",
+   "children": [],
+   "end": "18.520",
+   "id": "f000052",
+   "language": "zh",
+   "lines": [
+    "\u5386"
+   ]
+  },
+  {
+   "begin": "18.520",
+   "children": [],
+   "end": "18.800",
+   "id": "f000053",
+   "language": "zh",
+   "lines": [
+    "\u53f2"
+   ]
+  },
+  {
+   "begin": "18.800",
+   "children": [],
+   "end": "19.160",
+   "id": "f000054",
+   "language": "zh",
+   "lines": [
+    "\u4e0a"
+   ]
+  },
+  {
+   "begin": "19.160",
+   "children": [],
+   "end": "19.920",
+   "id": "f000055",
+   "language": "zh",
+   "lines": [
+    "\u5177"
+   ]
+  },
+  {
+   "begin": "19.920",
+   "children": [],
+   "end": "20.320",
+   "id": "f000056",
+   "language": "zh",
+   "lines": [
+    "\u6709"
+   ]
+  },
+  {
+   "begin": "20.320",
+   "children": [],
+   "end": "20.680",
+   "id": "f000057",
+   "language": "zh",
+   "lines": [
+    "\u674e"
+   ]
+  },
+  {
+   "begin": "20.680",
+   "children": [],
+   "end": "20.880",
+   "id": "f000058",
+   "language": "zh",
+   "lines": [
+    "\u8fb0"
+   ]
+  },
+  {
+   "begin": "20.880",
+   "children": [],
+   "end": "21.320",
+   "id": "f000059",
+   "language": "zh",
+   "lines": [
+    "\u7891"
+   ]
+  },
+  {
+   "begin": "21.320",
+   "children": [],
+   "end": "21.560",
+   "id": "f000060",
+   "language": "zh",
+   "lines": [
+    "\u610f"
+   ]
+  },
+  {
+   "begin": "21.560",
+   "children": [],
+   "end": "21.640",
+   "id": "f000061",
+   "language": "zh",
+   "lines": [
+    "\u4e49"
+   ]
+  },
+  {
+   "begin": "21.640",
+   "children": [],
+   "end": "21.800",
+   "id": "f000062",
+   "language": "zh",
+   "lines": [
+    "\u7684"
+   ]
+  },
+  {
+   "begin": "21.800",
+   "children": [],
+   "end": "22.000",
+   "id": "f000063",
+   "language": "zh",
+   "lines": [
+    "\u5927"
+   ]
+  },
+  {
+   "begin": "22.000",
+   "children": [],
+   "end": "22.240",
+   "id": "f000064",
+   "language": "zh",
+   "lines": [
+    "\u4e8b"
+   ]
+  },
+  {
+   "begin": "22.240",
+   "children": [],
+   "end": "22.240",
+   "id": "f000065",
+   "language": "zh",
+   "lines": [
+    "\u3002"
+   ]
+  },
+  {
+   "begin": "22.240",
+   "children": [],
+   "end": "22.280",
+   "id": "f000066",
+   "language": "zh",
+   "lines": [
+    "\u4e24"
+   ]
+  },
+  {
+   "begin": "22.280",
+   "children": [],
+   "end": "22.280",
+   "id": "f000067",
+   "language": "zh",
+   "lines": [
+    "\u4e2a"
+   ]
+  },
+  {
+   "begin": "22.280",
+   "children": [],
+   "end": "22.280",
+   "id": "f000068",
+   "language": "zh",
+   "lines": [
+    "\uff1a"
+   ]
+  },
+  {
+   "begin": "22.280",
+   "children": [],
+   "end": "22.280",
+   "id": "f000069",
+   "language": "zh",
+   "lines": [
+    "\u4e00"
+   ]
+  },
+  {
+   "begin": "22.280",
+   "children": [],
+   "end": "24.920",
+   "id": "f000070",
+   "language": "zh",
+   "lines": [
+    "\u672c"
+   ]
+  },
+  {
+   "begin": "24.920",
+   "children": [],
+   "end": "25.000",
+   "id": "f000071",
+   "language": "zh",
+   "lines": [
+    "\u3002"
+   ]
+  }
+ ]
+}
