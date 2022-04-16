@@ -4,7 +4,7 @@
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -175,4 +175,71 @@
   to {
     box-shadow: 0 0 0px 5px rgba(255, 26, 26, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(255, 26, 26, 0);
   }
+}
+
+.deepdub_container{
+  top: 162.34;
+
+  width: 545;
+}
+
+.text-1 {
+  /* font-size: 123.68795013427734px;
+   */
+  font-size: 900%;
+  font-family: "Red Hat Display";
+  font-weight: bold;
+  line-height: auto;
+  background-image: linear-gradient(to bottom right,#F10000,#B766F7,#6676FF);
+  background-clip: text;
+  color: transparent;
+}
+
+
+.watch-video-container{
+  width: 100%;
+  text-decoration: none;
+  color:#ff1a1a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.content-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.text-2 {
+  opacity: 0.5;
+  /* text-align: center; */
+  /* vertical-align: top; */
+  font-size: 43px;
+  font-family: "Red Hat Display";
+  line-height: auto;
+  color: #ffffff;
+}
+
+.button-row-container{
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.Button-container{
+  background-color: #474747;
+  height: 120px;
+  width: 334px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
