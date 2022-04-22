@@ -245,7 +245,8 @@ def main(func_args=None):
         # Add pronounciation correction here
         print("************************ \n Pronounciation Correction ************************")
 
-        punctuated = pronounciation_correction.run(raw_transcription,args)
+        #punctuated = pronounciation_correction.run(raw_transcription,args)
+        punctuated = raw_transcription
         punctuated = punctuated.replace(" ", "\n")
 
         print("************************ \n Pronounciation Correction Completed ************************")
@@ -253,7 +254,7 @@ def main(func_args=None):
         # 0.1.3.
         # Tranlsate 0.1.2.
 
-        alignment_path = transcription_aligner.run(original_audio_path, punctuated, args)
+        alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
 
         # 0.1.4.
         # Align Raw transcription here
@@ -414,7 +415,7 @@ def main(func_args=None):
 
     print("\n*************** Encoding video to mp4 ***************")
 
-    os.system("ffmpeg -i {} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart {}".format(final_file, final_file.split(".")[0] + "_iphonefixed.mp4"))
+    os.system("ffmpeg -i {} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -vf \"drawtext=text='deepdub':x=70:y=H-th-70:fontfile=../assets/fonts/RedHatDisplay-VariableFont_wght.ttf:fontsize=40:fontcolor=white:shadowcolor=black:shadowx=5:shadowy=5\" -movflags +faststart {}".format(final_file, final_file.split(".")[0] + "_iphonefixed.mp4"))
 
     print("\n*************** Encoding complete ***************")
 
