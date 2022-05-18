@@ -273,7 +273,7 @@ useEffect( () => {
         height: "100vh",
         width: "100vw",   
         transition: "1s ease-out",
-        opacity: (recordWebcam.status == "RECORDING" || recordWebcam.status == "PREVIEW") ? 
+        opacity: (recordWebcam.status === "RECORDING" || recordWebcam.status === "PREVIEW") ? 
                  1 : 0.4, 
     }}>
         <video ref={recordWebcam.previewRef} autoPlay controls style={{
@@ -284,7 +284,7 @@ useEffect( () => {
             top: 0,
             left: 0,
             objectFit: "cover",
-            visibility: recordWebcam.status == "PREVIEW" ?
+            visibility: recordWebcam.status === "PREVIEW" ?
             "visible" : "hidden"
         }}/>
         <video ref={recordWebcam.webcamRef} autoPlay muted style={{
@@ -295,7 +295,7 @@ useEffect( () => {
           top: 0,
           left: 0,
           objectFit: "cover",
-          visibility: recordWebcam.status == "PREVIEW" ?
+          visibility: recordWebcam.status === "PREVIEW" ?
                 "hidden" : "visible" 
         }}/>
 
@@ -308,7 +308,7 @@ useEffect( () => {
         transition: "0.5s",
     }}>
 
-    { (recordWebcam.status == "RECORDING" || recordWebcam.status == "PREVIEW") ? <></> :
+    { (recordWebcam.status === "RECORDING" || recordWebcam.status === "PREVIEW") ? <></> :
 
     <>
     {/* <h1 style={{
@@ -358,8 +358,9 @@ useEffect( () => {
         >
             <MenuItem value={"German"}>🇩🇪 German</MenuItem>
             <MenuItem value={"Urdu"}>🇵🇰 Urdu</MenuItem>
-            <MenuItem value={"Hindi"}>🇮🇳 Hindi</MenuItem>
             <MenuItem value={"Chinese"}>🇨🇳 Chinese</MenuItem>            
+            <MenuItem value={"Hindi"}>🇮🇳 Hindi</MenuItem>
+	     <MenuItem value={"Turkish"}>🇹🇷 Turkish</MenuItem>                 
         </Select>
     </FormControl>
 
@@ -433,7 +434,7 @@ useEffect( () => {
 
 
 {
-    recordWebcam.status == "INIT" ?    
+    recordWebcam.status === "INIT" ?    
     <p style={{
         marginTop: "40px",
         opacity: 0.8,
@@ -445,7 +446,7 @@ useEffect( () => {
     }}>Waiting for camera to connect...</p>
     :
 
-    recordWebcam.status == "PREVIEW" ?
+    recordWebcam.status === "PREVIEW" ?
 
 	<div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
 <div style={{
@@ -476,7 +477,7 @@ useEffect( () => {
             marginTop: "40px",
         }}>
             <input type="checkbox"
-                onClick={recordWebcam.status == "RECORDING" ? recordWebcam.stop : startRecording} 
+                onClick={recordWebcam.status === "RECORDING" ? recordWebcam.stop : startRecording} 
                 id="btn"/>
             <label for="btn"></label>
             <div className="time">

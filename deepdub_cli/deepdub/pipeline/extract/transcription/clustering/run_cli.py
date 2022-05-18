@@ -186,7 +186,24 @@ def run (alignments_path, input_audio_path, args):
 
         except Exception as e:
             print ("Could not parse this into the subtitles. Reason:", str(e))
+            print ("Trying a dumb(er) approach...")
+           
+            line_start = datetime.timedelta(0, fragment["begin"], 0)
+            line_end = datetime.timedelta(0, fragment["end"], 0)
+            line_content = " ".join([word["lines"][0] for word in fragment["sentence"]])
+
+            subtitles.append(srt.Subtitle(
+                index=line_index, 
+                start=line_start, 
+                end=line_end, 
+                content=line_content, 
+                proprietary=''
+                )
+            )
             
+            print ("Successful.")
+           
+
     parsed_subtitles = subtitles
 
     print (parsed_subtitles)

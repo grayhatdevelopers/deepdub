@@ -8,6 +8,7 @@ if __name__ != "__main__":
 # ------ RELATIVE-FIX END
 
 import argparse
+import subprocess
 import sys
 
 from pathlib import Path
@@ -236,17 +237,20 @@ def main(func_args=None):
 
         # 0.1.
         # Generate the transcription
-        print("************************ Generating Transcriptions ************************")
+        print("************************ \n Generating Transcriptions ************************")
         raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
-        punctuated = pronunciation_correction.run(raw_transcription, args)
-
+        print("************************ \n Transcription generated ************************")
+        
         # 0.1.2.
         # Add pronounciation correction here
-        print("************************ Pronounciation Correction ************************")
+        print("************************ \n Pronounciation Correction ************************")
 
-        punctuated = pronounciation_correction.run(raw_transcription,args)
+        #punctuated = pronounciation_correction.run(raw_transcription,args)
+        punctuated = raw_transcription
+        punctuated = punctuated.replace(" ", "\n")
 
-  
+        print("************************ \n Pronounciation Correction Completed ************************")
+
         # 0.1.3.
         # Tranlsate 0.1.2.
 
@@ -408,6 +412,12 @@ def main(func_args=None):
     # 4.
     # Finally, reintegrate the translated videos back into the original video
     final_file = extractor.reintegrate(args.video, subtitles, translated_video_paths, args)
+
+    print("\n*************** Encoding video to mp4 ***************")
+
+    os.system("ffmpeg -i {} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -vf \"drawtext=text='deepdub':x=70:y=H-th-70:fontfile=../assets/fonts/RedHatDisplay-VariableFont_wght.ttf:fontsize=40:fontcolor=white:shadowcolor=black:shadowx=5:shadowy=5\" -movflags +faststart {}".format(final_file, final_file.split(".")[0] + "_iphonefixed.mp4"))
+
+    print("\n*************** Encoding complete ***************")
 
     print ("Thank you for using deepdub.")
 

@@ -131,7 +131,7 @@ def extract_audio_and_video (
     num_generated = 0
 
     for s in subs:
-        if s.start > timedelta_parse(start_time):
+        if s.start >= timedelta_parse(start_time):
             start_seconds = float(s.start.total_seconds())
             end_seconds = float(s.end.total_seconds())
 
@@ -163,6 +163,10 @@ def extract_audio_and_video (
             print ("Video will be saved at", video_filename)
 
             #ffmpeg_extract_subclip(str(video_path), start_seconds, end_seconds, targetname=video_filename)	
+
+
+            if end_seconds > original_video.duration:
+                end_seconds = original_video.duration
 
             extracted_video_clip = original_video.subclip(start_seconds, end_seconds).write_videofile(str(video_filename))
 	

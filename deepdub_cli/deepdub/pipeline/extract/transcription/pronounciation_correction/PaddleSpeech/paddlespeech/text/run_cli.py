@@ -1,4 +1,4 @@
-import paddle 
+import paddle
 from paddlespeech.cli import TextExecutor
 
 def run(
@@ -6,15 +6,12 @@ def run(
     args,
 ):
 
-    print("************************ Printing input raw transcriptions ************************")
-    print(input_raw_transcription)   
-    
-    text_executor = TextExecutor()       
+    text_executor = TextExecutor()
     result = text_executor(
                         # insert raw transcription in text
-                        text=str(input_raw_transcription), 
+                        text=str(input_raw_transcription),
                         task='punc',
-                        # use args passed to modify parameters below 
+                        # use args passed to modify parameters below
                         model='ernie_linear_p7_wudao',
                         lang='zh',
                         config=None,
