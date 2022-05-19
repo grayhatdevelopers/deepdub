@@ -6,6 +6,7 @@ import "../App.css";
 
 import {  Button } from "@mui/material";
 import { useNavigate, Router } from "react-router-dom";
+import BackgroundVideo from "./video_component";
 
 
 function Homescreen() {
@@ -16,10 +17,12 @@ function Homescreen() {
       <div
         style={{
           height: "100vh",
-          backgroundColor: "black",
+          // backgroundColor: "black",
+
         }}
         className="content-container"
       >
+       <BackgroundVideo /> 
         <div className="text-1">deepdub</div>
         <a href="" className="watch-video-container">
           <FontAwesomeIcon icon="fab fa-youtube" />

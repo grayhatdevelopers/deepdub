@@ -11,9 +11,6 @@ function App() {
         <Route exact path="/" element={<Homescreen/>}/>
         <Route exact path="/echo_page" element={<Echo/>}/>
       </Routes>
-      <div className="App">
-        <Homescreen />
-      </div>
     </BrowserRouter>
   );
 }
