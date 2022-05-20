@@ -1,38 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import './mainPage.css';
-import './recordButton.scss';
 
-import RecordVideo from './webcamManager';
-import MainPage from './mainPage';
+import { BrowserRouter ,Routes, Route} from "react-router-dom";
 
-// for notifications
-import { SnackbarProvider, } from 'notistack';
+import Homescreen from "./pages/home_page";
+import Echo from "./pages/echo_page";
+
 
 function App() {
   return (
 <SnackbarProvider maxSnack={3}>
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        {/* <h1 className="header">deepdub</h1> */}
-
-        {/* <RecordVideo /> */}
-        <MainPage />
-
-      </header>
-    </div>
+  <div className="App">
+    <BrowserRouter>
+    <Routes>
+        <Route exact path="/" element={<Homescreen/>}/>
+        <Route exact path="/echo_page" element={<Echo/>}/>
+      </Routes>
+    </BrowserRouter>
+  </div>
 </SnackbarProvider>
   );
 }

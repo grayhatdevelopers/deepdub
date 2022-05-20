@@ -179,7 +179,6 @@ const theme = createTheme({
 
 const RecordVideo = (props) => {
 
-
 	// for notifications
 	  const { enqueueSnackbar } = useSnackbar();
 
@@ -259,10 +258,17 @@ const audio = new Audio("/record.mp3")
     });
 };
 
+  // recordWebcam.close();
 
 useEffect( () => {
     recordWebcam.open()
 }, [])
+
+useEffect( () => () => {
+  recordWebcam.stop();
+  recordWebcam.closeCamera();
+  console.log("UNMOUNTED");
+}, [] );
 
 
   return (
