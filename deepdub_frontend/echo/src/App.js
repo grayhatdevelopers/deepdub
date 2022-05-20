@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import './mainPage.css';
 import './recordButton.scss';
 
 import RecordVideo from './webcamManager';
+import MainPage from './mainPage';
 
 // for notifications
 import { SnackbarProvider, } from 'notistack';
@@ -26,7 +28,8 @@ function App() {
         </a> */}
         {/* <h1 className="header">deepdub</h1> */}
 
-        <RecordVideo />
+        {/* <RecordVideo /> */}
+        <MainPage />
 
       </header>
     </div>
