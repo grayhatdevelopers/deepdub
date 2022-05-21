@@ -183,6 +183,14 @@
   width: 545;
 }
 
+
+
+@keyframes gradient-pass {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 .text-1 {
   /* font-size: 123.68795013427734px;
    */
@@ -190,9 +198,30 @@
   font-family: "Red Hat Display";
   font-weight: bold;
   line-height: auto;
-  background-image: linear-gradient(to bottom right,#F10000,#B766F7,#6676FF);
+  background: linear-gradient(to right,#F10000,#B766F7,#6676FF,#B766F7,#F10000);
+  opacity: 0.76;
+  mix-blend-mode: hard-light;
+  text-align: center;
+  
+  text-align: center;
+  background-size: 400% auto;
+  color: #000;
   background-clip: text;
-  color: transparent;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: shine 6s linear infinite;
+          animation: shine 6s linear infinite;
+}
+@-webkit-keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}
+@keyframes shine {
+  to {
+    background-position: -200% center;
+  }
 }
 
 
@@ -204,6 +233,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 
