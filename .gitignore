@@ -23,7 +23,8 @@ mycert.pem
 
 # Allow some specific media files e.g. sample files needed for Testing
 !deepdub_cli/samples/*mp3
-
+!deepdub_server/fastapi/results/*.md
+!deepdub_server/fastapi/uploads/*.md
 
 # Models
 *.ckpt
@@ -47,3 +48,10 @@ m3
 
 # Ignore node modules from Node
 node_modules
+
+# Ignore Kaldi files
+/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/gentle/ext/kaldi
+
+# Ignore resultant files from test runs
+/deepdub_server/fastapi/results/*
+/deepdub_server/fastapi/uploads/*

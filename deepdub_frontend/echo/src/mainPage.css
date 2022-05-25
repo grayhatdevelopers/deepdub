@@ -1,0 +1,365 @@
+/* @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+html,
+body {
+  height: 100%;
+  margin: 0;
+  position: relative;
+  background-color: #e50914;
+  font-family:'Red Hat Display';
+} */
+
+
+
+.welcome-page {
+    animation: fadeIn 3s;
+}
+
+.overlay {
+  overflow-x: hidden;
+}
+
+.overlay.active .overlay-svg svg {
+  transform:translate(-50%,-60%);
+  width:250%;
+}
+
+.overlay-svg {
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:2;
+}
+
+.overlay-svg svg {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:150%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  transition:1s ease;
+}
+
+.video-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1;
+}
+.ResponsiveYTPlayer {
+  transform:scale(1.5);
+  transform-origin:50% 50%;
+}
+/*
+.video-wrapper iframe {
+  width:130%;
+  height:130%;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform:translate(-50%,50%);
+  object-fit:cover;
+}*/
+
+.signin,
+.signin-submit {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space:nowrap;
+  padding: 0.6em 1.5em;
+  margin-top: 10vh;
+  position: absolute;
+  right:0;
+  z-index:3;
+  font-family: 'Montserrat';
+  overflow-x:hidden;
+}
+
+.active .signin {
+  display:none; 
+}
+
+.signin:after,
+.signin-submit:after {
+  content: '';
+  width: 5%;
+  position: absolute;
+  left: 95%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: #fff;
+}
+
+.signin:hover:after,
+.signin-submit.active:after {
+  animation: hover 1.5s 1 both;
+}
+
+.signin.animateout:after {
+  animation: hover 0.75s 1 reverse;
+}
+
+@keyframes hover {
+  0%,
+  20% {
+    width: 5%;
+    position: absolute;
+    left: 95%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  2%,
+  6%,
+  10% {
+    opacity: 0;
+  }
+  4%,
+  8%,
+  12% {
+    opacity: 1;
+  }
+  49% {
+    width: 100%;
+  }
+  55% {
+    width: 0;
+    left: 0;
+    background-color: #fff;
+  }
+  56% {
+    width: 0;
+    background-color: #e50914;
+  }
+  100% {
+    width: 100%;
+    background-color: #e50914;
+    left: 0;
+  }
+}
+
+.signinform {
+  display:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index:4;
+  padding-top: 10vh;
+  width: 250px;
+  transform: translateX(-50%) translateY(-50%);
+
+}
+
+.fadeIn {
+  opacity:0;
+}
+
+.signinform-field,
+.signinform-field label,
+.signinform-field input {
+  display: block;
+  width: 100%;
+}
+
+.signinform-field {
+  position: relative;
+}
+
+.signinform-field label {
+  color: #ccc;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(2em);
+  position: relative;
+  z-index: -1;
+}
+
+.signinform-field.focus label {
+  transform: translateY(0);
+}
+
+.signinform-field input {
+  color:#fff;
+  margin-bottom: 1em;
+  background-color: transparent;
+  border-style: solid;
+  border-color: transparent transparent #eaeaea;
+  border-width: 4px 0 4px 0;
+  padding: 0.5em 0;
+  font-size: 1em;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+.signinform-field.focus input {
+  color:#fff;
+  margin-bottom: 1em;
+  background-color: transparent;
+  border-style: solid;
+  border-color: transparent;
+}
+.signinform-field input:focus {
+  outline: none;
+}
+
+.signinform-field:before {
+  content: '';
+  width:0;
+  height: 4px;
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  background-color: #fff;
+}
+.signinform-field.focus:before {
+  animation:fieldFocus 1s 1 forwards;
+}
+
+@keyframes fieldFocus {
+0%,
+  20% {
+    width: 0%;
+    right:100%;
+  }
+  2%,
+  6%,
+  10% {
+    opacity: 0;
+  }
+  4%,
+  8%,
+  12% {
+    opacity: 1;
+  }
+  49% {
+    width: 100%;
+    right:0;
+  }
+  55% {
+    width: 0;
+    right: 0;
+    background-color: #fff;
+  }
+  56% {
+    width: 0;
+    background-color: #e50914;
+  }
+  100% {
+    width: 100%;
+    background-color: #e50914;
+    right: 0;
+  }
+}
+
+.link-register {
+  margin-top: 2.6em;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.link-register:after {
+  content: '?';
+}
+
+.link-register:hover:after {
+  animation: questionSpin 1s 1 both;
+}
+
+.link-register:focus
+{
+  outline:none;
+}
+
+.signin-submit {
+  position:relative;
+  display:inline-block;
+  max-width:130px;
+  margin-top: 2em;
+  float: right;
+  background-color:transparent;
+  border:none;
+  font-size: 1em;
+}
+
+.signinform button:focus {
+  outline: none;
+}
+
+.cancelarea {
+   display:block;
+   margin:20px 0;
+  text-align:center;
+}
+.cancelbtn {
+  padding:20px;
+  display:block;
+  color:#fff;
+  text-decoration:none;
+}
+
+.active .signinform {
+  display:block;
+}
+
+.active .signin {
+  animation: fadeIn 1s 1 backwards;
+}
+
+.active .fadeIn {
+  animation: fadeIn 1s 1s 1 forwards;
+}
+.active .fadeIn:nth-of-type(2) {
+  animation-delay:2s;
+}
+.active .fadeIn:nth-of-type(3) {
+  animation-delay:3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+    transform:translateY(-10%);
+  }
+  100% {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity:0;
+    transform:translateY(-10%);
+  }
+}
+
+@keyframes questionSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(380deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Autoplay by Katheryn Guthrie
+https://codepen.io/katguth3/pen/jmOrPZ
+*/
+.ResponsiveYTPlayer { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .ResponsiveYTPlayer iframe, .ResponsiveYTPlayer object, .ResponsiveYTPlayer embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

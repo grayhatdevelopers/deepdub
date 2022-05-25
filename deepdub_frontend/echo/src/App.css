@@ -4,7 +4,7 @@
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -175,4 +175,101 @@
   to {
     box-shadow: 0 0 0px 5px rgba(255, 26, 26, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(255, 26, 26, 0);
   }
+}
+
+.deepdub_container{
+  top: 162.34;
+
+  width: 545;
+}
+
+
+
+@keyframes gradient-pass {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.text-1 {
+  /* font-size: 123.68795013427734px;
+   */
+  font-size: 900%;
+  font-family: "Red Hat Display";
+  font-weight: bold;
+  line-height: auto;
+  background: linear-gradient(to right,#F10000,#B766F7,#6676FF,#B766F7,#F10000);
+  opacity: 0.76;
+  mix-blend-mode: hard-light;
+  text-align: center;
+  
+  text-align: center;
+  background-size: 400% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: shine 6s linear infinite;
+          animation: shine 6s linear infinite;
+}
+@-webkit-keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}
+@keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}
+
+
+.watch-video-container{
+  width: 100%;
+  text-decoration: none;
+  color:#ff1a1a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.content-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.text-2 {
+  opacity: 0.5;
+  /* text-align: center; */
+  /* vertical-align: top; */
+  font-size: 43px;
+  font-family: "Red Hat Display";
+  line-height: auto;
+  color: #ffffff;
+}
+
+.button-row-container{
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.Button-container{
+  background-color: #474747;
+  height: 120px;
+  width: 334px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }

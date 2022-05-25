@@ -1,0 +1,34 @@
+{
+ "fragments": [
+  {
+   "begin": "0.000",
+   "children": [],
+   "end": "2.120",
+   "id": "f000001",
+   "language": "de",
+   "lines": [
+    "wi"
+   ]
+  },
+  {
+   "begin": "2.120",
+   "children": [],
+   "end": "2.840",
+   "id": "f000002",
+   "language": "de",
+   "lines": [
+    "hessin"
+   ]
+  },
+  {
+   "begin": "2.840",
+   "children": [],
+   "end": "3.400",
+   "id": "f000003",
+   "language": "de",
+   "lines": [
+    "sie"
+   ]
+  }
+ ]
+}

@@ -51,15 +51,19 @@ def face_detect(images, args):
 
 	results = []
 	pady1, pady2, padx1, padx2 = args.pads
-	for rect, image in zip(predictions, images):
+	for idx, (rect, image) in enumerate(zip(predictions, images)):
 		if rect is None:
-			cv2.imwrite('temp/faulty_frame.jpg', image) # check this frame where the face was not detected.
-			raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
-
-		y1 = max(0, rect[1] - pady1)
-		y2 = min(image.shape[0], rect[3] + pady2)
-		x1 = max(0, rect[0] - padx1)
-		x2 = min(image.shape[1], rect[2] + padx2)
+			# cv2.imwrite('temp/faulty_frame{}.jpg'.format(idx), image) # check this frame where the face was not detected.
+			# raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
+			y1 = max(0, 0)
+			y2 = min(image.shape[0], 1)
+			x1 = max(0, 0)
+			x2 = min(image.shape[1], 1)			
+		else:
+			y1 = max(0, rect[1] - pady1)
+			y2 = min(image.shape[0], rect[3] + pady2)
+			x1 = max(0, rect[0] - padx1)
+			x2 = min(image.shape[1], rect[2] + padx2)
 		
 		results.append([x1, y1, x2, y2])
 
@@ -207,10 +211,10 @@ def run(
 
 		if not translated_audio_path.endswith('.wav'):
 			print('Extracting raw audio...')
-			command = 'ffmpeg -y -i {} -strict -2 {}'.format(translated_audio_path, 'temp/temp.wav')
+			command = 'ffmpeg -y -i {} -strict -2 {}'.format(translated_audio_path, 'temp.wav')
 
 			subprocess.call(command, shell=True)
-			translated_audio_path = 'temp/temp.wav'
+			translated_audio_path = 'temp.wav'
 
 		wav = audio.load_wav(translated_audio_path, 16000)
 		mel = audio.melspectrogram(wav)
@@ -238,7 +242,7 @@ def run(
 		gen = datagen(full_frames.copy(), mel_chunks, args)
 
 
-		output_filepath = translated_video_path + 'result{}.mp4'.format(idx)
+		output_filepath = str(os.path.join(translated_video_path, 'result{}.mp4'.format(idx)))
 
 		for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 												total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
@@ -267,7 +271,7 @@ def run(
 
 		out.release()
 
-		final_output_filepath = translated_video_path + 'final_' + 'result{}.mp4'.format(idx)
+		final_output_filepath = str(os.path.join(translated_video_path, 'final_' + 'result{}.mp4'.format(idx)))
 
 
 		command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(translated_audio_path, output_filepath, final_output_filepath)

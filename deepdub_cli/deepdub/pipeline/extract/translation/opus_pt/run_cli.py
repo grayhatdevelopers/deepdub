@@ -5,7 +5,9 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 opus_supported_languages = {
 	"German,English": "Helsinki-NLP/opus-mt-de-en",
 	"Hindi,English": "Helsinki-NLP/opus-mt-hi-en",
-    "Urdu,English": "Helsinki-NLP/opus-mt-ur-en",
+    	"Urdu,English": "Helsinki-NLP/opus-mt-ur-en",
+    	"Chinese,English": "Helsinki-NLP/opus-mt-zh-en",
+    	"Turkish,English": "Helsinki-NLP/opus-mt-tr-en",
 }
 
 

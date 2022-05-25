@@ -3,12 +3,15 @@
 import os
 import sys
 parent_dir_name = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-sys.path.append(parent_dir_name + "/real_time_voice_cloning")
+print ("Current parent dir name is:", parent_dir_name)
+current_dir_name = sys.path.append(os.path.join(parent_dir_name, "real_time_voice_cloning"))
+print ("Current dir name is:", current_dir_name)
+
 # ------ RELATIVE-FIX END
 
 from encoder.params_model import model_embedding_size as speaker_embedding_size
-from utils.argutils import print_args
-from utils.modelutils import check_model_paths
+from .utils.argutils import print_args
+from .utils.modelutils import check_model_paths
 from synthesizer.inference import Synthesizer
 from encoder import inference as encoder
 from vocoder import inference as vocoder
@@ -203,7 +206,7 @@ def run(
         #         raise
             
         # Save it on the disk
-        filename = translated_audio_path + "demo_output_%02d.wav" % num_generated
+        filename = translated_audio_path + "rtvc_output_%02d.wav" % num_generated
         print(generated_wav.dtype)
         sf.write(filename, generated_wav.astype(np.float32), synthesizer.sample_rate)
         num_generated += 1

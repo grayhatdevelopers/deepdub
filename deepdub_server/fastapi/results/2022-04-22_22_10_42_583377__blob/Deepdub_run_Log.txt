@@ -1,0 +1,123 @@
+Current parent dir name is: /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio
+Current dir name is: None
+Using cpu for inference.
+Args are =  {'video': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_22_10_42_583377__blob.webm', 'translation': None, 'deepdubstart': '00:00:00', 'deepdubend': None, 'clipminlength': 0.1, 'translation_language_source': 'German', 'translation_language_target': 'English', 'extracted_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted', 'translated_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/translated', 'results_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob', 'samples_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/samples', 'metadata_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/metadata', 'enc_model_fpath': PosixPath('/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt'), 'syn_model_fpath': PosixPath('/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt'), 'voc_model_fpath': PosixPath('/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt'), 'cpu': False, 'no_sound': False, 'seed': None, 'no_mp3_support': False, 'checkpoint_path': PosixPath('/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth'), 'outfile': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/metadata', 'static': False, 'fps': 25.0, 'pads': [0, 10, 0, 0], 'face_det_batch_size': 16, 'wav2lip_batch_size': 128, 'resize_factor': 1, 'crop': [0, -1, 0, -1], 'box': [-1, -1, -1, -1], 'rotate': False, 'nosmooth': False, 'nthreads': 12, 'output': None, 'conservative': False, 'disfluency': False}
+Filename is 2022-04-22_22_10_42_583377__blob
+System call is ffmpeg -i /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_22_10_42_583377__blob.webm /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/metadata/2022-04-22_22_10_42_583377__blob.mp4
+MoviePy - Writing audio in /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/metadata/original_audio.wav
+MoviePy - Done.
+************************ 
+ Generating Transcriptions ************************
+TRANSCRIPTION:
+ wi hessin sie
+************************ 
+ Transcription generated ************************
+************************ 
+ Pronounciation Correction ************************
+************************ 
+ Pronounciation Correction Completed ************************
+Transcription in Aeneas is: wi
+hessin
+sie
+HEAD 1 0.000 0.000
+f000001 0 0.000 2.120
+f000002 0 2.120 2.840
+f000003 0 2.840 3.400
+TAIL 2 3.400 3.420
+{'fragments': [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]}
+Type: <class 'dict'>
+All Data:  {'fragments': [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]}
+
+fragments:
+ [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]
+length of audio_segment=3.42 seconds
+start,Stop
+[2.077, 3.42]
+[{'begin': 2.12, 'children': [], 'end': 2.84, 'id': 'f000002', 'language': 'de', 'lines': ['hessin'], 'added': True}, {'begin': 2.84, 'children': [], 'end': 3.4, 'id': 'f000003', 'language': 'de', 'lines': ['sie'], 'added': True}]
+Number of included words: 2
+Number of discarded words: 1
+Discarded words:
+WORD is: 
+ {'begin': 0.0, 'children': [], 'end': 2.12, 'id': 'f000001', 'language': 'de', 'lines': ['wi'], 'added': False}
+Type:  <class 'dict'>
+WORD is: 
+ 
+Type:  <class 'str'>
+WORD is: 
+ 
+Type:  <class 'str'>
+Discarded words (again):
+['', '', '']
+Fragment is  {'begin': 2.077, 'end': 3.42, 'sentence': [{'begin': 0.0, 'children': [], 'end': 2.12, 'id': 'f000001', 'language': 'de', 'lines': ['wi'], 'added': True}, {'begin': 2.12, 'children': [], 'end': 2.84, 'id': 'f000002', 'language': 'de', 'lines': ['hessin'], 'added': True}, {'begin': 2.84, 'children': [], 'end': 3.4, 'id': 'f000003', 'language': 'de', 'lines': ['sie'], 'added': True}]}
+[Subtitle(index=1, start=datetime.timedelta(seconds=2, microseconds=77000), end=datetime.timedelta(seconds=3, microseconds=420000), content='wi hessin sie.', proprietary='')]
+wi hessin sie.
+Final SRT is 1
+00:00:02,077 --> 00:00:03,420
+wi hessin sie.
+
+
+wi hessin sie.    --->    she is.
+[EXTRACTOR] Starting audio and video extraction...
+
+1
+she is.
+Video will be loaded from /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/metadata/2022-04-22_22_10_42_583377__blob.mp4
+Video will be saved at /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted/video/1cut_srt.mp4
+Moviepy - Building video /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted/video/1cut_srt.mp4.
+MoviePy - Writing audio in 1cut_srtTEMP_MPY_wvf_snd.mp3
+MoviePy - Done.
+Moviepy - Writing video /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted/video/1cut_srt.mp4
+
+Moviepy - Done !
+Moviepy - video ready /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted/video/1cut_srt.mp4
+MoviePy - Writing audio in /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_10_42_583377__blob/extracted/audio/1audio_srt.mp3
+MoviePy - Done.
+[EXTRACTOR] Saving the current extracted subtitle and its audio & video...
+[EXTRACTOR] Extracted 1 clips and audios.
+Running a test of your configuration...
+
+Using CPU for inference.
+
+Preparing the encoder, the synthesizer and the vocoder...
+Loaded encoder "pretrained.pt" trained to step 1564501
+Synthesizer using device: cpu
+Building Wave-RNN
+Trainable Parameters: 4.481M
+Loading model weights at /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt
+Testing your configuration with small inputs.
+	Testing the encoder...
+	Testing the synthesizer... (loading the model will output a lot of text)
+Trainable Parameters: 30.870M
+Loaded synthesizer "pretrained.pt" trained to step 295000
++----------+---+
+| Tacotron | r |
++----------+---+
+|   295k   | 2 |
++----------+---+
+ 
+
+| Generating 1/1
+
+
+Done.
+
+	Testing the vocoder...
+All test passed! You can now synthesize speech.
+
+
+This is a GUI-less example of interface to SV2TTS. The purpose of this script is to show how you can interface this project easily with your own. See the source code for an explanation of what is happening.
+
+Interactive generation loop
+Number of audios to process: 1 
+Number of corresponding texts: 1
+Loaded file succesfully
+Created the embedding
+
+| Generating 1/1
+
+
+Done.
+
+Created the mel spectrogram
+Synthesizing the waveform:
+{| █░░░░░░░░░░░░░░░ 0/19200 | Batch Size: 2 | Gen Rate: 0.0kHz | }{| █░░░░░░░░░░░░░░░ 200/19200 | Batch Size: 2 | Gen Rate: 0.2kHz | }{| █░░░░░░░░░░░░░░░ 400/19200 | Batch Size: 2 | Gen Rate: 0.3kHz | }{| █░░░░░░░░░░░░░░░ 600/19200 | Batch Size: 2 | Gen Rate: 0.3kHz | }{| █░░░░░░░░░░░░░░░ 800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █░░░░░░░░░░░░░░░ 1000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 1200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 1400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 1600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 1800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 2000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██░░░░░░░░░░░░░░ 2200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 2400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 2600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 2800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 3000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 3200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███░░░░░░░░░░░░░ 3400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 3600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 3800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 4000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 4200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 4400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████░░░░░░░░░░░░ 4600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 4800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 5000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 5200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 5400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 5600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████░░░░░░░░░░░ 5800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████░░░░░░░░░░ 6000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ██████░░░░░░░░░░ 6200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ██████░░░░░░░░░░ 6400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ██████░░░░░░░░░░ 6600/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ██████░░░░░░░░░░ 6800/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ██████░░░░░░░░░░ 7000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 7200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 7400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 7600/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 7800/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 8000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ███████░░░░░░░░░ 8200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 8400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 8600/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 8800/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 9000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 9200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████░░░░░░░░ 9400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████░░░░░░░ 9600/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████░░░░░░░ 9800/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████░░░░░░░ 10000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████░░░░░░░ 10200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████░░░░░░░ 10400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| █████████░░░░░░░ 10600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 10800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 11000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 11200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 11400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 11600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ██████████░░░░░░ 11800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 12000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 12200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 12400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 12600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 12800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ███████████░░░░░ 13000/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████████████░░░░ 13200/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████████████░░░░ 13400/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████████████░░░░ 13600/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████████████░░░░ 13800/19200 | Batch Size: 2 | Gen Rate: 0.4kHz | }{| ████████████░░░░ 14000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| ████████████░░░░ 14200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 14400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 14600/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 14800/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 15000/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 15200/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }{| █████████████░░░ 15400/19200 | Batch Size: 2 | Gen Rate: 0.5kHz | }
