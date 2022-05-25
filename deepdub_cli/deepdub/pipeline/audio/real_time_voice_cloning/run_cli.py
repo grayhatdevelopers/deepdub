@@ -206,7 +206,7 @@ def run(
         #         raise
             
         # Save it on the disk
-        filename = translated_audio_path + "demo_output_%02d.wav" % num_generated
+        filename = translated_audio_path + "rtvc_output_%02d.wav" % num_generated
         print(generated_wav.dtype)
         sf.write(filename, generated_wav.astype(np.float32), synthesizer.sample_rate)
         num_generated += 1

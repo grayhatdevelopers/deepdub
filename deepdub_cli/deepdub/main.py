@@ -177,7 +177,8 @@ def main(func_args=None):
         args = func_args
     
     import pipeline.extract.subtitles.subtitle_reader as extractor
-    import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
+    # import pipeline.audio.real_time_voice_cloning.run_cli as vocoder
+    import pipeline.audio.yourtts.run_cli as vocoder
     import pipeline.lipsync.wav2lip.run_cli as lip_syncer
 
     ## -------------------------------------------
