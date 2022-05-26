@@ -12,6 +12,7 @@ wav2vec2_supported_languages = {
 	"German": 'jonatasgrosman/wav2vec2-large-xlsr-53-german',
 	"Hindi": 'theainerd/Wav2Vec2-large-xlsr-hindi',
 	"Urdu": 'addy88/wav2vec2-urdu-stt',
+	"Turkish": "m3hrdadfi/wav2vec2-large-xlsr-turkish",
 }
 
 def run (

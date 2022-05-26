@@ -1,0 +1,75 @@
+Current parent dir name is: /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio
+Current dir name is: None
+Using cpu for inference.
+Args are =  {'video': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_21_58_16_252334__blob.webm', 'translation': None, 'deepdubstart': '00:00:00', 'deepdubend': None, 'clipminlength': 0.1, 'translation_language_source': 'Urdu', 'translation_language_target': 'English', 'extracted_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/extracted', 'translated_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/translated', 'results_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob', 'samples_path': '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples', 'metadata_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/metadata', 'enc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt'), 'syn_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt'), 'voc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt'), 'cpu': False, 'no_sound': False, 'seed': None, 'no_mp3_support': False, 'checkpoint_path': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth'), 'outfile': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/metadata', 'static': False, 'fps': 25.0, 'pads': [0, 10, 0, 0], 'face_det_batch_size': 16, 'wav2lip_batch_size': 128, 'resize_factor': 1, 'crop': [0, -1, 0, -1], 'box': [-1, -1, -1, -1], 'rotate': False, 'nosmooth': False, 'nthreads': 12, 'output': None, 'conservative': False, 'disfluency': False}
+Filename is 2022-04-22_21_58_16_252334__blob
+System call is ffmpeg -i /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_21_58_16_252334__blob.webm /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/metadata/2022-04-22_21_58_16_252334__blob.mp4
+MoviePy - Writing audio in /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_21_58_16_252334__blob/metadata/original_audio.wav
+MoviePy - Done.
+************************ 
+ Generating Transcriptions ************************
+Cannot obtain attention mask in this model.
+TRANSCRIPTION:
+ <s>م<s>یں<s> <s>ب<s>ی<s>ٹ<s>ؤ<s> <s>م<s>یں <s>ن<s>ا<s>ش<s>ت<s>ہ<s> <s>ک<s>ر<s>ن<s>ے<s> <s>ج<s>ا<s> ر<s>ہ<s>ا<s> <s>ہ<s>وں<s> <s>پ<s>ھ<s>ر<s> <s>م<s>یں<s> <s>ا<s>س<s>ک<s>و<s>ل<s> <s>ج<s>ا<s>ؤں گ<s>ا<s> <s>پھ<s>ر<s> <s>میں<s> <s>ک<s>ا<s>م<s> ک<s>ر<s>و<s>ں<s> گ<s>ا<s> <s>ا<s>و<s>ر<s> <s>پھ<s>ر<s> <s>س<s>و<s>ج<s>ا<s> <s>
+************************ 
+ Transcription generated ************************
+************************ 
+ Pronounciation Correction ************************
+************************ 
+ Pronounciation Correction Completed ************************
+Transcription in Aeneas is: میں
+بیٹؤ
+میں
+ناشتہ
+کرنے
+جا
+رہا
+ہوں
+پھر
+میں
+اسکول
+جاؤں
+گا
+پھر
+میں
+کام
+کروں
+گا
+اور
+پھر
+سوجا
+
+---------------------------------------------ERROR---------------------------------------------
+Traceback (most recent call last):
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 212, in _execute_single_level_task
+    leaf_level=True
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 386, in _execute_inner
+    synt_handler, synt_path, synt_anchors, synt_format = self._synthesize(text_file)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 538, in _synthesize
+    result = self.synthesizer.synthesize(text_file, path)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/synthesizer.py", line 214, in synthesize
+    backwards=backwards
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/ttswrappers/basettswrapper.py", line 442, in synthesize_multiple
+    rconf=self.rconf
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/globalfunctions.py", line 907, in run_c_extension_with_fallback
+    raise RuntimeError(u"Both the C extension and the pure Python code failed. (Wrong arguments? Input too big?)")
+RuntimeError: Both the C extension and the pure Python code failed. (Wrong arguments? Input too big?)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./main.py", line 143, in create_upload_file
+    return_file = main.main(mydict)
+  File "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/main.py", line 257, in main
+    alignment_path = transcription_aligner.run(original_audio_path, newline_transcription, args)
+  File "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/extract/transcription/alignment/aeneas__pydub/run_cli.py", line 68, in run
+    ExecuteTask(task, rconf=rconf).execute()
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 182, in execute
+    self._execute_single_level_task()
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 225, in _execute_single_level_task
+    self._step_failure(exc)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/executetask.py", line 129, in _step_failure
+    self.log_exc(u"Unexpected error while executing task", exc, True, ExecuteTaskExecutionError)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/aeneas/logger.py", line 351, in log_exc
+    raise raise_type(raise_message)
+aeneas.executetask.ExecuteTaskExecutionError: Unexpected error while executing task : Both the C extension and the pure Python code failed. (Wrong arguments? Input too big?)

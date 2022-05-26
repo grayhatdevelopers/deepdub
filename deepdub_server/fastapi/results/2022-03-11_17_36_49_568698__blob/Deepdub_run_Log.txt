@@ -1,0 +1,17 @@
+Current parent dir name is: /home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio
+Current dir name is: None
+Using cuda for inference.
+Args are =  {'video': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/uploads/2022-03-11_17_36_49_568698__blob.webm', 'translation': None, 'deepdubstart': '00:00:00', 'deepdubend': None, 'clipminlength': 0.1, 'translation_language_source': 'Chinese', 'translation_language_target': 'English', 'extracted_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/extracted', 'translated_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/translated', 'results_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob', 'samples_path': '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples', 'metadata_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/metadata', 'enc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt'), 'syn_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt'), 'voc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt'), 'cpu': False, 'no_sound': False, 'seed': None, 'no_mp3_support': False, 'checkpoint_path': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth'), 'outfile': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/metadata', 'static': False, 'fps': 25.0, 'pads': [0, 10, 0, 0], 'face_det_batch_size': 16, 'wav2lip_batch_size': 128, 'resize_factor': 1, 'crop': [0, -1, 0, -1], 'box': [-1, -1, -1, -1], 'rotate': False, 'nosmooth': False, 'nthreads': 12, 'output': None, 'conservative': False, 'disfluency': False}
+Filename is 2022-03-11_17_36_49_568698__blob
+System call is ffmpeg -i /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/uploads/2022-03-11_17_36_49_568698__blob.webm /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/metadata/2022-03-11_17_36_49_568698__blob.mp4
+MoviePy - Writing audio in /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_36_49_568698__blob/metadata/original_audio.wav
+MoviePy - Done.
+---------------------------------------------ERROR---------------------------------------------
+Traceback (most recent call last):
+  File "./main.py", line 143, in create_upload_file
+    return_file = main.main(mydict)
+  File "/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/main.py", line 239, in main
+    raw_transcription, newline_transcription = transcription_generator.run(original_audio_path, args)
+  File "/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/extract/transcription/generation/wav2vec2/run_cli.py", line 21, in run
+    model_file = wav2vec2_supported_languages[args.translation_language_source]
+KeyError: 'Chinese'

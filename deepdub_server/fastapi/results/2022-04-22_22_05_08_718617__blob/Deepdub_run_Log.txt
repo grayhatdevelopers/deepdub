@@ -1,0 +1,103 @@
+Args are =  {'video': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_22_05_08_718617__blob.webm', 'translation': None, 'deepdubstart': '00:00:00', 'deepdubend': None, 'clipminlength': 0.1, 'translation_language_source': 'German', 'translation_language_target': 'English', 'extracted_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted', 'translated_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/translated', 'results_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob', 'samples_path': '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples', 'metadata_path': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/metadata', 'enc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt'), 'syn_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt'), 'voc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt'), 'cpu': False, 'no_sound': False, 'seed': None, 'no_mp3_support': False, 'checkpoint_path': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth'), 'outfile': '/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/metadata', 'static': False, 'fps': 25.0, 'pads': [0, 10, 0, 0], 'face_det_batch_size': 16, 'wav2lip_batch_size': 128, 'resize_factor': 1, 'crop': [0, -1, 0, -1], 'box': [-1, -1, -1, -1], 'rotate': False, 'nosmooth': False, 'nthreads': 12, 'output': None, 'conservative': False, 'disfluency': False}
+Filename is 2022-04-22_22_05_08_718617__blob
+System call is ffmpeg -i /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/uploads/2022-04-22_22_05_08_718617__blob.webm /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/metadata/2022-04-22_22_05_08_718617__blob.mp4
+MoviePy - Writing audio in /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/metadata/original_audio.wav
+MoviePy - Done.
+************************ 
+ Generating Transcriptions ************************
+TRANSCRIPTION:
+ wi hessin sie
+************************ 
+ Transcription generated ************************
+************************ 
+ Pronounciation Correction ************************
+************************ 
+ Pronounciation Correction Completed ************************
+Transcription in Aeneas is: wi
+hessin
+sie
+HEAD 1 0.000 0.000
+f000001 0 0.000 2.120
+f000002 0 2.120 2.840
+f000003 0 2.840 3.400
+TAIL 2 3.400 3.420
+{'fragments': [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]}
+Type: <class 'dict'>
+All Data:  {'fragments': [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]}
+
+fragments:
+ [{'begin': '0.000', 'children': [], 'end': '2.120', 'id': 'f000001', 'language': 'de', 'lines': ['wi']}, {'begin': '2.120', 'children': [], 'end': '2.840', 'id': 'f000002', 'language': 'de', 'lines': ['hessin']}, {'begin': '2.840', 'children': [], 'end': '3.400', 'id': 'f000003', 'language': 'de', 'lines': ['sie']}]
+length of audio_segment=3.42 seconds
+start,Stop
+[2.077, 3.42]
+[{'begin': 2.12, 'children': [], 'end': 2.84, 'id': 'f000002', 'language': 'de', 'lines': ['hessin'], 'added': True}, {'begin': 2.84, 'children': [], 'end': 3.4, 'id': 'f000003', 'language': 'de', 'lines': ['sie'], 'added': True}]
+Number of included words: 2
+Number of discarded words: 1
+Discarded words:
+WORD is: 
+ {'begin': 0.0, 'children': [], 'end': 2.12, 'id': 'f000001', 'language': 'de', 'lines': ['wi'], 'added': False}
+Type:  <class 'dict'>
+WORD is: 
+ 
+Type:  <class 'str'>
+WORD is: 
+ 
+Type:  <class 'str'>
+Discarded words (again):
+['', '', '']
+Fragment is  {'begin': 2.077, 'end': 3.42, 'sentence': [{'begin': 0.0, 'children': [], 'end': 2.12, 'id': 'f000001', 'language': 'de', 'lines': ['wi'], 'added': True}, {'begin': 2.12, 'children': [], 'end': 2.84, 'id': 'f000002', 'language': 'de', 'lines': ['hessin'], 'added': True}, {'begin': 2.84, 'children': [], 'end': 3.4, 'id': 'f000003', 'language': 'de', 'lines': ['sie'], 'added': True}]}
+[Subtitle(index=1, start=datetime.timedelta(seconds=2, microseconds=77000), end=datetime.timedelta(seconds=3, microseconds=420000), content='wi hessin sie.', proprietary='')]
+wi hessin sie.
+Final SRT is 1
+00:00:02,077 --> 00:00:03,420
+wi hessin sie.
+
+
+wi hessin sie.    --->    she is.
+[EXTRACTOR] Starting audio and video extraction...
+
+1
+she is.
+Video will be loaded from /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/metadata/2022-04-22_22_05_08_718617__blob.mp4
+Video will be saved at /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted/video/1cut_srt.mp4
+Moviepy - Building video /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted/video/1cut_srt.mp4.
+MoviePy - Writing audio in 1cut_srtTEMP_MPY_wvf_snd.mp3
+MoviePy - Done.
+Moviepy - Writing video /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted/video/1cut_srt.mp4
+
+Moviepy - Done !
+Moviepy - video ready /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted/video/1cut_srt.mp4
+MoviePy - Writing audio in /Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_server/fastapi/results/2022-04-22_22_05_08_718617__blob/extracted/audio/1audio_srt.mp3
+MoviePy - Done.
+[EXTRACTOR] Saving the current extracted subtitle and its audio & video...
+[EXTRACTOR] Extracted 1 clips and audios.
+---------------------------------------------ERROR---------------------------------------------
+Traceback (most recent call last):
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/librosa/core/audio.py", line 149, in load
+    with sf.SoundFile(path) as sf_desc:
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/soundfile.py", line 629, in __init__
+    self._file = self._open(file, mode_int, closefd)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/soundfile.py", line 1184, in _open
+    "Error opening {0!r}: ".format(self.name))
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/soundfile.py", line 1357, in _error_check
+    raise RuntimeError(prefix + _ffi.string(err_str).decode('utf-8', 'replace'))
+RuntimeError: Error opening '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples/1320_00000.mp3': System error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./main.py", line 143, in create_upload_file
+    return_file = main.main(mydict)
+  File "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/main.py", line 306, in main
+    translated_audio_paths = vocoder.run(extracted_audio_paths, texts, args, args.translated_path + "/audio/")
+  File "/Users/abdurrehmansubhani/Desktop/FYP/project_code.pptx/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/run_cli.py", line 43, in run
+    librosa.load(args.samples_path + "/1320_00000.mp3")
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/librosa/core/audio.py", line 166, in load
+    y, sr_native = __audioread_load(path, offset, duration, dtype)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/librosa/core/audio.py", line 190, in __audioread_load
+    with audioread.audio_open(path) as input_file:
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/audioread/__init__.py", line 111, in audio_open
+    return BackendClass(path)
+  File "/Users/abdurrehmansubhani/opt/anaconda3/envs/deepdub/lib/python3.7/site-packages/audioread/rawread.py", line 62, in __init__
+    self._fh = open(filename, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples/1320_00000.mp3'

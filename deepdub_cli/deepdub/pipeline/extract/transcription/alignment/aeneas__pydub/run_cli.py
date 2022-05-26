@@ -18,7 +18,8 @@ aeneas_supported_languages = {
 	"German": "de",
 	"Hindi": "hin",
 	"Urdu": "ur",
-	"Chinese" : "zh"
+	"Chinese" : "zh",
+	"Turkish": "tr",
 }
 
 def run (

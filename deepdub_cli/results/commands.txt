@@ -1,0 +1,14 @@
+# Iphone fix
+ffmpeg -i {} -c:v libx264 -preset slow -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart {}
+
+
+# Black bars
+ffmpeg -i final_result_chinese_speech_40s_iphonefixed.mp4 -filter:v crop="in_w:in_h-340:0:170",pad="in_w:in_h+340:0:-170" black_bars5.mp4
+
+# Burn subtitles into video
+ffmpeg -i black_bars3.mp4 -vf subtitles=../../../FYP/joke.srt mysubtitledmovie1.mp4
+
+# Watermark
+ffmpeg -i input.mp4 -vf "drawtext=text='deepdub':x=10:y=H-th-10:fontfile=/home/saadbazaz/Downloads/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf:fontsize=12:fontcolor=white:shadowcolor=black:shadowx=5:shadowy=5" watermarked.mp4
+
+

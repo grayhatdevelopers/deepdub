@@ -1,0 +1,136 @@
+Current parent dir name is: /home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio
+Current dir name is: None
+Using cuda for inference.
+Args are =  {'video': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/uploads/2022-03-11_17_43_48_691314__blob.webm', 'translation': None, 'deepdubstart': '00:00:00', 'deepdubend': None, 'clipminlength': 0.1, 'translation_language_source': 'German', 'translation_language_target': 'English', 'extracted_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted', 'translated_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/translated', 'results_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob', 'samples_path': '/home/saadbazaz/Projects/deepdub/deepdub_cli/samples', 'metadata_path': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/metadata', 'enc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/encoder/saved_models/pretrained.pt'), 'syn_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/synthesizer/saved_models/pretrained/pretrained.pt'), 'voc_model_fpath': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt'), 'cpu': False, 'no_sound': False, 'seed': None, 'no_mp3_support': False, 'checkpoint_path': PosixPath('/home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth'), 'outfile': '/home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/metadata', 'static': False, 'fps': 25.0, 'pads': [0, 10, 0, 0], 'face_det_batch_size': 16, 'wav2lip_batch_size': 128, 'resize_factor': 1, 'crop': [0, -1, 0, -1], 'box': [-1, -1, -1, -1], 'rotate': False, 'nosmooth': False, 'nthreads': 12, 'output': None, 'conservative': False, 'disfluency': False}
+Filename is 2022-03-11_17_43_48_691314__blob
+System call is ffmpeg -i /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/uploads/2022-03-11_17_43_48_691314__blob.webm /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/metadata/2022-03-11_17_43_48_691314__blob.mp4
+MoviePy - Writing audio in /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/metadata/original_audio.wav
+MoviePy - Done.
+TRANSCRIPTION:
+ e hoo
+************************ Printing input raw transcriptions ************************
+e hoo
+Text Result: 
+今天的天气真不错啊！你下午有空吗？我想约你一起去吃饭。
+Transcription in Aeneas is: e
+hoo
+HEAD 1 0.000 0.000
+f000001 0 0.000 1.400
+f000002 0 1.400 2.400
+TAIL 2 2.400 2.420
+{'fragments': [{'begin': '0.000', 'children': [], 'end': '1.400', 'id': 'f000001', 'language': 'de', 'lines': ['e']}, {'begin': '1.400', 'children': [], 'end': '2.400', 'id': 'f000002', 'language': 'de', 'lines': ['hoo']}]}
+Type: <class 'dict'>
+All Data:  {'fragments': [{'begin': '0.000', 'children': [], 'end': '1.400', 'id': 'f000001', 'language': 'de', 'lines': ['e']}, {'begin': '1.400', 'children': [], 'end': '2.400', 'id': 'f000002', 'language': 'de', 'lines': ['hoo']}]}
+
+fragments:
+ [{'begin': '0.000', 'children': [], 'end': '1.400', 'id': 'f000001', 'language': 'de', 'lines': ['e']}, {'begin': '1.400', 'children': [], 'end': '2.400', 'id': 'f000002', 'language': 'de', 'lines': ['hoo']}]
+length of audio_segment=2.42 seconds
+start,Stop
+[1.419, 1.775]
+[]
+Number of included words: 0
+Number of discarded words: 2
+Discarded words:
+WORD is: 
+ {'begin': 0.0, 'children': [], 'end': 1.4, 'id': 'f000001', 'language': 'de', 'lines': ['e'], 'added': False}
+Type:  <class 'dict'>
+WORD is: 
+ {'begin': 1.4, 'children': [], 'end': 2.4, 'id': 'f000002', 'language': 'de', 'lines': ['hoo'], 'added': False}
+Type:  <class 'dict'>
+Discarded words (again):
+['', '']
+Fragment is  {'begin': 1.419, 'end': 1.775, 'sentence': [{'begin': 1.4, 'children': [], 'end': 2.4, 'id': 'f000002', 'language': 'de', 'lines': ['hoo'], 'added': True}, {'begin': 0.0, 'children': [], 'end': 1.4, 'id': 'f000001', 'language': 'de', 'lines': ['e'], 'added': True}]}
+[Subtitle(index=1, start=datetime.timedelta(seconds=1, microseconds=419000), end=datetime.timedelta(seconds=1, microseconds=775000), content='hoo e.', proprietary='')]
+hoo e.
+Final SRT is 1
+00:00:01,419 --> 00:00:01,775
+hoo e.
+
+
+hoo e.    --->    Hoo e.
+[EXTRACTOR] Starting audio and video extraction...
+
+1
+Hoo e.
+Video will be loaded from /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/metadata/2022-03-11_17_43_48_691314__blob.mp4
+Video will be saved at /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted/video/1cut_srt.mp4
+Moviepy - Building video /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted/video/1cut_srt.mp4.
+MoviePy - Writing audio in 1cut_srtTEMP_MPY_wvf_snd.mp3
+MoviePy - Done.
+Moviepy - Writing video /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted/video/1cut_srt.mp4
+
+Moviepy - Done !
+Moviepy - video ready /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted/video/1cut_srt.mp4
+MoviePy - Writing audio in /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/extracted/audio/1audio_srt.mp3
+MoviePy - Done.
+[EXTRACTOR] Saving the current extracted subtitle and its audio & video...
+[EXTRACTOR] Extracted 1 clips and audios.
+Running a test of your configuration...
+
+Found 1 GPUs available. Using GPU 0 (NVIDIA GeForce GTX 1070) of compute capability 6.1 with 8.5Gb total memory.
+
+Preparing the encoder, the synthesizer and the vocoder...
+Loaded encoder "pretrained.pt" trained to step 1564501
+Synthesizer using device: cuda
+Building Wave-RNN
+Trainable Parameters: 4.481M
+Loading model weights at /home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/audio/real_time_voice_cloning/vocoder/saved_models/pretrained/pretrained.pt
+Testing your configuration with small inputs.
+	Testing the encoder...
+	Testing the synthesizer... (loading the model will output a lot of text)
+Trainable Parameters: 30.870M
+Loaded synthesizer "pretrained.pt" trained to step 295000
++----------+---+
+| Tacotron | r |
++----------+---+
+|   295k   | 2 |
++----------+---+
+ 
+
+| Generating 1/1
+
+
+Done.
+
+	Testing the vocoder...
+All test passed! You can now synthesize speech.
+
+
+This is a GUI-less example of interface to SV2TTS. The purpose of this script is to show how you can interface this project easily with your own. See the source code for an explanation of what is happening.
+
+Interactive generation loop
+Number of audios to process: 1 
+Number of corresponding texts: 1
+Loaded file succesfully
+Created the embedding
+
+| Generating 1/1
+
+
+Done.
+
+Created the mel spectrogram
+Synthesizing the waveform:
+{| █░░░░░░░░░░░░░░░ 0/9600 | Batch Size: 1 | Gen Rate: 0.0kHz | }{| █░░░░░░░░░░░░░░░ 100/9600 | Batch Size: 1 | Gen Rate: 1.3kHz | }{| █░░░░░░░░░░░░░░░ 200/9600 | Batch Size: 1 | Gen Rate: 1.7kHz | }{| █░░░░░░░░░░░░░░░ 300/9600 | Batch Size: 1 | Gen Rate: 1.9kHz | }{| █░░░░░░░░░░░░░░░ 400/9600 | Batch Size: 1 | Gen Rate: 2.0kHz | }{| █░░░░░░░░░░░░░░░ 500/9600 | Batch Size: 1 | Gen Rate: 2.1kHz | }{| ██░░░░░░░░░░░░░░ 600/9600 | Batch Size: 1 | Gen Rate: 2.2kHz | }{| ██░░░░░░░░░░░░░░ 700/9600 | Batch Size: 1 | Gen Rate: 2.2kHz | }{| ██░░░░░░░░░░░░░░ 800/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ██░░░░░░░░░░░░░░ 900/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ██░░░░░░░░░░░░░░ 1000/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ██░░░░░░░░░░░░░░ 1100/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ███░░░░░░░░░░░░░ 1200/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ███░░░░░░░░░░░░░ 1300/9600 | Batch Size: 1 | Gen Rate: 2.3kHz | }{| ███░░░░░░░░░░░░░ 1400/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███░░░░░░░░░░░░░ 1500/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███░░░░░░░░░░░░░ 1600/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███░░░░░░░░░░░░░ 1700/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 1800/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 1900/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 2000/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 2100/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 2200/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████░░░░░░░░░░░░ 2300/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2400/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2500/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2600/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2700/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2800/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████░░░░░░░░░░░ 2900/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████░░░░░░░░░░ 3000/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████░░░░░░░░░░ 3100/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████░░░░░░░░░░ 3200/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████░░░░░░░░░░ 3300/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████░░░░░░░░░░ 3400/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████░░░░░░░░░░ 3500/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 3600/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 3700/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 3800/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 3900/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 4000/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████░░░░░░░░░ 4100/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4200/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4300/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4400/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4500/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4600/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████░░░░░░░░ 4700/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 4800/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 4900/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 5000/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 5100/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 5200/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| █████████░░░░░░░ 5300/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5400/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5500/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5600/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5700/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5800/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ██████████░░░░░░ 5900/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6000/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6100/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6200/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6300/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6400/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ███████████░░░░░ 6500/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████████████░░░░ 6600/9600 | Batch Size: 1 | Gen Rate: 2.4kHz | }{| ████████████░░░░ 6700/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████░░░░ 6800/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████░░░░ 6900/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████░░░░ 7000/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████░░░░ 7100/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7200/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7300/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7400/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7500/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7600/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| █████████████░░░ 7700/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 7800/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 7900/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 8000/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 8100/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 8200/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ██████████████░░ 8300/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8400/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8500/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8600/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8700/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8800/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ███████████████░ 8900/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9000/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9100/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9200/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9300/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9400/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }{| ████████████████ 9500/9600 | Batch Size: 1 | Gen Rate: 2.5kHz | }float64
+
+Saved output as /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/translated/audio/demo_output_00.wav
+
+
+Audio Duration is:  0.039
+S.start is:  0:00:01.419000
+New end is:  0:00:01.458000
+s.end is:  0:00:01.775000
+Generated audio is smaller than originally extracted video.
+Adding a silent part to compensate.
+Using cuda for inference.
+Reading video frames...
+Number of frames available for inference: 9
+(80, 32)
+Length of mel chunks: 6
+Load checkpoint from: /home/saadbazaz/Projects/deepdub/deepdub_cli/deepdub/pipeline/lipsync/wav2lip/checkpoints/wav2lip.pth
+Model loaded
+[EXTRACTOR] Reintegrating clips into video...
+[EXTRACTOR] Writing final video to disk...
+Saved .mp4 without Exception at /home/saadbazaz/Projects/deepdub/deepdub_server/fastapi/results/2022-03-11_17_43_48_691314__blob/final_result_2022-03-11_17_43_48_691314__blob.mp4_20220311-174442.mp4
+[EXTRACTOR] Reintegration complete.
+Thank you for using deepdub.
