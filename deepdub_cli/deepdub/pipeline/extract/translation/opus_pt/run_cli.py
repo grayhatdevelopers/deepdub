@@ -5,9 +5,22 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 opus_supported_languages = {
 	"German,English": "Helsinki-NLP/opus-mt-de-en",
 	"Hindi,English": "Helsinki-NLP/opus-mt-hi-en",
-    	"Urdu,English": "Helsinki-NLP/opus-mt-ur-en",
-    	"Chinese,English": "Helsinki-NLP/opus-mt-zh-en",
-    	"Turkish,English": "Helsinki-NLP/opus-mt-tr-en",
+    "Urdu,English": "Helsinki-NLP/opus-mt-ur-en",
+    "Chinese,English": "Helsinki-NLP/opus-mt-zh-en",
+    "Turkish,English": "Helsinki-NLP/opus-mt-tr-en",
+
+	"German,French": "Helsinki-NLP/opus-mt-de-fr",
+	"Hindi,French": "Helsinki-NLP/opus-mt-hi-fr",
+    "Urdu,French": "Helsinki-NLP/opus-mt-ur-fr",
+    "Chinese,French": "Helsinki-NLP/opus-mt-zh-fr",
+    "Turkish,French": "Helsinki-NLP/opus-mt-tr-fr",
+
+    "German,Portuguese": "Helsinki-NLP/opus-mt-de-pt",
+	"Hindi,Portuguese": "Helsinki-NLP/opus-mt-hi-pt",
+    "Urdu,Portuguese": "Helsinki-NLP/opus-mt-ur-pt",
+    "Chinese,Portuguese": "Helsinki-NLP/opus-mt-zh-pt",
+    "Turkish,Portuguese": "Helsinki-NLP/opus-mt-tr-pt"
+
 }
 
 
@@ -25,6 +38,11 @@ def run (
     args.translation_language_source, 
     args.translation_language_target
     ])]
+
+    if args.translation_language_source == args.translation_language_target:
+        translation_srt_filepath = subs_path
+        return translation_srt_filepath 
+
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)

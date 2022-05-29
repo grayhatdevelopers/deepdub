@@ -1,5 +1,11 @@
 import os
 
+yourtts_supported_languages = {
+    "English": "en",
+    "Portuguese": "pt",
+    "French": "fr",
+}
+
 def run(
     audio_paths, 
     texts, 
@@ -14,7 +20,7 @@ def run(
 
         filename = os.path.join(translated_audio_path, "yourtts_output_%02d.wav" % idx)
 
-        os.system("tts  --text \"{}\" --model_name tts_models/multilingual/multi-dataset/your_tts  --speaker_wav {} --language_idx \"en\" --out_path {}".format(text, audio_path, filename))
+        os.system("tts  --text \"{}\" --model_name tts_models/multilingual/multi-dataset/your_tts  --speaker_wav {} --language_idx \"{}\" --out_path {}".format(text, audio_path, yourtts_supported_languages[args.translation_language_target], filename))
 
         print("\nSaved output as %s\n\n" % filename)
 

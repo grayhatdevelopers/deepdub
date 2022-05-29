@@ -366,7 +366,7 @@ useEffect( () => () => {
             <MenuItem value={"Urdu"}>🇵🇰 Urdu</MenuItem>
             <MenuItem value={"Chinese"}>🇨🇳 Chinese</MenuItem>            
             <MenuItem value={"Hindi"}>🇮🇳 Hindi</MenuItem>
-	     <MenuItem value={"Turkish"}>🇹🇷 Turkish</MenuItem>                 
+	          <MenuItem value={"Turkish"}>🇹🇷 Turkish</MenuItem>                 
         </Select>
     </FormControl>
 
@@ -400,6 +400,8 @@ useEffect( () => () => {
             onChange={handleToInputChange}
         >
             <MenuItem value={"English"}>🇬🇧 English</MenuItem>
+            <MenuItem value={"Portuguese"}>🇵🇹 Portuguese</MenuItem>
+            <MenuItem value={"French"}>🇫🇷 French</MenuItem>
         </Select>
     </FormControl>
     </ThemeProvider>
