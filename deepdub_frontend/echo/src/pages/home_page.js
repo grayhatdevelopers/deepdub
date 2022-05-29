@@ -15,10 +15,41 @@ import BackgroundVideo from "./video_component";
 
 import { TweenLite, Circ } from "gsap";
 
+import $ from "jquery";
+import M from "materialize-css";
+
+import {Parallax} from 'react-materialize';
+
+
 function Homescreen() {
   const myref = useRef();
   const navigate = useNavigate();
   const [watchVideo, setWatchVideo] = useState(false)
+
+  useEffect( () => {
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   var elems = document.querySelectorAll('.parallax');
+    //   var instances = M.Parallax.init(elems, {
+    //     invertX: true,
+    //     invertY: true,
+    //     scalarX: 10,
+    //      frictionY: .1
+    //   });
+    // });
+  
+    // Or with jQuery
+  
+    // $(document).ready(function(){
+    //   $('#parallax').parallax({
+    //     invertX: true,
+    //     invertY: true,
+    //     scalarX: 10,
+    //      frictionY: .1
+    //   });
+    // });    
+
+  })
 
   useEffect( () => {
     if (!watchVideo){
@@ -288,10 +319,15 @@ root_el.addEventListener('mouseup', function() {
           // backgroundColor: "black",
 
         }}
-        className="content-container"
+        // className="parallax"
+        // id="parallax"
       >
         <div
         id="tilt"
+
+        className="layer"
+        data-depth="0.3"
+
         style={{
         position: "absolute",
         width: "100vw",
@@ -303,9 +339,19 @@ root_el.addEventListener('mouseup', function() {
         objectFit: "cover",
         zIndex: "-1",
         }}
-        >
-          <BackgroundVideo watchVideo={watchVideo}
-          /> 
+        > 
+        <Parallax
+        className="parallax"
+        id="parallax"
+        image={<BackgroundVideo watchVideo={watchVideo}/>}
+        options={{
+          invertX: true,
+          invertY: true,
+          scalarX: 10,
+           frictionY: .1
+        }}
+     />
+           
         </div>
         {
           watchVideo ?
@@ -330,13 +376,18 @@ root_el.addEventListener('mouseup', function() {
           opacity: "0.6",
         }}></div>
 
-        <div id="large-header" className="large-header">
+        <div id="large-header" 
+        className="layer"
+        data-depth="0.6"
+        
+        >
           <canvas id="demo-canvas"></canvas>
         <div className="main-title" style={{
           zIndex: "9999",
         }}>
-        <div className="text-1"
-        
+        <div 
+        className="text-1"
+
         >deepdub</div>
         <div className="watch-video-container"  
           onClick={()=>{

@@ -13,6 +13,10 @@ import { SnackbarProvider, } from 'notistack';
 function App() {
   return (
 <SnackbarProvider maxSnack={3}>
+    <head>
+      {/* <!--Import materialize.css--> */}
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    </head>
   <div className="App">
     <BrowserRouter>
     <Routes>
@@ -20,6 +24,10 @@ function App() {
         <Route exact path="/echo" element={<Echo/>}/>
       </Routes>
     </BrowserRouter>
+
+    {/* <!--JavaScript at end of body for optimized loading--> */}
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
   </div>
 </SnackbarProvider>
   );

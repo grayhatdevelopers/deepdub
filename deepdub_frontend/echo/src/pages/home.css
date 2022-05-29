@@ -22,6 +22,15 @@
 	/* cursor: pointer; */
   }
   
+
+  #particles-js, #parallax, .layer, .some-space, .some-more-space {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+  }
+
+
+
   
 
 /* Header */
