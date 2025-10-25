@@ -1,7 +1,7 @@
 # deepdub
 🗣️ Making videos more accessible to people around the world.
 
-> This paper is an implementation of ["Automated Dubbing and Facial Synchronization using Deep Learning"](https://ieeexplore.ieee.org/document/9773697).
+> This repo is an implementation of ["Automated Dubbing and Facial Synchronization using Deep Learning"](https://ieeexplore.ieee.org/document/9773697).
 
 ## Welcome
 This is the main repo of deepdub. It contains a CLI engine and a [Wooey](https://github.com/wooey/wooey) engine which adds a UI to the CLI. 
