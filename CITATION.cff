@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Bazaz"
+    given-names: "Saad"
+    orcid: "https://orcid.org/0009-0000-1038-3410"
+  - family-names: "Subhani"
+    given-names: "Abdurrehman"
+title: "Automated Dubbing and Facial Synchronization using Deep Learning"
+version: "0.1.0"
+doi: 10.1109/ICAI55435.2022.9773697
+date-released: 2022-03-04
+url: "https://github.com/grayhatdevelopers/deepdub"
